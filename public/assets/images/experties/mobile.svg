@@ -1,0 +1,19 @@
+<svg width="55" height="56" viewBox="0 0 55 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 3106">
+<g id="Rectangle 44170">
+<mask id="path-1-inside-1_1857_72760" fill="white">
+<rect x="14" y="25.4443" width="12" height="14" rx="1"/>
+</mask>
+<rect x="14" y="25.4443" width="12" height="14" rx="1" stroke="#E82726" stroke-width="3" mask="url(#path-1-inside-1_1857_72760)"/>
+</g>
+<rect id="Rectangle 44173" x="9.75" y="13.1943" width="35.5" height="30.5" rx="4.25" stroke="#2C3441" stroke-width="1.5"/>
+<line id="Line 31" x1="10" y1="19.6943" x2="45" y2="19.6943" stroke="#2C3441" stroke-width="1.5"/>
+<line id="Line 32" x1="29" y1="25.6943" x2="41" y2="25.6943" stroke="#2C3441" stroke-width="1.5"/>
+<line id="Line 33" x1="29" y1="29.6943" x2="41" y2="29.6943" stroke="#2C3441" stroke-width="1.5"/>
+<line id="Line 34" x1="29" y1="33.6943" x2="41" y2="33.6943" stroke="#2C3441" stroke-width="1.5"/>
+<line id="Line 35" x1="29" y1="37.6943" x2="41" y2="37.6943" stroke="#2C3441" stroke-width="1.5"/>
+<circle id="Ellipse 22" cx="14" cy="16.4443" r="1.5" stroke="#2C3441"/>
+<circle id="Ellipse 23" cx="19" cy="16.4443" r="1.5" stroke="#2C3441"/>
+<circle id="Ellipse 24" cx="24" cy="16.4443" r="1.5" stroke="#2C3441"/>
+</g>
+</svg>

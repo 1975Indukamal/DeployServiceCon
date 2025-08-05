@@ -1,0 +1,115 @@
+
+/* blog content section */
+.blog-data{
+    user-select: none !important;
+  }
+  
+  .blog-data article h5.block-quote-note{
+    margin: 0px !important;
+  
+  }
+  .blog-data article ul{
+    margin: 20px 0 0 0 !important;
+  }
+  .blog-data article ul li {
+    margin-top: 10px !important;
+  }
+  .blog-data article ul li *{
+    font-size:16px !important;
+  }
+  /* .blog-data article  p span{
+    font-size:14px !important;
+  } */
+  /* .blog-data article span{
+    font-size:14px !important;
+  } */
+  .blog-data img{
+   margin-bottom: 20px !important;
+  }
+  
+  
+  
+  .blog-data p.date-by,
+  .blog-data .relevant-categories{
+    font-size:18px !important;
+    color:white;
+    margin-top: 20px;
+  }
+  .blog-data .relevant-categories{
+    margin-bottom: 20px;
+  }
+  .blog-data .relevant-categories{
+    letter-spacing: 0.5px;
+  color: white;
+  opacity: 1;
+  }
+  
+  .blog-data  .relevant-categories{
+    color:#ca8a04;
+  }
+  
+  .blog-data p.date-by a{
+    color:white;
+  }
+  
+  .blog-data p.date-by a:hover{
+    color:#ca8a04;
+    text-decoration: underline;
+  }
+  
+  
+  .share-post{
+    color:#ca8a04;
+    font-size:20px;
+    margin: 30px 0px 10px 0px;
+  }
+  .share-links{
+    margin-top:20px;
+  }
+  
+  /* explore more section */
+  
+    .explore-more-blogs h2{
+      /* font-size:52px; */
+      color:#2C3441;
+    }
+  
+    .explore-all-articles{
+      margin-top:50px;
+    }
+  
+    .explore-all-articles button{
+      padding:7px 15px;
+      background: #ca8a04;
+      color:white;
+      font-size:18px;
+      outline:none;
+      border:1px solid white;
+
+    }
+    .explore-all-articles button:hover{
+      color:#ca8a04;
+      background: transparent;
+      border:1px solid #ca8a04;
+    }
+    /* table styling */
+  .blog-data article table tbody {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 20px !important;
+  }
+  
+  .blog-data article table table td,.blog-data article table tbody tr td,.blog-data article table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color:transparent !important;
+  }
+
+  .blog-heading {
+    font-size: 35px!important;
+    font-weight: 600;
+    color: #ca8a04!important;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
