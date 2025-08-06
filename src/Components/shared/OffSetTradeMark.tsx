@@ -48,13 +48,13 @@ const OffSetTradeMark = ({ text = "InnovateCreateElevate", imgWidth = 42, imgCla
                         </text>
                     </g>
                 </svg>
-                <Image
+                {/* <Image
                     src={img}
                     className={imgClasses}
                     width={imgWidth}
                     height={imgHeight}
                     alt='logo'
-                />
+                /> */}
             </div>
         </div>
     )

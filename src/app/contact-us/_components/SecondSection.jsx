@@ -30,8 +30,7 @@ const SecondSection = () => {
             </span>
 
             <p className="font-[Poppins] mt-[14px] text-body">
-              Hexabells Technologies Pvt. Ltd. C-10, Block C, Sector-3, Noida
-              201301(U.P.) India
+              ServiceConnekt ,near BSNL tower ,pune 413104
             </p>
           </div>
 
@@ -56,17 +55,17 @@ const SecondSection = () => {
             </span>
 
             <a
-              href="mailto:info@hexabells.com"
+              href="mailto:info@serviceconnekt.com"
               className=" underline decoration-solid d-block mt-[14px] text-body font-[Poppins] "
             >
-              info@hexabells.com
+              info@serviceconnekt.com
             </a>
 
             <a
-              href="mailto:support@hexabells.com"
+              href="mailto:support@serviceconnekt.com"
               className=" underline decoration-solid d-block text-body font-[Poppins] "
             >
-              support@hexabells.com
+              support@serviceconnekt.com
             </a>
           </div>
 
@@ -91,17 +90,17 @@ const SecondSection = () => {
             </span>
 
             <a
-              href="tel:+919319271595"
+              href="tel:+917972229469"
               className=" text-underline d-block text-white mb-2 font-Poppins"
             >
-              +91-93192 71595
+              +91-79722 29469
             </a>
 
             <a
-              href="tel:+911212121212"
+              href="tel:+918847715598"
               className=" text-underline d-block text-white font-Poppins"
             >
-              +91-12121 21212
+              +91-88477 15598
             </a>
           </div>
 
@@ -137,7 +136,7 @@ const SecondSection = () => {
 
             <div className="flex gap-3 items-center mt-[20px]">
               <a
-                href="https://www.facebook.com/hexabells"
+                href="https://www.facebook.com/serviceconnekt"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -151,7 +150,7 @@ const SecondSection = () => {
               </a>
 
               <a
-                href="https://www.instagram.com/hexabells/"
+                href="https://www.instagram.com/serviceconnekt/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -165,7 +164,7 @@ const SecondSection = () => {
               </a>
 
               <a
-                href="https://twitter.com/InfoHexabells"
+                href="https://twitter.com/Infoserviceconnekt"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -179,7 +178,7 @@ const SecondSection = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/company/hexabells"
+                href="https://www.linkedin.com/company/serviceconnekt"
                 target="_blank"
                 rel="noopener noreferrer"
               >

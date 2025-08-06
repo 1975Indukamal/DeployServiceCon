@@ -406,7 +406,7 @@ const page = () => {
    
   </>
 ) : (
-  <div className='min-h-[300px] flex items-center'>
+  <div className='min-h-[300px] flex items-center text-body'>
     <p className="text-[38px] font-normal">Currently, There are no active job openings.</p>
   </div>
 )}

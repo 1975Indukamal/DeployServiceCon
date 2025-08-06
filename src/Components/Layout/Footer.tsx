@@ -12,7 +12,7 @@ import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import Link from "next/link";
 
 const Footer = () => {
-  const companyData = ["Careers", "Blog"];
+  const companyData = [{link: "/career",title:"Careers"}, {link:"/blog",title:"Blog"}];
 
   const supportData = [
     { link: "/about-us", title: "About Us" },
@@ -46,8 +46,8 @@ const Footer = () => {
               <li className="flex gap-2 items-start">
                 <FaPhone className="mt-1" />
                 <span>
-                  +91 9289 030 404 <br />
-                  +91 9560 690 202
+                  +91 8847 715 598 <br />
+                  +91 7972 229 469
                 </span>
               </li>
               <li className="flex gap-2 items-start">
@@ -56,7 +56,7 @@ const Footer = () => {
               </li>
               <li className="flex gap-2 items-start">
                 <FaHome className="mt-1" />
-                <span>Golden Palm, Sector 168, Noida, UP 201307</span>
+                <span>ServiceConnekt ,near BSNL tower ,pune 413104</span>
               </li>
             </ul>
           </div>
@@ -67,7 +67,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {companyData.map((item, index) => (
                 <li key={index} className="flex items-center gap-2 text-[#CCCCCC] hover:text-white transition">
-                  <MdOutlineKeyboardDoubleArrowRight /> {item}
+                   <Link
+                    href={item.link}
+                    className="flex items-center gap-2 text-[#CCCCCC] hover:text-white transition"
+                  >
+                  <MdOutlineKeyboardDoubleArrowRight /> {item.title}
+                  </Link>
                 </li>
               ))}
             </ul>
