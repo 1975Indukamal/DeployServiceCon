@@ -203,11 +203,11 @@ const CompanyForm = ({  params }) => {
             2023 HexaBells Technologies Pvt. Ltd.. All rights reserved
           </div>
           <Link
-            href={"http://localhost:3000/"}
+            href={"https://www.serviceconnekt.com/"}
             target={"_blank"}
             rel="noopener noreferrer"
           >
-            http://localhost:3000
+            https://www.serviceconnekt.com
           </Link>
         </div>
         <style jsx>

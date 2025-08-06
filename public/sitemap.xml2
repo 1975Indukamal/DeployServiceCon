@@ -8,32 +8,32 @@
 
 
 <url>
-  <loc>http://localhost:3000/</loc>
+  <loc>https://www.serviceconnekt.com/</loc>
   <lastmod>2023-02-11T10:29:30+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://localhost:3000/about</loc>
+  <loc>https://www.serviceconnekt.com/about</loc>
   <lastmod>2023-02-11T10:29:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://localhost:3000/expertise</loc>
+  <loc>https://www.serviceconnekt.com/expertise</loc>
   <lastmod>2023-02-11T10:29:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://localhost:3000/services</loc>
+  <loc>https://www.serviceconnekt.com/services</loc>
   <lastmod>2023-02-11T10:29:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://localhost:3000/contact-us</loc>
+  <loc>https://www.serviceconnekt.com/contact-us</loc>
   <lastmod>2023-02-11T10:29:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://localhost:3000/blogs</loc>
+  <loc>https://www.serviceconnekt.com/blogs</loc>
   <lastmod>2023-02-11T10:29:30+00:00</lastmod>
   <priority>0.80</priority>
 </url>

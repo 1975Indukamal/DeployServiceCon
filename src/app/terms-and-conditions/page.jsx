@@ -36,7 +36,7 @@ export default function Page() {
           <p className="mt-3    ">
             These terms and conditions outline the rules and regulations for the
             use of ServiceConnekt Technologies Pvt. Ltd.'s Website, located at{" "}
-            <a className="inline-block text-primary font-medium" href={"http://localhost:3000"} target="_blank">ServiceConnekt.com </a>.
+            <a className="inline-block text-primary font-medium" href={"https://www.serviceconnekt.com"} target="_blank">ServiceConnekt.com </a>.
           </p>
           <p className="mt-6  ">
             By accessing this website we assume you accept these terms and

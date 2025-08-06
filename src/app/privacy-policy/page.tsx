@@ -33,7 +33,7 @@ export default function Home() {
         </div>
         <div className="w-full">
           <div className="mt-6">
-          ServiceConnekt Technologies Pvt. Ltd. operates the website <a className="inline-block text-primary font-medium" href={"http://localhost:3000"} target="_blank">ServiceConnekt.com </a> and mobile applications (collectively, the "Services"). This Privacy Policy describes how we collect, use, and share your personal information when you visit or use the Services.
+          ServiceConnekt Technologies Pvt. Ltd. operates the website <a className="inline-block text-primary font-medium" href={"https://www.serviceconnekt.com"} target="_blank">ServiceConnekt.com </a> and mobile applications (collectively, the "Services"). This Privacy Policy describes how we collect, use, and share your personal information when you visit or use the Services.
           </div>
          
           <p className="mt-6 font-[Poppins] text-[#EB7373]">

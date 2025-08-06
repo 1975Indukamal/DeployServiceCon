@@ -12,8 +12,8 @@ const OrganizationSchema = {
   "@type": "Organization",
   name: "HexaBells Technologies Pvt. Ltd",
   alternateName: "HexaBells",
-  url: "http://localhost:3000/",
-  logo: "http://localhost:3000/assets/images/hexabells-logo.webp",
+  url: "https://www.serviceconnekt.com/",
+  logo: "https://www.serviceconnekt.com/assets/images/hexabells-logo.webp",
   sameAs: [
     "https://www.facebook.com/hexabells",
     "https://twitter.com/InfoHexabells",
@@ -22,7 +22,7 @@ const OrganizationSchema = {
   ],
 };
 export const metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('https://www.serviceconnekt.com'),
  
 }
 export default function RootLayout({
@@ -44,7 +44,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image:secure_url"
-          content="http://localhost:3000/assets/images/hexabells-logo.webp"
+          content="https://www.serviceconnekt.com/assets/images/hexabells-logo.webp"
         />
         <meta property="og:image:width" content={"899"} />
         <meta property="og:image:height" content={"1049"} />
