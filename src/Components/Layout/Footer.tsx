@@ -105,7 +105,7 @@ const Footer = () => {
               <a href="https://www.instagram.com/serviceconnekt" target="_blank" rel="noopener noreferrer">
                 <FaInstagram size={20} className="hover:text-pink-400 transition" />
               </a>
-              <a href="https://wa.me/919289030404" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/917972229469" target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp size={20} className="hover:text-green-500 transition" />
               </a>
             </div>
