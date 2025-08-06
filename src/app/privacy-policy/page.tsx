@@ -8,7 +8,7 @@ export const metadata = generatemetaData({ ...data,canonical:"/privacy-policy" }
 export default function Home() {
   return (
     <>
-      <div className="container mt-[40px]">
+      <div className="container mt-[40px] text-body">
         
         <h1 className=" text-[58px] font-[500] leading-[80px] mb-[50px]">
           Privacy <span className="text-primary text-[58px] font-[600] font-[Quicksand]">Policy</span>
@@ -36,7 +36,7 @@ export default function Home() {
           ServiceConnekt Technologies Pvt. Ltd. operates the website <a className="inline-block text-primary font-medium" href={"https://www.serviceconnekt.com"} target="_blank">ServiceConnekt.com </a> and mobile applications (collectively, the "Services"). This Privacy Policy describes how we collect, use, and share your personal information when you visit or use the Services.
           </div>
          
-          <p className="mt-6 font-[Poppins] text-[#EB7373]">
+          <p className="mt-6 font-[Poppins] text-primary">
           We collect information about you in the following ways:
           </p>
 

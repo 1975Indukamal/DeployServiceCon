@@ -5,7 +5,7 @@ export const metadata = generatemetaData({ ...data,canonical:"/terms-and-conditi
 export default function Page() {
   return (
     <>
-      <div className="container my-12">
+      <div className="container my-12 text-body">
         <h1 className=" text-[58px] font-[500] leading-[80px] mb-[20px]">
           Terms and{" "}
           <span className="text-primary font-[600] font-[Quicksand] leading-[80px]">
