@@ -46,12 +46,12 @@ const activeClass =
           top: 0,
           zIndex: 50,
         }}
-        className=" md:flex justify-between items-center !font-inter hidden py-10 bg-opacity-80 bg-custombgc"
+        className=" md:flex justify-between items-center !font-inter hidden bg-opacity-80 bg-custombgc"
       >
         <div className="container  md:flex justify-between items-center">
         <div className="flex items-center !font-inter ">
           <Link href="/">
-            {/* <img src={logoghumloo} alt="navbarlogo" className="w-auto max-h-[80px] object-cover" /> */}
+            <img src={"/assets/images/log1.png"} alt="navbarlogo" className="w-auto max-h-[150px] object-cover" />
           </Link>
         </div>
 

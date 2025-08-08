@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
+import { PiPlugsConnectedFill } from "react-icons/pi";
+
 interface propTypes {
     text?:
     string, imgWidth?: number,
@@ -8,7 +10,7 @@ interface propTypes {
     img?: string, 
     imgHeight?: number
 }
-const OffSetTradeMark = ({ text = "InnovateCreateElevate", imgWidth = 42, imgClassName = "", img = "/assets/images/Frame.svg",imgHeight=42 }: propTypes) => {
+const OffSetTradeMark = ({ text = "InnovateCreateElevate", imgWidth = 42, imgClassName = "", img = "/assets/images/log.png",imgHeight=42 }: propTypes) => {
     const imgClasses = twMerge(" absolute  origin-center  ", imgClassName)
     return (
         <div className='pl-6 sm:ml-[32px] max-w-[587px] w-full py-4  rounded-bl-[102px] rounded-tl-[102px] md:ml-auto bg-primary' >
@@ -48,6 +50,7 @@ const OffSetTradeMark = ({ text = "InnovateCreateElevate", imgWidth = 42, imgCla
                         </text>
                     </g>
                 </svg>
+      <PiPlugsConnectedFill size={50} color="#facc15" />
                 {/* <Image
                     src={img}
                     className={imgClasses}
