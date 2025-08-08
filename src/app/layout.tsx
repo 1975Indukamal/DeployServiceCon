@@ -42,6 +42,10 @@ export default function RootLayout({
             __html: JSON.stringify(OrganizationSchema),
           }}
         />
+          <meta
+          name="google-site-verification"
+          content="DVC1NiFSGzWZX_XuTHmNAPmLhMQWiJUAkAMaBkP521U"
+        />
         <meta
           property="og:image:secure_url"
           content="https://www.serviceconnekt.com/assets/images/log1.png"
