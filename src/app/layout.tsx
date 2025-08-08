@@ -10,15 +10,15 @@ import 'swiper/css/effect-cards';
 const OrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "HexaBells Technologies Pvt. Ltd",
-  alternateName: "HexaBells",
+  name: "ServiceConnekt Technologies Pvt. Ltd",
+  alternateName: "ServiceConnekt",
   url: "https://www.serviceconnekt.com/",
-  logo: "https://www.serviceconnekt.com/assets/images/hexabells-logo.webp",
+  logo: "https://www.serviceconnekt.com/assets/images/log1.png",
   sameAs: [
-    "https://www.facebook.com/hexabells",
-    "https://twitter.com/InfoHexabells",
-    "https://www.linkedin.com/company/hexabells",
-    "https://www.instagram.com/hexabells",
+    "https://www.facebook.com/serviceconnekt",
+    "https://twitter.com/Infoserviceconnekt",
+    "https://www.linkedin.com/company/serviceconnekt",
+    "https://www.instagram.com/serviceconnekt",
   ],
 };
 export const metadata = {
@@ -44,7 +44,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image:secure_url"
-          content="https://www.serviceconnekt.com/assets/images/hexabells-logo.webp"
+          content="https://www.serviceconnekt.com/assets/images/log1.png"
         />
         <meta property="og:image:width" content={"899"} />
         <meta property="og:image:height" content={"1049"} />

@@ -194,13 +194,13 @@ const CompanyForm = ({  params }) => {
           <span >
             <img
               className="w-[186.276px] h-[33px]"
-              src={`/assets/images/hexabells-logo.webp`}
-              alt="Hexabells Logo"
+              src={`/assets/images/log1.png`}
+              alt="serviceconnekt Logo"
             />
           </span>
 
           <div className="text-[#5f5e5e] font-[Quicksand] text-xs leading-7">
-            2023 HexaBells Technologies Pvt. Ltd.. All rights reserved
+            2023 serviceconnekt Technologies Pvt. Ltd.. All rights reserved
           </div>
           <Link
             href={"https://www.serviceconnekt.com/"}

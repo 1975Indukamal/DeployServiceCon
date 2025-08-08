@@ -8,7 +8,7 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
       type: "website",
       url: "https://www.serviceconnekt.com/",
       site_name: "ServiceConnekt Technology Pvt. Ltd.",
-      images: ["/assets/images/hexabells-logo.webp"],
+      images: ["/assets/images/log1.png"],
       ...openGraph
     },
     alternates: {
@@ -17,7 +17,7 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
     twitter: {
       card: "summary",
       site: "@InfoServiceconnekt",
-      image: "/assets/images/hexabells-logo.webp",
+      image: "/assets/images/log1.png",
       creator: "@InfoServiceconnekt",
       ...twitter
     }
