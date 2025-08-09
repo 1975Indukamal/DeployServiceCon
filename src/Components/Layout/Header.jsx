@@ -85,10 +85,10 @@ const activeClass =
         }}
         className="!font-inter z-10"
       >
-        <div className="flex flex-row justify-between lg:hidden items-center bg-opacity-80 bg-custombgc container py-6">
+        <div className="flex flex-row justify-between lg:hidden items-center bg-opacity-80 bg-custombgc container ">
           <div className="flex items-center space-x-4 p-2.5 sm:px-2 custom-border-logo text-black">
             <Link href="/">
-              <img src="/assets/images/log1.png" alt="navbarlogo" className="w-auto max-h-[80px] object-cover" />
+              <img src="/assets/images/log1.png" alt="navbarlogo" className="w-auto max-h-[150px] object-cover" />
             </Link>
           </div>
 
