@@ -63,7 +63,7 @@ export default function BlogPage({ params }) {
                         className='flex items-center gap-5'
                       >
                         <Link
-                          href="https://twitter.com/InfoHexabells"
+                          href="https://twitter.com/serviceconnekt"
                           target="_blank"
                         
                         >
@@ -77,7 +77,7 @@ export default function BlogPage({ params }) {
 
                         <Link
                           
-                          href="https://www.linkedin.com/company/hexabells"
+                          href="https://www.linkedin.com/company/serviceconnekt"
                           target="_blank"
                         >
                           <Image height={40} width={40}
@@ -88,7 +88,7 @@ export default function BlogPage({ params }) {
                         </Link>
                         <Link
                          
-                          href="https://www.instagram.com/p/Cq-SmqCrTXX"
+                          href="https://www.instagram.com/serviceconnekt"
                           target="_blank"
                         >
                           <Image height={40} width={40}
@@ -99,7 +99,7 @@ export default function BlogPage({ params }) {
                         </Link>
                         <Link
                          
-                          href="https://www.facebook.com/hexabells"
+                          href="https://www.facebook.com/serviceconnekt"
                           target="_blank"
                         >
                           <Image height={40} width={40}
