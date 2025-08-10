@@ -40,7 +40,7 @@ const JoinOurTeam = () => {
 
                       <HiArrowLongRight
                         size={32}
-                        className=" text-white  -translate-y-2/4 absolute top-2/4 left-0 -translate-x-8 group-hover:text-white duration-300 group-hover:translate-x-1/4 z-50 "
+                        className=" text-white  -translate-y-2/4 absolute top-2/4 left-0 -translate-x-8 group-hover:text-white duration-300 group-hover:translate-x-1/4 z-10 "
                       />
                     </button></Link>
                   </div>
