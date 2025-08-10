@@ -1,4 +1,5 @@
 User-agent: *
-Allow: /sitemap.xml2
+Allow: /sitemap.xml
 
-Sitemap: https://www.serviceconnekt.com/sitemap.xml2
+Sitemap: https://www.serviceconnekt.com/sitemap.xml
+
