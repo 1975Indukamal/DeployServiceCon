@@ -52,7 +52,7 @@ const Footer = () => {
               </li>
               <li className="flex gap-2 items-start">
                 <FaEnvelope className="mt-1" />
-                <span>support@ServiceConnect.com</span>
+                <span>support@serviceconnekt.com</span>
               </li>
               <li className="flex gap-2 items-start">
                 <FaHome className="mt-1" />

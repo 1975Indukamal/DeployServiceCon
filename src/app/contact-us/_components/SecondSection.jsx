@@ -55,17 +55,17 @@ const SecondSection = () => {
             </span>
 
             <a
-              href="mailto:info@ServiceConnect.com"
+              href="mailto:info@serviceconnekt.com"
               className=" underline decoration-solid d-block mt-[14px] text-body font-[Poppins] "
             >
-              info@ServiceConnect.com
+              info@serviceconnekt.com
             </a>
 
             <a
-              href="mailto:support@ServiceConnect.com"
+              href="mailto:info@serviceconnekt.com"
               className=" underline decoration-solid d-block text-body font-[Poppins] "
             >
-              support@ServiceConnect.com
+              support@serviceconnekt.com
             </a>
           </div>
 
