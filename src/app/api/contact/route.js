@@ -17,21 +17,21 @@ export async function POST(req) {
       const infoEmailData = {
         to: "zagadepunam1975@gmail.com",
         // cc : ["akanksha@ServiceConneckt.com","vishwa@ServiceConneckt.com"],
-        from: "ServiceConnekt <punamzagade1995@gmail.com>",
+        from: "ServiceConnect <punamzagade1995@gmail.com>",
         subject: "Lead From Contact Page",
         text: `Name: ${body.name}\nRole: ${body.role||""}\nEmail: ${body.email}\nPhone: ${body.phone}\nInterest: ${body.interests}\nRequirements: ${body.requirements||"" }`,
       };
   
       const mailOptions = {
         to: body.email,
-        from: "ServiceConnekt <punamzagade1995@gmail.com>",
+        from: "ServiceConnect <punamzagade1995@gmail.com>",
         subject: "Thanks for Reaching Out. Let’s Explore Limitless Possibilities",
         html: `
         <!DOCTYPE html>
         <html>
           <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <title>ServiceConnekt</title>
+            <title>ServiceConnect</title>
           </head>
           <body
           style="

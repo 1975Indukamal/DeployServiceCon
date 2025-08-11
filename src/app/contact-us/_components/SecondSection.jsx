@@ -30,7 +30,7 @@ const SecondSection = () => {
             </span>
 
             <p className="font-[Poppins] mt-[14px] text-body">
-              ServiceConnekt ,near BSNL tower ,pune 413104
+              ServiceConnect ,near BSNL tower ,pune 413104
             </p>
           </div>
 
@@ -55,17 +55,17 @@ const SecondSection = () => {
             </span>
 
             <a
-              href="mailto:info@serviceconnekt.com"
+              href="mailto:info@ServiceConnect.com"
               className=" underline decoration-solid d-block mt-[14px] text-body font-[Poppins] "
             >
-              info@serviceconnekt.com
+              info@ServiceConnect.com
             </a>
 
             <a
-              href="mailto:support@serviceconnekt.com"
+              href="mailto:support@ServiceConnect.com"
               className=" underline decoration-solid d-block text-body font-[Poppins] "
             >
-              support@serviceconnekt.com
+              support@ServiceConnect.com
             </a>
           </div>
 
@@ -136,7 +136,7 @@ const SecondSection = () => {
 
             <div className="flex gap-3 items-center mt-[20px]">
               <a
-                href="https://www.facebook.com/serviceconnekt"
+                href="https://www.facebook.com/ServiceConnect"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -150,7 +150,7 @@ const SecondSection = () => {
               </a>
 
               <a
-                href="https://www.instagram.com/serviceconnekt/"
+                href="https://www.instagram.com/ServiceConnect/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -164,7 +164,7 @@ const SecondSection = () => {
               </a>
 
               <a
-                href="https://twitter.com/Infoserviceconnekt"
+                href="https://twitter.com/InfoServiceConnect"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -178,7 +178,7 @@ const SecondSection = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/company/serviceconnekt"
+                href="https://www.linkedin.com/company/ServiceConnect"
                 target="_blank"
                 rel="noopener noreferrer"
               >

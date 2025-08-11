@@ -65,7 +65,7 @@ const Hero = () => {
         <h1 className="text-4xl sm:text-5xl font-bold leading-tight sm:leading-[72px] mb-6">
           Simplify Service Access
           <br />
-          with <span className="text-primary">ServiceConnekt</span>
+          with <span className="text-primary">ServiceConnect</span>
         </h1>
   
         <p className="text-lg text-gray-300 leading-relaxed mb-8">
@@ -90,7 +90,7 @@ const Hero = () => {
       <div className="w-full flex-1">
         <img
           src="/assets/video/heroG2.gif"
-          alt="ServiceConnekt Platform"
+          alt="ServiceConnect Platform"
           className="w-full "
         />
       </div>

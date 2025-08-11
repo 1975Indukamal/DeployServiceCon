@@ -16,7 +16,7 @@ console.log(body);
       const infoEmailData = {
         to: "zagadepunam1975@gmail.com",
         // cc : ["akanksha@ServiceConneckt.com","vishwa@ServiceConneckt.com"],
-        from: "ServiceConnekt <punamzagade1995@gmail.com>",
+        from: "ServiceConnect <punamzagade1995@gmail.com>",
         subject: `Applying for ${body.applyFor}(${body.jobType})`,
         text: `Name: ${body.name}\nCompany Name: ${body.endd}\nRole: ${body.employer}\nExperience:${body.exp}\nNotice Period:${body.startd}\nEmail: ${body.email}\nPhone: ${body.mobileNumber}\nLinkedin Profile: ${body.websiteUrl}\nCollege: ${body.collegeName}\nBranch: ${body.branch}\njob Location:${body.jobLocation}\nwork Type:${body.workType}\ncompany Location:${body.companyLocation}`,
       };

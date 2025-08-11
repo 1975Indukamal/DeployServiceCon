@@ -22,7 +22,7 @@ const JoinOurTeam = () => {
                 </div>
                 <div className="m-0 md:pb-5 pb-4">
                   <p className=" font-[400] text-white  text-[18px] font-[Poppins]">
-                  At ServiceConnekt, we’re not just hiring—we’re building a community of creators, thinkers, and doers.
+                  At ServiceConnect, we’re not just hiring—we’re building a community of creators, thinkers, and doers.
                   </p>
                 </div>
                 <div className="m-0 md:pb-5 pb-4 flex flex-shrink-0 gap-5 items-center">

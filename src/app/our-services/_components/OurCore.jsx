@@ -23,7 +23,7 @@ const OurCore = () => {
     {
       title: "User-Centric Design",
       description:
-        "ServiceConnekt’s interface is built with simplicity in mind — enabling both providers and users to access, offer, and manage services without complexity or confusion.",
+        "ServiceConnect’s interface is built with simplicity in mind — enabling both providers and users to access, offer, and manage services without complexity or confusion.",
     },
     {
       title: "Scalable Infrastructure",
@@ -46,7 +46,7 @@ const OurCore = () => {
   What Drives Our Platform
 </h2>
 <p className="text-body mt-4 text-base leading-relaxed max-w-md">
-  At ServiceConnekt, our core strengths lie in building seamless digital experiences, enabling efficient service delivery, and fostering trusted connections between users and providers.
+  At ServiceConnect, our core strengths lie in building seamless digital experiences, enabling efficient service delivery, and fostering trusted connections between users and providers.
 </p>
 
           <hr className="h-[3px] w-[90px] bg-primary my-6" />

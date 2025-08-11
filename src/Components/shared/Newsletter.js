@@ -65,7 +65,7 @@ const Newsletter = () => {
 <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start gap-8">
         <div className="lg:w-1/2 space-y-4">
             <h2 className="text-[26px] md:text-[40px] font-bold text-body lg:text-3xl">
-            Stay Updated with <span className='text-primary'>ServiceConnekt</span>
+            Stay Updated with <span className='text-primary'>ServiceConnect</span>
             </h2>
             <p className="text-[#B8B8B8] text-sm lg:text-base leading-relaxed max-w-md">
             Subscribe to receive expert insights, service updates, and productivity tips delivered straight to your inbox.
@@ -86,7 +86,7 @@ const Newsletter = () => {
 
       {/* Email Subscription */}
       <div className="lg:w-1/2 w-full space-y-4 sm:text-sm text-xs">
-      <h5 className=' text-body xs:text-lg text-sm ' > Stay in the loop with the latest news, tips, and updates from ServiceConnekt.</h5>
+      <h5 className=' text-body xs:text-lg text-sm ' > Stay in the loop with the latest news, tips, and updates from ServiceConnect.</h5>
 
       <div>
         <label className=" text-primary block mb-1 sm:text-sm text-xs">Email Address</label>

@@ -86,7 +86,7 @@ return () => ctx.revert();
                
               </div>
               <div className="text-body text-[16px] font-[Quicksand] pt-14 font-semibold">
-  At ServiceConnekt, we believe innovation starts with people. We’re a diverse collective of thinkers, builders, and creators working in sync to shape digital experiences that matter.
+  At ServiceConnect, we believe innovation starts with people. We’re a diverse collective of thinkers, builders, and creators working in sync to shape digital experiences that matter.
 </div>
 <h3 className="mb-6 text-[28px] font-[500] font-[Quicksand] text-body">
   Our Culture Is Rooted In{" "}

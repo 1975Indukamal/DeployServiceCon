@@ -24,7 +24,7 @@ const NewsBlogs = async() => {
 {/*</Link>*/}
 <div className="text-[18px] items-center text-center font-[poppins]">
   <p className="uppercase text-primary pb-3 font-[500]">
-    ServiceConnekt Blogs & Updates
+    ServiceConnect Blogs & Updates
   </p>
   <p className="font-[400] text-body">
     Explore expert advice, trending industry updates, how-to guides, and stories from real customers—all designed to help you make better service decisions across home, event, repair, and rental needs.

@@ -56,11 +56,11 @@ const WhyChoose = () => {
          <section className="bg-gradient-to-r from-bgc to-custombgc p-0 sm:p-10 rounded-3xl shadow-xl sm:border sm:border-gray-700 border-none">
   <div className="max-w-4xl mx-auto text-center">
     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-Quicksand leading-tight text-white">
-      Why Choose <span className="text-primary font-semibold">ServiceConnekt</span>?
+      Why Choose <span className="text-primary font-semibold">ServiceConnect</span>?
     </h2>
 
     <p className="mt-4 text-lg font-[Poppins] text-white/80 leading-relaxed">
-      ServiceConnekt is built to give you seamless access to trusted service providers,
+      ServiceConnect is built to give you seamless access to trusted service providers,
       ensuring confidence and clarity with every job.
     </p>
   </div>

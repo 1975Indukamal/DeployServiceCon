@@ -58,7 +58,7 @@ import { NextResponse } from 'next/server';
       //           </p>
       //           <p>
       //               During this time we want you to take a look at our areas of <span style="color: #eb7373"> <a
-      //               href="https://www.serviceconnekt.com/our-expertise/"
+      //               href="https://www.ServiceConnekt.com/our-expertise/"
       //               target="_blank"
       //               style="color: #eb7373;"
       //             >expertise</a></span>,
@@ -74,7 +74,7 @@ import { NextResponse } from 'next/server';
       //             outline:none;
       //             border:none;"
       //           >  <a
-      //           href="https://www.serviceconnekt.com/"
+      //           href="https://www.ServiceConnekt.com/"
       //           target="_blank"
       //           style="text-decoration: none; color:#fff;"
       //         >
@@ -83,7 +83,7 @@ import { NextResponse } from 'next/server';
       //           our blogs or you’re not sure why you are received this email, you can
       //           delete it. If you have any questions, you can reply to this email or
       //           <span style="color: #eb7373"> <a
-      //           href="https://www.serviceconnekt.com/contact-us/"
+      //           href="https://www.ServiceConnekt.com/contact-us/"
       //           target="_blank"
       //           style="color: #eb7373;"
       //         > contact us.</a></span>
@@ -229,7 +229,7 @@ export async function POST(req) {
                 </p>
                 <p>
                     During this time we want you to take a look at our areas of <span style="color: #eb7373"> <a
-                    href="https://www.serviceconnekt.com/our-expertise/"
+                    href="https://www.ServiceConnekt.com/our-expertise/"
                     target="_blank"
                     style="color: #eb7373;"
                   >expertise</a></span>,
@@ -245,7 +245,7 @@ export async function POST(req) {
                   outline:none;
                   border:none;"
                 >  <a
-                href="https://www.serviceconnekt.com/"
+                href="https://www.ServiceConnekt.com/"
                 target="_blank"
                 style="text-decoration: none; color:#fff;"
               >
@@ -254,7 +254,7 @@ export async function POST(req) {
                 our blogs or you’re not sure why you are received this email, you can
                 delete it. If you have any questions, you can reply to this email or
                 <span style="color: #eb7373"> <a
-                href="https://www.serviceconnekt.com/contact-us/"
+                href="https://www.ServiceConnekt.com/contact-us/"
                 target="_blank"
                 style="color: #eb7373;"
               > contact us.</a></span>

@@ -18,7 +18,7 @@ const Page = () => {
                         <p className="text-[14px] text-center">Our team of experts is gearing up to connect with you very soon. Get ready to dive into the world of possibilities!</p>
                     </div>
                     <div className='border-t border-gray-300 pt-6 mt-6 mb-1'>
-                        <a href="https://www.serviceconnekt.com/" className="h-[52px] w-[200px] rounded-full bg-primary flex items-center justify-center text-white font-semibold no-underline mx-auto my-auto shadow hover:no-underline">Visit our Website</a>
+                        <a href="https://www.ServiceConnekt.com/" className="h-[52px] w-[200px] rounded-full bg-primary flex items-center justify-center text-white font-semibold no-underline mx-auto my-auto shadow hover:no-underline">Visit our Website</a>
                     </div>
                 </div>
             </div>

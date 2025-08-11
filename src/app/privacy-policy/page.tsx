@@ -33,7 +33,7 @@ export default function Home() {
         </div>
         <div className="w-full">
           <div className="mt-6">
-          ServiceConnekt Technologies Pvt. Ltd. operates the website <a className="inline-block text-primary font-medium" href={"https://www.serviceconnekt.com"} target="_blank">ServiceConnekt.com </a> and mobile applications (collectively, the "Services"). This Privacy Policy describes how we collect, use, and share your personal information when you visit or use the Services.
+          ServiceConnect Technologies Pvt. Ltd. operates the website <a className="inline-block text-primary font-medium" href={"https://www.ServiceConnect.com"} target="_blank">ServiceConnect.com </a> and mobile applications (collectively, the "Services"). This Privacy Policy describes how we collect, use, and share your personal information when you visit or use the Services.
           </div>
          
           <p className="mt-6 font-[Poppins] text-primary">
@@ -112,9 +112,9 @@ export default function Home() {
       </h1>
       <ul  className=" list-disc ml-5 ">
      <li>You can access, correct, or delete your information by contacting us at <a
-                href="mailto:info@ServiceConnekt.com"
+                href="mailto:info@ServiceConnect.com"
                 className="text-primary font-medium inline-block"
-              >info@ServiceConnekt.com</a></li>
+              >info@ServiceConnect.com</a></li>
       <li>You can opt out of receiving promotional emails from us by clicking on the "unsubscribe" link in any promotional email we send you.</li>
       <li>You can manage your privacy settings on social media platforms and other third-party applications and services that you use.</li>
   
@@ -146,9 +146,9 @@ export default function Home() {
       </h1>
       <p className="mt-3">
       The Services are not intended for children under the age of 18. We do not knowingly collect personal information from children under the age of 18. If you are a parent or guardian and you believe that your child has provided us with personal information, please contact us at <a
-                href="mailto:info@ServiceConnekt.com"
+                href="mailto:info@ServiceConnect.com"
                 className="text-primary font-medium inline-block"
-              >info@ServiceConnekt.com</a>
+              >info@ServiceConnect.com</a>
       </p>
       <h1 className="text-2xl mt-6">
         <span className="text-primary font-Poppins  ">Changes to this Privacy Policy</span>
@@ -169,9 +169,9 @@ export default function Home() {
       </h1>
       <p className="mt-2 mb-16">
       If you have any questions about this Privacy Policy, please contact us at <a
-                href="mailto:info@ServiceConnekt.com"
+                href="mailto:info@ServiceConnect.com"
                 className="text-primary font-medium inline-block"
-              >info@ServiceConnekt.com</a>
+              >info@ServiceConnect.com</a>
        
       </p>
 

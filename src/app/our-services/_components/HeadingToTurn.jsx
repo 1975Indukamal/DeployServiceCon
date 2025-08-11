@@ -24,7 +24,7 @@ const HeadingToTurn = () => {
                 </span>
                 <p className="text-body font-[Poppins] text-base font-normal leading-[28px] ">
                   <span className="text-body font-poppins text-base font-normal leading-7 mt-10">
-                    ServiceConnekt bridges the gap between people and reliable services
+                    ServiceConnect bridges the gap between people and reliable services
                   </span>{" "}
                   by enabling digital access, seamless engagement, and optimized delivery — all within a single platform. 
                   <br />

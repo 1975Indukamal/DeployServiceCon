@@ -107,7 +107,7 @@ const RevenueBusiness = () => {
               <span className="md:font-[600] font-[500] text-primary font-[Quicksand]"> strategy</span> are battle-tested.
             </h2>
             <p className="text-[16px] text-body mt-4 mb-6 font-[Poppins] leading-7">
-              At ServiceConnekt, we believe trust is earned through results and relationships. We're not here to impress with big numbers—we're here to deliver real value, one solution at a time.
+              At ServiceConnect, we believe trust is earned through results and relationships. We're not here to impress with big numbers—we're here to deliver real value, one solution at a time.
             </p>
             <Button />
           </div>

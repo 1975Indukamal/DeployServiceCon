@@ -71,7 +71,7 @@ const MissionVision = () => {
           Fueling Progress Through <span className="text-yellow-600">Purpose</span>
         </h2>
         <p className="text-yellow-600 text-[16px] max-w-2xl mx-auto font-light">
-          At ServiceConnekt, our mission and vision are more than just words—they’re a promise to create real, lasting value in everything we do.
+          At ServiceConnect, our mission and vision are more than just words—they’re a promise to create real, lasting value in everything we do.
         </p>
         <hr className="w-20 mx-auto border-t-2 border-yellow-600 mt-6" />
       </div>

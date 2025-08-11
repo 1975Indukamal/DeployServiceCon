@@ -22,7 +22,7 @@ export default function Home() {
   </div>
   </div>
   <div className="mb-5 lg:pl-7">
-    <h3 className="flex flex-col text-[38px]  font-normal text-body">serviceconnekt</h3>
+    <h3 className="flex flex-col text-[38px]  font-normal text-body">ServiceConnect</h3>
     <Image src={LineImage} alt="Vector" className="" />
   <div className="flex flex-col text-body my-6 text-[18px] ">
   <Link className="hover:text-primary" href="#">Sevices</Link>

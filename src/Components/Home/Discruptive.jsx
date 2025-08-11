@@ -14,7 +14,7 @@ const Discruptive = () => {
           Ready to Launch?
         </h2>
         <p className=" text-body font-[Poppins] text-base  leading-7  text-[18px] font-normal">
-        At ServiceConnekt, we go beyond development. We partner with you to refine your vision and connect you with a talented team dedicated to turning your innovative concepts into impactful digital solutions.
+        At ServiceConnect, we go beyond development. We partner with you to refine your vision and connect you with a talented team dedicated to turning your innovative concepts into impactful digital solutions.
         </p>
 
         {/* <div className="mt-3">

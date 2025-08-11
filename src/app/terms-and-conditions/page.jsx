@@ -16,7 +16,7 @@ export default function Page() {
         <div className="flex md:justify-between flex-col-reverse md:flex-row ">
           <div>
             <h3 className="text-primary  text-[18px]  font-[500] mt-5 sm:text-[17px] font-[Poppins] ">
-              Welcome to ServiceConnekt Technologies!{" "}
+              Welcome to ServiceConnect Technologies!{" "}
             </h3>
           </div>
           {/* <div className="flex flex-col mt-10">
@@ -35,12 +35,12 @@ export default function Page() {
         <div className="w-full">
           <p className="mt-3    ">
             These terms and conditions outline the rules and regulations for the
-            use of ServiceConnekt Technologies Pvt. Ltd.'s Website, located at{" "}
-            <a className="inline-block text-primary font-medium" href={"https://www.serviceconnekt.com"} target="_blank">ServiceConnekt.com </a>.
+            use of ServiceConnect Technologies Pvt. Ltd.'s Website, located at{" "}
+            <a className="inline-block text-primary font-medium" href={"https://www.ServiceConnect.com"} target="_blank">ServiceConnect.com </a>.
           </p>
           <p className="mt-6  ">
             By accessing this website we assume you accept these terms and
-            conditions. Do not continue to use ServiceConnekt Technologies if you do
+            conditions. Do not continue to use ServiceConnect Technologies if you do
             not agree to take all of the terms and conditions stated on this
             page.
           </p>
@@ -64,8 +64,8 @@ export default function Page() {
 
           <h4 className="text-primary font-medium mt-6 text-[24px]">Cookies</h4>
           <p className="mt-3  ">
-            We employ the use of cookies. By accessing ServiceConnekt Technologies,
-            you agreed to use cookies in agreement with the ServiceConnekt
+            We employ the use of cookies. By accessing ServiceConnect Technologies,
+            you agreed to use cookies in agreement with the ServiceConnect
             Technologies Pvt. Ltd.'s Privacy Policy.
           </p>
           <p className="mt-3  ">
@@ -77,10 +77,10 @@ export default function Page() {
           </p>
           <h2 className="mt-6 text-[24px] font-medium text-primary">License</h2>
           <p className="mt-3 ">
-            Unless otherwise stated, ServiceConnekt Technologies Pvt. Ltd. and/or its
+            Unless otherwise stated, ServiceConnect Technologies Pvt. Ltd. and/or its
             licensors own the intellectual property rights for all material on
-            ServiceConnekt Technologies. All intellectual property rights are
-            reserved. You may access this from ServiceConnekt Technologies for your
+            ServiceConnect Technologies. All intellectual property rights are
+            reserved. You may access this from ServiceConnect Technologies for your
             own personal use subjected to restrictions set in these terms and
             conditions.
           </p>
@@ -89,34 +89,34 @@ export default function Page() {
           </h2>
 
           <ul className="list-disc mb-6 mt-3 ml-5 ">
-            <li >Republish material from ServiceConnekt Technologies</li>
+            <li >Republish material from ServiceConnect Technologies</li>
             <li >
-              Sell, rent or sub-license material from ServiceConnekt Technologies
+              Sell, rent or sub-license material from ServiceConnect Technologies
             </li>
             <li >
-              Reproduce, duplicate or copy material from ServiceConnekt Technologies
+              Reproduce, duplicate or copy material from ServiceConnect Technologies
             </li>
-            <li >Redistribute content from ServiceConnekt Technologies</li>
+            <li >Redistribute content from ServiceConnect Technologies</li>
           </ul>
 
           <p className="mt-6 ">
             Parts of this website offer an opportunity for users to post and
             exchange opinions and information in certain areas of the website.
-            ServiceConnekt Technologies Pvt. Ltd. does not filter, edit, publish or
+            ServiceConnect Technologies Pvt. Ltd. does not filter, edit, publish or
             review Comments prior to their presence on the website.
           </p>
           <p className="mt-6 ">
-            Comments do not reflect the views and opinions of ServiceConnekt
+            Comments do not reflect the views and opinions of ServiceConnect
             Technologies Pvt. Ltd.,its agents and/or affiliates. Comments
             reflect the views and opinions of the person who post their views
-            and opinions. To the extent permitted by applicable laws, ServiceConnekt
+            and opinions. To the extent permitted by applicable laws, ServiceConnect
             Technologies Pvt. Ltd. shall not be liable for the Comments or for
             any liability, damages or expenses caused and/or suffered as a
             result of any use of and/or posting of and/or appearance of the
             Comments on this website.
           </p>
           <p className="mt-6 ">
-            ServiceConnekt Technologies Pvt. Ltd. reserves the right to monitor all
+            ServiceConnect Technologies Pvt. Ltd. reserves the right to monitor all
             Comments and to remove any Comments which can be considered
             inappropriate, offensive or causes breach of these Terms and
             Conditions.
@@ -151,7 +151,7 @@ export default function Page() {
           </ul>
 
           <p className="mt-6 ">
-            You hereby grant ServiceConnekt Technologies Pvt. Ltd. a non-exclusive
+            You hereby grant ServiceConnect Technologies Pvt. Ltd. a non-exclusive
             license to use, reproduce, edit and authorize others to use,
             reproduce and edit any of your Comments in any and all forms,
             formats or media.
@@ -223,7 +223,7 @@ export default function Page() {
             that: (a) the link would not make us look unfavorably to ourselves
             or to our accredited businesses; (b) the organization does not have
             any negative records with us; (c) the benefit to us from the
-            visibility of the hyperlink compensates the absence of ServiceConnekt
+            visibility of the hyperlink compensates the absence of ServiceConnect
             Technologies Pvt. Ltd.; and (d) the link is in the context of
             general resource information
           </p>
@@ -237,7 +237,7 @@ export default function Page() {
           <p className="mt-6 ">
             If you are one of the organizations listed in paragraph 2 above and
             are interested in linking to our website, you must inform us by
-            sending an e-mail to ServiceConnekt Technologies Pvt. Ltd.. Please
+            sending an e-mail to ServiceConnect Technologies Pvt. Ltd.. Please
             include your name, your organization name, contact information as
             well as the URL of your site, a list of any URLs from which you
             intend to link to our Website, and a list of the URLs on our site to
@@ -256,7 +256,7 @@ export default function Page() {
             </li>
           </ul>
           <p className="mt-6 ">
-            No use of ServiceConnekt Technologies Pvt. Ltd.'s logo or other artwork
+            No use of ServiceConnect Technologies Pvt. Ltd.'s logo or other artwork
             will be allowed for linking absent a trademark license agreement.
           </p>
           <h2 className="mt-6 text-[24px] font-medium text-primary">iFrames</h2>

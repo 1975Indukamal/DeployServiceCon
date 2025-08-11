@@ -195,19 +195,19 @@ const CompanyForm = ({  params }) => {
             <img
               className="w-[186.276px] h-[33px]"
               src={`/assets/images/log1.png`}
-              alt="serviceconnekt Logo"
+              alt="ServiceConnect Logo"
             />
           </span>
 
           <div className="text-[#5f5e5e] font-[Quicksand] text-xs leading-7">
-            2023 serviceconnekt Technologies Pvt. Ltd.. All rights reserved
+            2023 ServiceConnect Technologies Pvt. Ltd.. All rights reserved
           </div>
           <Link
-            href={"https://www.serviceconnekt.com/"}
+            href={"https://www.ServiceConnekt.com/"}
             target={"_blank"}
             rel="noopener noreferrer"
           >
-            https://www.serviceconnekt.com
+            https://www.ServiceConnect.com
           </Link>
         </div>
         <style jsx>

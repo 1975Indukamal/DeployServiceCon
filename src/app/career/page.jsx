@@ -424,7 +424,7 @@ const page = () => {
           
            <Link href="/" className="py-[20px] px-[40px] sticky top-0 bg-white z-[999999]">
          
-          <Image src={logo} alt='serviceconnekt logo' width={221} height={40} className="w-[150px] h-[30px] sm:h-[40px] sm:w-[221px]"/>
+          <Image src={logo} alt='ServiceConnect logo' width={221} height={40} className="w-[150px] h-[30px] sm:h-[40px] sm:w-[221px]"/>
         </Link>
           <div className='flex items-center justify-between py-[20px] px-[40px] my-4 sm:my-12'>
             <div className='flex items-center justify-center text-[#2C3441] font-[Quicksand] text-[18px] font-[700]' onClick={() => setShowb(false)}>

@@ -30,7 +30,7 @@ const Footer = () => {
         {/* Top section */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-12">
           <div className="max-w-lg">
-            <h2 className="text-2xl font-bold mb-2">Connect Better with ServiceConnekt</h2>
+            <h2 className="text-2xl font-bold mb-2">Connect Better with ServiceConnect</h2>
             <p className="text-[#B8B8B8]">
               Subscribe and stay informed about service trends and platform updates.
             </p>
@@ -52,11 +52,11 @@ const Footer = () => {
               </li>
               <li className="flex gap-2 items-start">
                 <FaEnvelope className="mt-1" />
-                <span>support@serviceconnekt.com</span>
+                <span>support@ServiceConnect.com</span>
               </li>
               <li className="flex gap-2 items-start">
                 <FaHome className="mt-1" />
-                <span>ServiceConnekt ,near BSNL tower ,pune 413104</span>
+                <span>ServiceConnect ,near BSNL tower ,pune 413104</span>
               </li>
             </ul>
           </div>
@@ -99,10 +99,10 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-semibold mb-4">Connect With Us</h4>
             <div className="flex gap-4 mb-4">
-              <a href="https://www.facebook.com/serviceconnekt" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/ServiceConnect" target="_blank" rel="noopener noreferrer">
                 <FaFacebook size={20} className="hover:text-blue-500 transition" />
               </a>
-              <a href="https://www.instagram.com/serviceconnekt" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/ServiceConnect" target="_blank" rel="noopener noreferrer">
                 <FaInstagram size={20} className="hover:text-pink-400 transition" />
               </a>
               <a href="https://wa.me/917972229469" target="_blank" rel="noopener noreferrer">
@@ -117,8 +117,8 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="py-6 mt-10 border-t border-[#2a2a2a] flex flex-col lg:flex-row items-center justify-between text-[#999999] text-xs">
-          <p>© 2025 ServiceConnekt. All rights reserved.</p>
-          <p className="mt-2 lg:mt-0">Powered by SERVICECONNEKT PRIVATE LIMITED</p>
+          <p>© 2025 ServiceConnect. All rights reserved.</p>
+          <p className="mt-2 lg:mt-0">Powered by ServiceConnect PRIVATE LIMITED</p>
         </div>
       </div>
     </footer>
