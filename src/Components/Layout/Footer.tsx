@@ -78,7 +78,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Support */} 
           <div>
             <h4 className="text-xl font-semibold mb-4">Support</h4>
             <ul className="space-y-2">
