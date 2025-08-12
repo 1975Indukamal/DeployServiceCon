@@ -33,7 +33,7 @@ export default function Home() {
         </div>
         <div className="w-full">
           <div className="mt-6">
-          ServiceConnect Technologies Pvt. Ltd. operates the website <a className="inline-block text-primary font-medium" href={"https://www.ServiceConnect.com"} target="_blank">ServiceConnect.com </a> and mobile applications (collectively, the "Services"). This Privacy Policy describes how we collect, use, and share your personal information when you visit or use the Services.
+          ServiceConnect Technologies Pvt. Ltd. operates the website <a className="inline-block text-primary font-medium" href={"https://www.serviceconnekt.com"} target="_blank">ServiceConnect.com </a> and mobile applications (collectively, the "Services"). This Privacy Policy describes how we collect, use, and share your personal information when you visit or use the Services.
           </div>
          
           <p className="mt-6 font-[Poppins] text-primary">

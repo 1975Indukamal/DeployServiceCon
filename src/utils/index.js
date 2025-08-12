@@ -6,7 +6,7 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
     openGraph: {
       locale: "en",
       type: "website",
-      url: "https://www.ServiceConnekt.com/",
+      url: "https://www.serviceconnekt.com/",
       site_name: "ServiceConnect Technology Pvt. Ltd.",
       images: ["/assets/images/log1.png"],
       ...openGraph
@@ -32,14 +32,14 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
 //       "Get end-to-end website, mobile apps, and custom software development solutions tailored to help modern businesses to explore unprecedented online opportunities.",
 //     keywords:
 //       "Website Development, Android/iOS App Development,Custom Software Development",
-//     canonical: "https://www.ServiceConnekt.com/",
+//     canonical: "https://www.serviceconnekt.com/",
 //     robots: "index, follow",
 //   },
 //   About: {
 //     title: "About HexaBells | Mobile and Web Development Solutions",
 //     description:
 //       "A new-age tech and innovation company, Hexabells specializes in website, app, custom software development with a focus on enhancing online user experiences",
-//     canonical: "https://www.ServiceConnekt.com/about-us",
+//     canonical: "https://www.serviceconnekt.com/about-us",
 //     robots: "index, follow",
 //   },
 //   Blogs: {
@@ -47,7 +47,7 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
 //     description:
 //       "Explore the latest tech trends, digital solutions & expert advise. Stay updated with innovative strategies, tips, and industry news for your digital journey",
 
-//     canonical: "https://www.ServiceConnekt.com/blog",
+//     canonical: "https://www.serviceconnekt.com/blog",
 //     robots: "index, follow",
 //   },
 //   Expertise: {
@@ -55,14 +55,14 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
 //       "Hexabells Experties: AI, Machine Learning, and Predictive Analytics",
 //     description:
 //       "We augment human intelligence and creativity with the latest web technologies powered by AI, Machine Learning, and Predictive Analytics to create business-focused solutions.",
-//     canonical: "https://www.ServiceConnekt.com/our-expertise",
+//     canonical: "https://www.serviceconnekt.com/our-expertise",
 //     robots: "index, follow",
 //   },
 //   ContactUs: {
 //     title: "Contact Us | Hexabells Technologies For Information & Support",
 //     description:
 //       "One of the best website, mobile and software development company, Reach out to us for any inquiries, assistance, or collaborations.",
-//     canonical: "https://www.ServiceConnekt.com/contact-us",
+//     canonical: "https://www.serviceconnekt.com/contact-us",
 //     robots: "index, follow",
 //   },
 
@@ -72,44 +72,44 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
 //       "Hexabells brings vast experience in website, app, and custom software development for businesses of all sizes, to achieve their digital transformation goals.",
 //     keywords:
 //       "Website Development, Android/iOS App Development,Custom Software Development",
-//     canonical: "https://www.ServiceConnekt.com/our-services",
+//     canonical: "https://www.serviceconnekt.com/our-services",
 //     robots: "index, follow",
 //   },
 //   Apply: {
 //     title: "",
 //     description: "",
-//     canonical: "https://www.ServiceConnekt.com/apply",
+//     canonical: "https://www.serviceconnekt.com/apply",
 //     robots: "index, follow",
 //   },
 //   Work: {
 //     title: "Hexabells Work: User-Centric Design and Devlopment",
 //     description:
 //       " Witness the magic unfold. Dive into HexaBells' work & discover a universe of websites & apps that captivate & convert. Prepare to be wowed!    ",
-//     canonical: "https://www.ServiceConnekt.com/our-work",
+//     canonical: "https://www.serviceconnekt.com/our-work",
 //     robots: "index, follow",
 //   },
 //   Career: {
 //     title: "Hexabells Careers: Jobs Openings and Update",
 //     description: "Hexabells! Stay informed with our latest job openings update. Find the perfect role for your skills and aspirations. ",
-//     canonical: "https://www.ServiceConnekt.com/career",
+//     canonical: "https://www.serviceconnekt.com/career",
 //     robots: "index, follow",
 //   },
 //   privacyPolicy: {
 //     title: "Hexabells Privacy Policy: Your Information, Our Commitment",
 //     description: "Hexabells ensures the security of your information by exploring our comprehensive Privacy Policy.",
-//     canonical: "https://www.ServiceConnekt.com/privacy-policy",
+//     canonical: "https://www.serviceconnekt.com/privacy-policy",
 //     robots: "index, follow",
 //   },
 //   termsAndConditions: {
 //     title: " Hexabells Terms and Conditions: Guidelines for User Agreement",
 //     description: "Terms and Conditions for a comprehensive understanding of our user agreement. Navigate responsibly with clear guidelines",
-//     canonical: "https://www.ServiceConnekt.com/terms-and-conditions",
+//     canonical: "https://www.serviceconnekt.com/terms-and-conditions",
 //     robots: "index, follow",
 //   },
 //   webDevelopement: {
 //     title: "Expert App and Web Development Services | Customized Solutions",
 //     description: "Looking for reliable and innovative app and web development services? Look no further! Our expert team delivers customized solutions to bring your ideas to life. Contact us now and take your business to the next level.",
-//     canonical: "https://www.ServiceConnekt.com/web-and-app-development",
+//     canonical: "https://www.serviceconnekt.com/web-and-app-development",
 //     robots: "noindex, follow",
 //   },
 // };
@@ -121,21 +121,21 @@ const Metadata = {
       "ServiceConnect provides cutting-edge website, mobile app, and custom software development solutions tailored for modern businesses to grow online.",
     keywords:
       "Website Development, Android App Development, iOS App Development, Custom Software, Digital Solutions",
-    canonical: "https://www.ServiceConnekt.com/",
+    canonical: "https://www.serviceconnekt.com/",
     robots: "index, follow",
   },
   About: {
     title: "About ServiceConnect | Empowering Digital Transformation",
     description:
       "ServiceConnect is a tech-forward company offering advanced website, mobile app, and software solutions focused on performance, innovation, and user experience.",
-    canonical: "https://www.ServiceConnekt.com/about-us",
+    canonical: "https://www.serviceconnekt.com/about-us",
     robots: "index, follow",
   },
   Blogs: {
     title: "ServiceConnect Blog | Tech Insights & Digital Transformation Tips",
     description:
       "Stay ahead with ServiceConnect's blog. Discover tech trends, expert tips, industry news, and strategies to accelerate your digital journey.",
-    canonical: "https://www.ServiceConnekt.com/blog",
+    canonical: "https://www.serviceconnekt.com/blog",
     robots: "index, follow",
   },
   Expertise: {
@@ -143,14 +143,14 @@ const Metadata = {
       "Our Expertise | AI, Machine Learning & Predictive Analytics Solutions",
     description:
       "Explore how ServiceConnect leverages AI, ML, and predictive analytics to build intelligent, business-focused solutions for a competitive edge.",
-    canonical: "https://www.ServiceConnekt.com/our-expertise",
+    canonical: "https://www.serviceconnekt.com/our-expertise",
     robots: "index, follow",
   },
   ContactUs: {
     title: "Contact Us | Connect with ServiceConnect for Support & Queries",
     description:
       "Need expert development solutions? Get in touch with ServiceConnect for web, app, or custom software development needs and support.",
-    canonical: "https://www.ServiceConnekt.com/contact-us",
+    canonical: "https://www.serviceconnekt.com/contact-us",
     robots: "index, follow",
   },
   Services: {
@@ -159,42 +159,42 @@ const Metadata = {
       "ServiceConnect offers expert website development, mobile app development, and tailored software solutions to meet your unique business goals.",
     keywords:
       "Website Development, App Development, Custom Software Solutions, Business Automation",
-    canonical: "https://www.ServiceConnekt.com/our-services",
+    canonical: "https://www.serviceconnekt.com/our-services",
     robots: "index, follow",
   },
   Apply: {
     title: "Apply Now | Join the ServiceConnect Team",
     description:
       "Looking to grow your career with ServiceConnect? Apply for open positions and join a team of innovators building future-ready tech.",
-    canonical: "https://www.ServiceConnekt.com/apply",
+    canonical: "https://www.serviceconnekt.com/apply",
     robots: "index, follow",
   },
   Work: {
     title: "Our Work | ServiceConnect Project Portfolio & Case Studies",
     description:
       "Discover ServiceConnect's success stories. Browse our portfolio of innovative, user-centric websites, mobile apps, and software solutions.",
-    canonical: "https://www.ServiceConnekt.com/our-work",
+    canonical: "https://www.serviceconnekt.com/our-work",
     robots: "index, follow",
   },
   Career: {
     title: "Careers at ServiceConnect | Explore Job Opportunities",
     description:
       "Explore exciting career opportunities at ServiceConnect. We're hiring tech enthusiasts to build future-ready solutions. Apply now!",
-    canonical: "https://www.ServiceConnekt.com/career",
+    canonical: "https://www.serviceconnekt.com/career",
     robots: "index, follow",
   },
   privacyPolicy: {
     title: "Privacy Policy | ServiceConnect - Your Data, Our Responsibility",
     description:
       "At ServiceConnect, we respect your privacy. Learn how we collect, use, and protect your data in our detailed Privacy Policy.",
-    canonical: "https://www.ServiceConnekt.com/privacy-policy",
+    canonical: "https://www.serviceconnekt.com/privacy-policy",
     robots: "index, follow",
   },
   termsAndConditions: {
     title: "Terms & Conditions | ServiceConnect User Agreement",
     description:
       "Read ServiceConnect's Terms and Conditions to understand your rights and responsibilities when using our platform and services.",
-    canonical: "https://www.ServiceConnekt.com/terms-and-conditions",
+    canonical: "https://www.serviceconnekt.com/terms-and-conditions",
     robots: "index, follow",
   },
   webDevelopement: {
@@ -202,7 +202,7 @@ const Metadata = {
       "Web & App Development Services | Customized Digital Solutions by ServiceConnect",
     description:
       "Need scalable and secure web or mobile apps? ServiceConnect delivers expert development services tailored to meet your business needs.",
-    canonical: "https://www.ServiceConnekt.com/web-and-app-development",
+    canonical: "https://www.serviceconnekt.com/web-and-app-development",
     robots: "noindex, follow",
   },
 };

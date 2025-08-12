@@ -15,21 +15,21 @@ console.log(body);
       });
       const infoEmailData = {
         to: "zagadepunam1975@gmail.com",
-        // cc : ["akanksha@ServiceConneckt.com","vishwa@ServiceConneckt.com"],
+        // cc : ["akanksha@ServiceConnect.com","vishwa@ServiceConnect.com"],
         from: "ServiceConnect <punamzagade1995@gmail.com>",
         subject: `Applying for ${body.applyFor}(${body.jobType})`,
         text: `Name: ${body.name}\nCompany Name: ${body.endd}\nRole: ${body.employer}\nExperience:${body.exp}\nNotice Period:${body.startd}\nEmail: ${body.email}\nPhone: ${body.mobileNumber}\nLinkedin Profile: ${body.websiteUrl}\nCollege: ${body.collegeName}\nBranch: ${body.branch}\njob Location:${body.jobLocation}\nwork Type:${body.workType}\ncompany Location:${body.companyLocation}`,
       };
       const mailOptions = {
       to: body.email,
-      from: "ServiceConneckt <info@ServiceConneckt.com>",
+      from: "ServiceConnect <info@ServiceConnect.com>",
       subject: "Thanks for Reaching Out. Let’s Explore Limitless Possibilities",
       html: `
       <!DOCTYPE html>
       <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-          <title>ServiceConneckt</title>
+          <title>ServiceConnect</title>
         </head>
         <body
         style="
@@ -66,8 +66,8 @@ console.log(body);
                   <td style="background-color: #ffffff">
                     <div style="width: 100%; margin-bottom: 2rem">
                       <img
-                        src="https://starfish-app-92xxn.ondigitalocean.app/assets/images/emailImage/ServiceConneckt-logo.png"
-                        alt="ServiceConneckt"
+                        src="https://starfish-app-92xxn.ondigitalocean.app/assets/images/emailImage/ServiceConnect-logo.png"
+                        alt="ServiceConnect"
                         height="30"
                       />
                     </div>
@@ -82,7 +82,7 @@ console.log(body);
                       ${req.body.email ? `<p>Hi ${req.body.email}</p>` : ""}
                       <h3>
                         Welcome to
-                        <span style="color: #eb7373">ServiceConneckt</span>
+                        <span style="color: #eb7373">ServiceConnect</span>
                       </h3>
                       <p>
                         We would like to extend our sincere gratitude to you for
@@ -110,7 +110,7 @@ console.log(body);
                           cursor: pointer;
                           text-decoration: none;
                         "
-                        href="https://www.figma.com/proto/V4YsvaAh8UhyjnDu4IRaMq/ServiceConneckt?page-id=0%3A1&type=design&node-id=2-38418&viewport=567%2C388%2C0.08&t=W0lf6WaQ40yRMcSF-1&scaling=scale-down-width"
+                        href="https://www.figma.com/proto/V4YsvaAh8UhyjnDu4IRaMq/ServiceConnect?page-id=0%3A1&type=design&node-id=2-38418&viewport=567%2C388%2C0.08&t=W0lf6WaQ40yRMcSF-1&scaling=scale-down-width"
                         target="_blank"
                       >
                         View Profile!
@@ -119,18 +119,18 @@ console.log(body);
                         In the meanwhile, if you need any immediate assistance or
                         have additional information to share, feel free to contact
                         us at <span style="color: #eb7373;">+91-9319271595</span> or
-                        <span style="color: #eb7373;text-decoration: none;">projects@ServiceConneckt.com</span>.
+                        <span style="color: #eb7373;text-decoration: none;">projects@ServiceConnect.com</span>.
                       </p>
     
                       <p>
-                        Thank you once again for considering ServiceConneckt as your
+                        Thank you once again for considering ServiceConnect as your
                         digital partner. We look forward to the opportunity to work
                         together and deliver outstanding results for your business.
                       </p>
                       <p>Thanks & regards</p> <br />
     
                       <span style="font-weight: bold;">Komal Singh</span><br /> 
-                      <span>ServiceConneckt Technologies Pvt. Ltd.</span><br />
+                      <span>ServiceConnect Technologies Pvt. Ltd.</span><br />
     
                       <br /><br /><br />
                       <hr />
@@ -138,7 +138,7 @@ console.log(body);
                       <div style="width: 100%; display: flex;">
                       <div style="width: 35px; display: inline-block">
                           <a
-                            href="https://www.instagram.com/ServiceConneckt/"
+                            href="https://www.instagram.com/serviceconnekt/"
                             target="_blank"
                           >
                             <img
@@ -151,7 +151,7 @@ console.log(body);
                         </div>
                       <div style="width: 35px; display: inline-block">
                         <a
-                          href="https://www.linkedin.com/company/ServiceConneckt/"
+                          href="https://www.linkedin.com/company/ServiceConnect/"
                           target="_blank"
                         >
                           <img

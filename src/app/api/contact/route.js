@@ -16,7 +16,7 @@ export async function POST(req) {
       
       const infoEmailData = {
         to: "zagadepunam1975@gmail.com",
-        // cc : ["akanksha@ServiceConneckt.com","vishwa@ServiceConneckt.com"],
+        // cc : ["akanksha@ServiceConnect.com","vishwa@ServiceConnect.com"],
         from: "ServiceConnect <punamzagade1995@gmail.com>",
         subject: "Lead From Contact Page",
         text: `Name: ${body.name}\nRole: ${body.role||""}\nEmail: ${body.email}\nPhone: ${body.phone}\nInterest: ${body.interests}\nRequirements: ${body.requirements||"" }`,
@@ -68,8 +68,8 @@ export async function POST(req) {
                     <td style="background-color: #ffffff">
                       <div style="width: 100%; margin-bottom: 2rem">
                         <img
-                          src="https://starfish-app-92xxn.ondigitalocean.app/assets/images/emailImage/ServiceConneckt-logo.png"
-                          alt="ServiceConneckt"
+                          src="https://starfish-app-92xxn.ondigitalocean.app/assets/images/emailImage/ServiceConnect-logo.png"
+                          alt="ServiceConnect"
                           height="30"
                         />
                       </div>
@@ -84,7 +84,7 @@ export async function POST(req) {
                         ${req.body.name ? `<p>Hi ${req.body.name}</p>` : ""}
                         <h3>
                           Welcome to
-                          <span style="color: #eb7373">ServiceConneckt</span>
+                          <span style="color: #eb7373">ServiceConnect</span>
                         </h3>
                         <p>
                           We would like to extend our sincere gratitude to you for
@@ -112,7 +112,7 @@ export async function POST(req) {
                             cursor: pointer;
                             text-decoration: none;
                           "
-                          href="https://www.figma.com/proto/V4YsvaAh8UhyjnDu4IRaMq/ServiceConneckt?page-id=0%3A1&type=design&node-id=2-38418&viewport=567%2C388%2C0.08&t=W0lf6WaQ40yRMcSF-1&scaling=scale-down-width"
+                          href="https://www.figma.com/proto/V4YsvaAh8UhyjnDu4IRaMq/ServiceConnect?page-id=0%3A1&type=design&node-id=2-38418&viewport=567%2C388%2C0.08&t=W0lf6WaQ40yRMcSF-1&scaling=scale-down-width"
                           target="_blank"
                         >
                           View Profile!
@@ -121,18 +121,18 @@ export async function POST(req) {
                           In the meanwhile, if you need any immediate assistance or
                           have additional information to share, feel free to contact
                           us at <span style="color: #eb7373;">+91-9319271595</span> or
-                          <span style="color: #eb7373;text-decoration: none;">projects@ServiceConneckt.com</span>.
+                          <span style="color: #eb7373;text-decoration: none;">projects@ServiceConnect.com</span>.
                         </p>
       
                         <p>
-                          Thank you once again for considering ServiceConneckt as your
+                          Thank you once again for considering ServiceConnect as your
                           digital partner. We look forward to the opportunity to work
                           together and deliver outstanding results for your business.
                         </p>
                         <p>Thanks & regards</p> <br />
       
                         <span style="font-weight: bold;">Komal Singh</span><br /> 
-                        <span>ServiceConneckt Technologies Pvt. Ltd.</span><br />
+                        <span>ServiceConnect Technologies Pvt. Ltd.</span><br />
       
                         <br /><br /><br />
                         <hr />
@@ -140,7 +140,7 @@ export async function POST(req) {
                         <div style="width: 100%; display: flex;">
                         <div style="width: 35px; display: inline-block">
                             <a
-                              href="https://www.instagram.com/ServiceConneckt/"
+                              href="https://www.instagram.com/serviceconnekt/"
                               target="_blank"
                             >
                               <img
@@ -153,7 +153,7 @@ export async function POST(req) {
                           </div>
                         <div style="width: 35px; display: inline-block">
                           <a
-                            href="https://www.linkedin.com/company/ServiceConneckt/"
+                            href="https://www.linkedin.com/company/ServiceConnect/"
                             target="_blank"
                           >
                             <img

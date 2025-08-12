@@ -12,17 +12,17 @@ const OrganizationSchema = {
   "@type": "Organization",
   name: "ServiceConnect Technologies Pvt. Ltd",
   alternateName: "ServiceConnect",
-  url: "https://www.ServiceConnekt.com/",
-  logo: "https://www.ServiceConnekt.com/assets/images/log1.png",
+  url: "https://www.serviceconnekt.com/",
+  logo: "https://www.serviceconnekt.com/assets/images/log1.png",
   sameAs: [
-    "https://www.facebook.com/ServiceConnect",
-    "https://twitter.com/InfoServiceConnect",
-    "https://www.linkedin.com/company/ServiceConnect",
-    "https://www.instagram.com/ServiceConnect",
+    "https://www.facebook.com/serviceconnekt",
+    "https://twitter.com/Infoserviceconnekt",
+    "https://www.linkedin.com/company/serviceconnekt",
+    "https://www.instagram.com/serviceconnekt",
   ],
 };
 export const metadata = {
-  metadataBase: new URL('https://www.ServiceConnect.com'),
+  metadataBase: new URL('https://www.serviceconnekt.com'),
  
 }
 export default function RootLayout({
@@ -48,10 +48,12 @@ export default function RootLayout({
         />
         <meta
           property="og:image:secure_url"
-          content="https://www.ServiceConnekt.com/assets/images/log1.png"
+          content="https://www.serviceconnekt.com/assets/images/log1.png"
         />
-        <meta property="og:image:width" content={"899"} />
-        <meta property="og:image:height" content={"1049"} />
+    <meta property="og:image" content="https://www.serviceconnekt.com/assets/images/log1.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </head>
       <body >
         <Layout>

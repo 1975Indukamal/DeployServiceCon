@@ -16,7 +16,7 @@ import { NextResponse } from 'next/server';
     
 //     const userEmailData = {
 //       to: body.email,
-//       from: "ServiceConneckt <info@ServiceConneckt.com>",
+//       from: "ServiceConnect <info@ServiceConnect.com>",
       // subject: "Thanks for Reaching Out. Let’s Explore Limitless Possibilities",
       // html: `<!DOCTYPE html>
       //   <html>
@@ -49,9 +49,9 @@ import { NextResponse } from 'next/server';
       //           <p>Hi ${body.email.split("@")[0]}</p>
                
       //               <b>Welcome to</b>
-      //               <b style="color: #eb7373">ServiceConneckt Technologies</b>
+      //               <b style="color: #eb7373">ServiceConnect Technologies</b>
       //           </div>
-      //           <p>Thanks for joining ServiceConneckt global community!</p>
+      //           <p>Thanks for joining ServiceConnect global community!</p>
       //           <p>
       //               You’ll be among the first to receive updates about our new blogs and
       //               offers & more!
@@ -87,12 +87,12 @@ import { NextResponse } from 'next/server';
       //           target="_blank"
       //           style="color: #eb7373;"
       //         > contact us.</a></span>
-      //             </p> <p>Thanks & regards</p> <div>Team <br/>ServiceConneckt Technologies Pvt. Ltd.</div>
+      //             </p> <p>Thanks & regards</p> <div>Team <br/>ServiceConnect Technologies Pvt. Ltd.</div>
       //             <p>Follow us @</p>
                
       //                       <div style="width: 35px; display: inline-block">
       //                         <a
-      //                           href="https://www.instagram.com/ServiceConneckt/"
+      //                           href="https://www.instagram.com/ServiceConnect/"
       //                           target="_blank"
       //                         >
       //                           <img
@@ -105,7 +105,7 @@ import { NextResponse } from 'next/server';
       //                       </div>
       //                       <div style="width: 35px; display: inline-block">
       //                         <a
-      //                           href="https://www.linkedin.com/company/ServiceConneckt/"
+      //                           href="https://www.linkedin.com/company/ServiceConnect/"
       //                           target="_blank"
       //                         >
       //                           <img
@@ -177,8 +177,8 @@ export async function POST(req) {
 
     const infoEmailData = {
       to: "zagadepunam1975@gmail.com",
-      // cc : ["akanksha@ServiceConneckt.com","vishwa@ServiceConneckt.com"],
-      from: "ServiceConneckt <info@ServiceConneckt.com>",
+      // cc : ["akanksha@ServiceConnect.com","vishwa@ServiceConnect.com"],
+      from: "ServiceConnect <info@ServiceConnect.com>",
       subject: `New User Subscription`,
       text: `your new subscriber : ${body.email}`,
     
@@ -186,7 +186,7 @@ export async function POST(req) {
 
     // Define the email options
     const mailOptions = {
-      from: 'ServiceConneckt <info@ServiceConneckt.com>"',
+      from: 'ServiceConnect <info@ServiceConnect.com>"',
       to: body.email,
       subject: "Thanks for Reaching Out. Let’s Explore Limitless Possibilities",
       html: `<!DOCTYPE html>
@@ -220,16 +220,16 @@ export async function POST(req) {
                 <p>Hi ${body.email.split("@")[0]}</p>
                
                     <b>Welcome to</b>
-                    <b style="color: #eb7373">ServiceConneckt Technologies</b>
+                    <b style="color: #eb7373">ServiceConnect Technologies</b>
                 </div>
-                <p>Thanks for joining ServiceConneckt global community!</p>
+                <p>Thanks for joining ServiceConnect global community!</p>
                 <p>
                     You’ll be among the first to receive updates about our new blogs and
                     offers & more!
                 </p>
                 <p>
                     During this time we want you to take a look at our areas of <span style="color: #eb7373"> <a
-                    href="https://www.ServiceConnekt.com/our-expertise/"
+                    href="https://www.serviceconnekt.com/our-expertise/"
                     target="_blank"
                     style="color: #eb7373;"
                   >expertise</a></span>,
@@ -245,7 +245,7 @@ export async function POST(req) {
                   outline:none;
                   border:none;"
                 >  <a
-                href="https://www.ServiceConnekt.com/"
+                href="https://www.serviceconnekt.com/"
                 target="_blank"
                 style="text-decoration: none; color:#fff;"
               >
@@ -254,16 +254,16 @@ export async function POST(req) {
                 our blogs or you’re not sure why you are received this email, you can
                 delete it. If you have any questions, you can reply to this email or
                 <span style="color: #eb7373"> <a
-                href="https://www.ServiceConnekt.com/contact-us/"
+                href="https://www.serviceconnekt.com/contact-us/"
                 target="_blank"
                 style="color: #eb7373;"
               > contact us.</a></span>
-                  </p> <p>Thanks & regards</p> <div>Team <br/>ServiceConneckt Technologies Pvt. Ltd.</div>
+                  </p> <p>Thanks & regards</p> <div>Team <br/>ServiceConnect Technologies Pvt. Ltd.</div>
                   <p>Follow us @</p>
                
                             <div style="width: 35px; display: inline-block">
                               <a
-                                href="https://www.instagram.com/ServiceConneckt/"
+                                href="https://www.instagram.com/serviceconnekt/"
                                 target="_blank"
                               >
                                 <img
@@ -276,7 +276,7 @@ export async function POST(req) {
                             </div>
                             <div style="width: 35px; display: inline-block">
                               <a
-                                href="https://www.linkedin.com/company/ServiceConneckt/"
+                                href="https://www.linkedin.com/company/ServiceConnect/"
                                 target="_blank"
                               >
                                 <img

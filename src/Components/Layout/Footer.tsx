@@ -99,10 +99,10 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-semibold mb-4">Connect With Us</h4>
             <div className="flex gap-4 mb-4">
-              <a href="https://www.facebook.com/ServiceConnect" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/serviceconnekt" target="_blank" rel="noopener noreferrer">
                 <FaFacebook size={20} className="hover:text-blue-500 transition" />
               </a>
-              <a href="https://www.instagram.com/ServiceConnect" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/serviceconnekt" target="_blank" rel="noopener noreferrer">
                 <FaInstagram size={20} className="hover:text-pink-400 transition" />
               </a>
               <a href="https://wa.me/917972229469" target="_blank" rel="noopener noreferrer">
