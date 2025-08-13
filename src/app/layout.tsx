@@ -50,7 +50,6 @@ export default function RootLayout({
           property="og:image:secure_url"
           content="https://www.serviceconnekt.com/assets/images/log1.png"
         />
-    <meta property="og:image" content="https://www.serviceconnekt.com/assets/images/log1.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
