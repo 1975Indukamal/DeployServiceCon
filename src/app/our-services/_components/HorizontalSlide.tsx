@@ -6,32 +6,32 @@ import Button from "./Button";
 const services = [
   {
     title: "Custom Website Experiences",
-    img: "/assets/images/services/1.webp",
+    img: "/assets/image/our-services/website experience.webp",
     desc: `We design and develop visually stunning, responsive websites that tell your story, engage your audience, and convert visitors into loyal customers.`,
   },
   {
     title: "Mobile App Solutions",
-    img: "/assets/images/services/9.webp",
+    img: "/assets/image/our-services/mobile app.webp",
     desc: `Build feature-rich, intuitive mobile apps for iOS, Android, or both—with seamless performance, robust security, and user-first design.`,
   },
   {
     title: "Tailored Software Development",
-    img: "/assets/images/services/3.webp",
+    img: "/assets/image/our-services/tailor web.webp",
     desc: `From internal tools to customer-facing platforms, we craft scalable, secure software tailored precisely to your business goals.`,
   },
   {
     title: "Rapid MVP Launch",
-    img: "/assets/images/services/4.webp",
+    img: "/assets/image/our-services/rapid mvp lunch.webp",
     desc: `Test, validate, and iterate faster. We build lean MVPs that bring your product idea to life and help you attract early adopters or investors.`,
   },
   {
     title: "Legacy System Revamp",
-    img: "/assets/images/services/5.webp",
+    img: "/assets/image/our-services/l1.webp",
     desc: `Modernize outdated platforms with sleek UI, improved performance, and scalable architecture—without losing what works.`,
   },
   {
     title: "Website Refresh & Rebranding",
-    img: "/assets/images/services/6.webp",
+    img: "/assets/image/our-services/website refresh.webp",
     desc: `We upgrade old websites with modern design, better UX, and mobile optimization—giving your brand a powerful digital reboot.`,
   },
 ];
@@ -48,11 +48,11 @@ const Card = ({ title, img, desc }: { title: string; img: string; desc: string }
           alt={title}
           width={400}
           height={500}
-          className="w-full h-full object-cover rounded-[15px]"
+          className="w-full h-full object-content rounded-[15px]"
         />
 
         {/* Overlay (only shows on md and up) */}
-        <div className="absolute inset-0 bg-black/50 opacity-90 sm:opacity-20  sm:group-hover:opacity-100 transition-opacity duration-500 rounded-[15px]" />
+        <div className="absolute inset-0 bg-bgc/70 opacity-90 sm:opacity-20  sm:group-hover:opacity-100 transition-opacity duration-500 rounded-[15px]" />
       </div>
 
       {/* Text block: slide up on hover only on md+ */}
@@ -77,9 +77,9 @@ const Card = ({ title, img, desc }: { title: string; img: string; desc: string }
 
 const HorizontalSlide = () => {
   return (
-    <>
+    <div className="container">
       {/* Desktop Intro Section */}
-      <div className="no-scrollbar md:flex block overflow-x-scroll xl:ml-[6%] lg:ml-0 p-5 md:mt-28 space-x-5">
+      <div className="no-scrollbar md:flex block overflow-x-scroll lg:ml-0 p-5 md:mt-28 space-x-5 ">
         <div className="flex-shrink-0 hidden md:flex flex-col w-[450px] ml-20 xl:ml-0 text-start justify-center mr-auto">
           <h2 className="text-[48px] md:text-[58px] text-body leading-[72px] md:leading-[80px] font-[Quicksand]">
           What We  <span className="text-primary">Deliver</span>
@@ -120,7 +120,7 @@ const HorizontalSlide = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

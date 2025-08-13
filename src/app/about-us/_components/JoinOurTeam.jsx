@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import OURTEAM from "../../../../public/assets/images/joinourteam/JoinOurTeam.png";
+import OURTEAM from "../../../../public/assets/image/our-services/1.webp";
 import CircularText from "@/Components/shared/CircularText";
 import { HiArrowLongRight } from "react-icons/hi2";
 import Link from "next/link";

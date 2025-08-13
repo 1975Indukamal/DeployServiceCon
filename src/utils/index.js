@@ -6,8 +6,10 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
     openGraph: {
       locale: "en",
       type: "website",
+        title: "ServiceConnect – Official Website",
+  description: "Welcome to ServiceConnect – your trusted partner for cutting-edge web, app, and custom software solutions.",
       url: "https://www.serviceconnekt.com/",
-      site_name: "ServiceConnect Technology Pvt. Ltd.",
+      site_name: "ServiceConnect Technology",
       images: ["https://www.serviceconnekt.com/assets/images/log1.png"],
       ...openGraph
     },

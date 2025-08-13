@@ -60,8 +60,8 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Girl22 from '../../../../public/assets/images/about-us/Ladki.webp';
-import Dart22 from '../../../../public/assets/images/about-us/Dart.webp';
+import Girl22 from '../../../../public/assets/image/our-services/4.webp';
+import Dart22 from '../../../../public/assets/image/our-services/6.webp';
 
 const MissionVision = () => {
   return (
