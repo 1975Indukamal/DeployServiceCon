@@ -63,7 +63,7 @@ export default function BlogPage({ params }) {
                         className='flex items-center gap-5'
                       >
                         <Link
-                          href="https://twitter.com/ServiceConnect"
+                          href="https://twitter.com/ServiceConnekt"
                           target="_blank"
                         
                         >
@@ -77,7 +77,7 @@ export default function BlogPage({ params }) {
 
                         <Link
                           
-                          href="https://www.linkedin.com/company/ServiceConnect"
+                          href="https://www.linkedin.com/company/ServiceConnekt"
                           target="_blank"
                         >
                           <Image height={40} width={40}
@@ -88,7 +88,7 @@ export default function BlogPage({ params }) {
                         </Link>
                         <Link
                          
-                          href="https://www.instagram.com/ServiceConnect"
+                          href="https://www.instagram.com/ServiceConnekt"
                           target="_blank"
                         >
                           <Image height={40} width={40}
@@ -99,7 +99,7 @@ export default function BlogPage({ params }) {
                         </Link>
                         <Link
                          
-                          href="https://www.facebook.com/ServiceConnect"
+                          href="https://www.facebook.com/ServiceConnekt"
                           target="_blank"
                         >
                           <Image height={40} width={40}
