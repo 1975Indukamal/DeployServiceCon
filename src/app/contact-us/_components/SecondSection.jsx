@@ -97,10 +97,10 @@ const SecondSection = () => {
             </a>
 
             <a
-              href="tel:+918847715598"
+              href="tel:+917270804125"
               className=" text-underline d-block text-white font-Poppins"
             >
-              +91-88477 15598
+              +91-72708 04125
             </a>
           </div>
 
@@ -170,7 +170,7 @@ const SecondSection = () => {
               >
                 <Image
                   src="/assets/images/Subtract.svg"
-                  className="Image-fluid"
+                  className="Image-fluid bg-white "
                   alt="Twitter Icon"
                   width={35}
                   height={35}

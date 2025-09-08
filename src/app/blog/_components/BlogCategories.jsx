@@ -21,15 +21,15 @@ const BlogItem = ({ blog, formatDate }) => {
   return (
     <div key={blog.id} className="mb-8 mx-auto  w-full container flex  justify-center gap-6 flex-col">
       <div className="flex gap-5 flex-col md:flex-row md:items-center md:justify-between">
-        <div className="w-full  md:w-1/2">
+        <div className="w-full md:w-1/2">
           <Image
             src={blog.image}
             alt={"banner_image"}
             width={330}
             height={330}
-            className=" w-full object-cover"
+            className=" w-full h-[400px] object-fit rounded-lg "
           />
-          </div>
+        </div>
         <div className="flex w-full  md:w-1/2 flex-col justify-center px-6">
           <div className="flex gap-2 items-center">
             <div>

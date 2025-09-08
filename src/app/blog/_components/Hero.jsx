@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-const Hero = ({blogs}) => {
+const Hero = ({ blogs }) => {
   // console.log(blogs)
   const formatDate = (date) => {
     const newDate = new Date(date); // replace with your own Date object
@@ -57,7 +57,7 @@ const Hero = ({blogs}) => {
             <div className="overflow-hidden ">
               <Image
                 src={blogs?.image}
-               
+
                 height={400}
                 width={800}
                 alt={"banner_image"}

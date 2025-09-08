@@ -46,8 +46,8 @@ const Footer = () => {
               <li className="flex gap-2 items-start">
                 <FaPhone className="mt-1" />
                 <span>
-                  +91 8847 715 598 <br />
-                  +91 7972 229 469
+                  +91 7270 804 125   <br />
+                  +91 7972 229 469  
                 </span>
               </li>
               <li className="flex gap-2 items-start">
@@ -56,7 +56,7 @@ const Footer = () => {
               </li>
               <li className="flex gap-2 items-start">
                 <FaHome className="mt-1" />
-                <span>ServiceConnect ,near BSNL tower ,pune 413104</span>
+                <span>ServiceConnect</span>
               </li>
             </ul>
           </div>
