@@ -30,7 +30,9 @@ const SecondSection = () => {
             </span>
 
             <p className="font-[Poppins] mt-[14px] text-body">
-              ServiceConnect ,near BSNL tower ,pune 413104
+              Service Connekt Private Limited,
+              <br />
+              Farmers Mart Complex , Near J.P. School , Pune -413104
             </p>
           </div>
 
