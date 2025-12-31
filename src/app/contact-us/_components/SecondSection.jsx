@@ -32,7 +32,7 @@ const SecondSection = () => {
             <p className="font-[Poppins] mt-[14px] text-body">
               Service Connekt Private Limited,
               <br />
-              Farmers Mart Complex , Near J.P. School , Pune -413104
+              Service all over india
             </p>
           </div>
 
