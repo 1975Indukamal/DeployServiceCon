@@ -71,13 +71,13 @@ const Newsletter = () => {
             Subscribe to receive expert insights, service updates, and productivity tips delivered straight to your inbox.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="https://www.facebook.com/limitlesstrip.official/" target="_blank" rel="noreferrer">
+              <a href="https://www.facebook.com/serviceconnekt" target="_blank" rel="noreferrer">
                 <FaFacebook fill="white" size={24} />
               </a>
-              <a href="https://www.instagram.com/limitlesstrip.official/" target="_blank" rel="noreferrer">
+              <a href="https://www.instagram.com/serviceconnekt" target="_blank" rel="noreferrer">
                 <FaInstagram fill="white" size={24} />
               </a>
-              <a href="https://www.whatsapp.com/channel/0029Va8rjeZCBtx5TmdfwW2I" target="_blank" rel="noreferrer">
+              <a href="https://wa.me/917972229469" target="_blank" rel="noreferrer">
                 <FaWhatsapp fill="white" size={24} />
               </a>
             </div>

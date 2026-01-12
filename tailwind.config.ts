@@ -18,7 +18,7 @@ const config: Config = {
         "light-primary": "#F6F6F6",
         "body": "#FFFBEB",
         bgc: "#2B0D5D",
-        custombgc: " #1C173D",
+        custombgc: "#1C173D",
       },
 
       backgroundImage: {

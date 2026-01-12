@@ -1,0 +1,26 @@
+// SVG Favicon component for ServiceConnekt
+const Favicon = () => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="32" height="32" rx="6" fill="#202124" />
+      <path
+        d="M22 6C22 6 19 4.5 14.5 4.5C10 4.5 7 7.5 7 10.5C7 13.5 10 15 14.5 15.75C19 16.5 22 18 22 21C22 24 19 27 14.5 27C10 27 7 25.5 7 25.5"
+        stroke="#ca8a04"
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <circle cx="25" cy="6" r="3" fill="#ca8a04" />
+      <circle cx="7" cy="26" r="3" fill="#ca8a04" />
+    </svg>
+  );
+};
+
+export default Favicon;
+

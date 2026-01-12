@@ -14,7 +14,7 @@ const page = async() => {
 
   return (
     <>
-    <div className='container'>
+    <div className='container py-20 lg:py-32'>
     <Hero blogs={blogContent[0]}/>
     <LatestBlogs/>
     <Line/>

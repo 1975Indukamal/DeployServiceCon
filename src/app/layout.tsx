@@ -1,5 +1,5 @@
 
-import Layout from '@/Components/Layout/Layout';
+import Layout from '@/components/layout/Layout';
 import 'react-phone-input-2/lib/style.css'
 import './globals.css'
 import 'swiper/css';
@@ -23,7 +23,9 @@ const OrganizationSchema = {
 };
 export const metadata = {
   metadataBase: new URL('https://www.serviceconnekt.com'),
- 
+    icons: {
+    icon: '/favicon.svg',
+  },
 }
 export default function RootLayout({
   children,

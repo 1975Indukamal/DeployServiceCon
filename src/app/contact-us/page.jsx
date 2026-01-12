@@ -7,7 +7,7 @@ export const metadata = generatemetaData({ ...data,canonical:"/contact-us" })
 const page = () => {
   return (
     <>
-      <div className="mt-[20px]">
+      <div className=" py-20 lg:py-32">
         <div className={`container overflow-hidden`}>
           <FirstHeading />
           <SecondSection />

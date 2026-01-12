@@ -5,11 +5,13 @@ import { Drawer } from "antd";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "./Navbar.css";
+import Logo from "../icons/Logo";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/our-services", label: "Our Services" },
   { href: "/about-us", label: "About Us" },
+    { href: "/team", label: "Team" },
   { href: "/contact-us", label: "Contact Us" },
 ];
 
@@ -46,12 +48,12 @@ const activeClass =
           top: 0,
           zIndex: 50,
         }}
-        className=" md:flex justify-between items-center !font-inter hidden bg-opacity-80 bg-custombgc"
+        className=" md:flex justify-between items-center !font-inter hidden bg-opacity-80 bg-custombgc md:py-5"
       >
-        <div className="container  md:flex justify-between items-center">
+        <div className="container  md:flex justify-between items-center"> 
         <div className="flex items-center !font-inter ">
           <Link href="/">
-            <img src={"/assets/images/log1.png"} alt="navbarlogo" className="w-auto max-h-[150px] object-cover" />
+            <Logo className="w-auto max-h-[90px] object-cover !font-[inter]" />
           </Link>
         </div>
 

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="relative py-10 ">
+    <section className="relative py-20 lg:py-32 ">
       <div className="container mx-auto px-4">
         <div className="grid  gap-10 items-center relative h-full overflow-hidden">
           {/* Left Content */}

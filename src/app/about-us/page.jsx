@@ -14,7 +14,7 @@ export const metadata = generatemetaData({ ...data })
 const page = () => {
   return (
     <>
-      <div className="container mt-10  mb-16">
+      <div className="container py-20 lg:py-32">
         
     <Hero/>
     <AskForQuote/>
