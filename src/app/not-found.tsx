@@ -1,8 +1,9 @@
 
 
 import React from "react";
-import Button from "@/Components/UI/Button";
 import Link from "next/link";
+import Button from "@/Components/UI/Button";
+
 
 const Page = () => {
   

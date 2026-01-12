@@ -1,5 +1,5 @@
 
-import Layout from '@/components/layout/Layout';
+import Layout from '@/Components/layout/Layout';
 import 'react-phone-input-2/lib/style.css'
 import './globals.css'
 import 'swiper/css';
