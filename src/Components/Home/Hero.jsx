@@ -58,7 +58,7 @@ const Hero = () => {
     {/* Optional background image */}
     {/* <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('/service-bg.jpg')" }}></div> */}
   
-    <div className="container w-full mx-auto px-6 pb-24 flex flex-col lg:flex-row items-center justify-between relative z-10">
+    <div className="container w-full mx-auto px-6 py-20 lg:py-0 flex flex-col lg:flex-row items-center justify-between relative z-10">
       
       {/* Text Content */}
       <div className="mb-12 lg:mb-0 max-w-2xl flex-1">
