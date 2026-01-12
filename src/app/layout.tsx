@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/effect-cards';
-import Layout from '@/Components/layout/Layout';
+import Layout from '@/Components/Layout/Layout';
 const OrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
