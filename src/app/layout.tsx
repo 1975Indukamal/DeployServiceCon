@@ -1,5 +1,5 @@
 
-import Layout from '@/Components/layout/Layout';
+
 import 'react-phone-input-2/lib/style.css'
 import './globals.css'
 import 'swiper/css';
@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/effect-cards';
+import Layout from '@/Components/layout/Layout';
 const OrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
