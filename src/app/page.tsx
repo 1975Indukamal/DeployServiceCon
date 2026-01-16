@@ -7,7 +7,7 @@ import GetMetaData, { generatemetaData } from "@/utils"
 import HorizontalSlide from "./our-services/_components/HorizontalSlide";
 import Line from "./our-services/_components/Line";
 import NewsBlogsClient from "@/Components/shared/News&Blogs";
-import HeroH from "@/Components/home/Hero";
+import HeroH from "@/Components/Home/Hero";
 
 
 const data = GetMetaData("Home")
