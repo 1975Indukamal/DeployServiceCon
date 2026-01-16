@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { motion } from "framer-motion";
 
 // import Image from "next/image";
 
@@ -144,7 +144,11 @@ const FirstHeading = () => {
 
   return (
     <div className=" mx-auto">
-    <h1 className="text-primary text-[25px] sm:text-[40px] sm:leading-[60px] md:text-[58px] font-normal md:leading-[80px] leading-[40px] font-Quicksand mb-[3rem]">
+     <motion.h1
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }} className="text-primary text-[25px] sm:text-[40px] sm:leading-[60px] md:text-[58px] font-normal md:leading-[80px] leading-[40px] font-Quicksand mb-[3rem]">
   Let’s Build Something Amazing,
   <br />
   <span className="flex items-center gap-2">
@@ -153,10 +157,13 @@ const FirstHeading = () => {
     </span>
 
   </span>
-</h1>
+</motion.h1>
 
 
-      <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">
+      <motion.div      initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        viewport={{ once: true }} className=" grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="">
           <div className="form-group w-full">
             <label
@@ -297,8 +304,12 @@ const FirstHeading = () => {
             )}
           </div>
         </div>
-      </div>
-       <div className="mt-8 mb-12">
+      </motion.div>
+   <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+        viewport={{ once: true }} className="mt-8 mb-12">
        {loading ?  (<div className='animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500'>
           </div>) : 
           (<Button
@@ -308,7 +319,7 @@ const FirstHeading = () => {
             className="w-fit  px-8 py-2"
           />)
  }
-      </div>
+      </motion.div>
       <ToastContainer position="top-center" autoClose={3000} />
    
     </div>

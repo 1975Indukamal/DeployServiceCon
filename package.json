@@ -11,9 +11,14 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@sendgrid/mail": "^8.1.0",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^1.12.36",
     "antd": "^5.26.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^10.18.0",
     "gsap": "^3.12.2",
+    "lucide-react": "^0.562.0",
     "navigation": "^6.2.0",
     "next": "^14.1.0",
     "nodemailer": "^6.9.8",
@@ -27,7 +32,8 @@
     "sharp": "^0.34.3",
     "styled-components": "^6.1.8",
     "swiper": "^11.0.5",
-    "tailwind-merge": "^2.0.0"
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@netlify/next": "^1.4.9",

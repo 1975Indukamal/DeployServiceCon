@@ -1,9 +1,7 @@
 
-import Hero from "@/Components/Home/Hero";
 import HeroVideo from "@/Components/Home/HeroVideo";
 import Services from "@/Components/Home/Services";
 import Discruptive from "@/Components/Home/Discruptive";
-import NewsBlogs from "@/Components/shared/News&Blogs";
 import Newsletter from "@/Components/shared/Newsletter";
 import Swiper from "@/Components/shared/Swiper";
 import Work from "@/Components/Home/work";
@@ -14,6 +12,8 @@ import HorizontalSlide from "./our-services/_components/HorizontalSlide";
 import Line from "./our-services/_components/Line";
 import LatestBlogs from "./blog/_components/LatestBlogs";
 import BlogCategories from "../app/blog/_components/BlogCategories";
+import Hero from "../Components/home/Hero"
+import NewsBlogsClient from "@/Components/shared/News&Blogs";
 
 
 const data = GetMetaData("Home")
@@ -23,7 +23,7 @@ export const metadata = generatemetaData({ ...data ,canonical:"/"})
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Hero/>
       {/* <HeroVideo /> */}
       {/* <Services /> */}
       <Discruptive />
@@ -39,7 +39,7 @@ export default function Home() {
       {/* <Work /> */}
      
       <Industry />
-      <NewsBlogs />
+      <NewsBlogsClient/>
       {/* <BlogCategories/> */}
       <Line/>
       <Newsletter />

@@ -28,8 +28,8 @@ export default function BlogPage({ params }) {
         Published on: {blog.date} | By {blog.author}
       </p>
 
-      <div className="relative m-auto h-[500px] w-[80%] mb-8 rounded-lg overflow-hidden">
-        <Image src={blog.image} alt={blog.title} fill className="object-fit" />
+      <div className="relative m-auto h-[500px] mb-8 rounded-lg overflow-hidden">
+        <Image src={blog.image} alt={blog.title} fill className="object-top object-cover" />
       </div>
 
       <p className="italic text-sm text-primary mb-4">

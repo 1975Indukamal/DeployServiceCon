@@ -57,8 +57,9 @@
 
 // export default MissionVision
 
-
+"use client"
 import React from 'react';
+import { motion } from "framer-motion"
 import Image from 'next/image';
 import Girl22 from '../../../../public/assets/image/our-services/4.webp';
 import Dart22 from '../../../../public/assets/image/our-services/6.webp';
@@ -66,7 +67,15 @@ import Dart22 from '../../../../public/assets/image/our-services/6.webp';
 const MissionVision = () => {
   return (
     <section className="bg-custombgc text-white py-16 px-6 md:px-12">
-      <div className="text-center mb-12">
+
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-12"
+      >
         <h2 className="text-[36px] md:text-[48px] font-bold mb-2 font-[Quicksand]">
           Fueling Progress Through <span className="text-yellow-600">Purpose</span>
         </h2>
@@ -74,11 +83,19 @@ const MissionVision = () => {
           At ServiceConnect, our mission and vision are more than just words—they’re a promise to create real, lasting value in everything we do.
         </p>
         <hr className="w-20 mx-auto border-t-2 border-yellow-600 mt-6" />
-      </div>
+      </motion.div>
 
+      {/* Cards */}
       <div className="grid md:grid-cols-2 gap-10">
-        {/* Mission Card */}
-        <div className="bg-white text-custombgc rounded-xl shadow-lg hover:shadow-2xl transition-shadow p-6 flex flex-col justify-between">
+
+        {/* Mission */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="bg-white text-custombgc rounded-xl shadow-lg hover:shadow-2xl transition-shadow p-6 flex flex-col justify-between"
+        >
           <div>
             <h3 className="text-[22px] font-semibold underline decoration-yellow-600 mb-4">
               Our Mission
@@ -87,20 +104,18 @@ const MissionVision = () => {
               To be a trusted innovation partner—delivering powerful, tailored digital solutions that help businesses grow faster, smarter, and stronger in a rapidly evolving world.
             </p>
           </div>
-          <Image
-            src={Dart22}
-            alt="Mission Illustration"
-            className="rounded-lg mt-4"
-          />
-        </div>
+          <Image src={Dart22} alt="Mission Illustration" className="rounded-lg mt-4" />
+        </motion.div>
 
-        {/* Vision Card */}
-        <div className="bg-white text-custombgc rounded-xl shadow-lg hover:shadow-2xl transition-shadow p-6 flex flex-col justify-between">
-          <Image
-            src={Girl22}
-            alt="Vision Illustration"
-            className="rounded-lg mb-6"
-          />
+        {/* Vision */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="bg-white text-custombgc rounded-xl shadow-lg hover:shadow-2xl transition-shadow p-6 flex flex-col justify-between"
+        >
+          <Image src={Girl22} alt="Vision Illustration" className="rounded-lg mb-6" />
           <div>
             <h3 className="text-[22px] font-semibold underline decoration-yellow-600 mb-4">
               Our Vision
@@ -109,7 +124,7 @@ const MissionVision = () => {
               To shape a digital-first future where businesses, regardless of size or stage, have access to breakthrough technologies that empower their full potential.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

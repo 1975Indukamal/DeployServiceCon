@@ -71,9 +71,10 @@
 // };
 // export default RevenueBusiness;
 
-
+"use client"
 import React from "react";
 import Button from "./Button";
+import { motion } from "framer-motion"
 
 const data = [
   {
@@ -94,38 +95,57 @@ const data = [
   },
 ];
 
+
+
 const RevenueBusiness = () => {
   return (
-    <>
-      <div className="w-full bg-[#202124] py-[68px] md:mt-[50px] mt-10 mb-10">
-        <div className="container md:flex md:flex-col lg:flex-row block items-center xl:gap-20 md:gap-10">
-          <div className="mb-10 md:mb-0">
-            <h2 className="md:text-[38px] text-[30px] text-body md:leading-[58px] leading-[40px] font-[Quicksand]">
-              We may be new, but our
-              <span className="md:font-[600] font-[500] text-primary font-[Quicksand]"> dedication</span>,
-              <span className="md:font-[600] font-[500] text-primary font-[Quicksand]"> skill</span>, and
-              <span className="md:font-[600] font-[500] text-primary font-[Quicksand]"> strategy</span> are battle-tested.
-            </h2>
-            <p className="text-[16px] text-body mt-4 mb-6 font-[Poppins] leading-7">
-              At ServiceConnect, we believe trust is earned through results and relationships. We're not here to impress with big numbers—we're here to deliver real value, one solution at a time.
-            </p>
+    <div className="w-full bg-[#202124] py-[68px] md:mt-[50px] mt-10 mb-10">
+      <div className="container md:flex md:flex-col lg:flex-row block items-center xl:gap-20 md:gap-10">
+
+        {/* Left */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-10 md:mb-0"
+        >
+          <h2 className="md:text-[38px] text-[30px] text-body md:leading-[58px] leading-[40px] font-[Quicksand]">
+            We may be new, but our
+            <span className="md:font-[600] font-[500] text-primary"> dedication</span>,
+            <span className="md:font-[600] font-[500] text-primary"> skill</span>, and
+            <span className="md:font-[600] font-[500] text-primary"> strategy</span> are battle-tested.
+          </h2>
+          <p className="text-[16px] text-body mt-4 mb-6 font-[Poppins] leading-7">
+            At ServiceConnect, we believe trust is earned through results and relationships. We're not here to impress with big numbers—we're here to deliver real value, one solution at a time.
+          </p>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button />
-          </div>
-          <div className="md:grid grid-cols-2 gap-6 space-y-5 md:space-y-0">
-            {data.map((item, index) => (
-              <div key={index} className="bg-body border-2 border-primary p-6 rounded-md shadow-md hover:shadow-lg transition-all">
-                <h3 className="text-[#2C3441] text-[18px] font-[600] font-[Quicksand] mb-2">
-                  {item.heading}
-                </h3>
-                <p className="text-[#5F5E5E] text-[15px] font-[Poppins] leading-6">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Cards */}
+        <div className="md:grid grid-cols-2 gap-6 space-y-5 md:space-y-0">
+          {data.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="bg-body border-2 border-primary p-6 rounded-md shadow-md hover:shadow-lg transition-all"
+            >
+              <h3 className="text-[#2C3441] text-[18px] font-[600] font-[Quicksand] mb-2">
+                {item.heading}
+              </h3>
+              <p className="text-[#5F5E5E] text-[15px] font-[Poppins] leading-6">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

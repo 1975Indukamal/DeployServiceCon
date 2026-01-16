@@ -14,35 +14,53 @@ import ClientBusiness from "./_components/ClientBusiness"
 import DigitalExperience from "./_components/DigitalExperience"
 import Discruptive from "@/Components/Home/Discruptive";
 import OffSetTradeMark from "@/Components/shared/OffSetTradeMark";
+import MotionSection from "@/Components/shared/MotionSection";
+
 const data = GetMetaData("Services")
-export const metadata = generatemetaData({ ...data,canonical:"/our-services" })
+export const metadata = generatemetaData({ ...data, canonical: "/our-services" })
+
 const page = () => {
   return (
     <div className="overflow-hidden">
       <Hero />
-      <HeadingToTurn />
-      <Line />
-       {/* <CircleArrow />
-      <HideShow /> */}
-      {/* <Line /> */}
-      {/* <OurCore /> */}
-      <HorizantalSlide />
-        <OurCore /> 
+
+      <MotionSection>
+        <HeadingToTurn />
+      </MotionSection>
+
+      <MotionSection delay={0.1}>
+        <Line />
+      </MotionSection>
+
+      <MotionSection delay={0.2}>
+        <HorizantalSlide />
+      </MotionSection>
+
+      <MotionSection delay={0.3}>
+        <OurCore />
+      </MotionSection>
+
+      <MotionSection delay={0.4}>
         <WhyChoose />
-     
-      <RevenueBusiness/>
-      <Discruptive />
-            <div className="container mb-10">
-            <OffSetTradeMark
-              imgClassName="rotate-[265deg]"
-              imgWidth={70}
-              imgHeight={70}
-            />
-            </div>
-      {/* <ClientBusiness/>
-      <DigitalExperience/>
-      */}
-      {/* <LastSection /> */}
+      </MotionSection>
+
+      <MotionSection delay={0.5}>
+        <RevenueBusiness />
+      </MotionSection>
+
+      <MotionSection delay={0.6}>
+        <Discruptive />
+      </MotionSection>
+
+      <MotionSection delay={0.7}>
+        <div className="container mb-10">
+          <OffSetTradeMark
+            imgClassName="rotate-[265deg]"
+            imgWidth={70}
+            imgHeight={70}
+          />
+        </div>
+      </MotionSection>
     </div>
   );
 };

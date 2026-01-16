@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Button from "./Button";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -36,11 +37,27 @@ const services = [
   },
 ];
 
+// ===== Motion Variants =====
+const fadeUp = {
+  initial: { opacity: 0, y: 25 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const staggerCards = {
+  animate: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
 
 const Card = ({ title, img, desc }: { title: string; img: string; desc: string }) => {
   return (
-    <div className="flex-shrink-0 group md:w-[430px] w-full relative h-[400px] md:h-[500px] overflow-hidden rounded-[15px]">
-      
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ scale: 1.03 }}
+      className="flex-shrink-0 group md:w-[430px] w-full relative h-[400px] md:h-[500px] overflow-hidden rounded-[15px]"
+    >
       {/* Image Wrapper */}
       <div className="h-full w-full rounded-[15px] overflow-hidden relative">
         <Image
@@ -51,58 +68,66 @@ const Card = ({ title, img, desc }: { title: string; img: string; desc: string }
           className="w-full h-full object-content rounded-[15px]"
         />
 
-        {/* Overlay (only shows on md and up) */}
-        <div className="absolute inset-0 bg-bgc/70 opacity-90 sm:opacity-20  sm:group-hover:opacity-100 transition-opacity duration-500 rounded-[15px]" />
+        <div className="absolute inset-0 bg-bgc/70 opacity-90 sm:opacity-20 sm:group-hover:opacity-100 transition-opacity duration-500 rounded-[15px]" />
       </div>
 
-      {/* Text block: slide up on hover only on md+ */}
-      <div className="absolute 
-        bottom-0 md:-bottom-[13rem] sm:-bottom-[13rem] 
-        h-[300px] sm:h-[250px] 
-        sm:group-hover:bottom-0 
-        transition-all duration-500 
-        left-0 right-0 
-        text-center 
-        bg-gradient-to-b from-transparent via-black/30 to-black/70 
-        rounded-[15px] px-2 md:px-10"
-      >
+      {/* Text */}
+      <div className="absolute bottom-0 md:-bottom-[13rem] sm:-bottom-[13rem] h-[300px] sm:h-[250px] sm:group-hover:bottom-0 transition-all duration-500 left-0 right-0 text-center bg-gradient-to-b from-transparent via-black/30 to-black/70 rounded-[15px] px-2 md:px-10">
         <h5 className="text-body text-[22px] font-semibold pb-5 ">{title}</h5>
         <p className="text-white text-base font-normal text-left">{desc}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
-
-
 
 const HorizontalSlide = () => {
   return (
     <div className="container">
       {/* Desktop Intro Section */}
       <div className="no-scrollbar md:flex block overflow-x-scroll lg:ml-0 p-5 md:mt-28 space-x-5 ">
-        <div className="flex-shrink-0 hidden md:flex flex-col w-[450px] ml-20 xl:ml-0 text-start justify-center mr-auto">
+        
+        {/* Intro Motion */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6 }}
+          className="flex-shrink-0 hidden md:flex flex-col w-[450px] ml-20 xl:ml-0 text-start justify-center mr-auto"
+        >
           <h2 className="text-[48px] md:text-[58px] text-body leading-[72px] md:leading-[80px] font-[Quicksand]">
-          What We  <span className="text-primary">Deliver</span>
+            What We <span className="text-primary">Deliver</span>
           </h2>
           <p className="mt-8 text-body text-base font-light leading-7">
-          Empowering your business with impactful digital solutions—from sleek websites to powerful mobile apps and beyond.
+            Empowering your business with impactful digital solutions—from sleek websites to powerful mobile apps and beyond.
           </p>
           <div className="max-w-[200px] mt-5">
             <Button text="Request a Proposal" />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Desktop Service Cards */}
-        <div className="md:flex hidden gap-5">
+        {/* Desktop Cards */}
+        <motion.div
+          variants={staggerCards}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="md:flex hidden gap-5"
+        >
           {services.map((service, index) => (
             <Card key={index} {...service} />
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Mobile View */}
       <div className="block md:hidden ml-3 pr-3">
-        <div className="text-start mt-5">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-start mt-5"
+        >
           <h2 className="text-[48px] text-body leading-[72px]">
             Our <span className="text-primary">Services</span>
           </h2>
@@ -112,13 +137,19 @@ const HorizontalSlide = () => {
           <div className="max-w-[200px] mt-5">
             <Button text="Request a Proposal" />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex gap-5 overflow-x-scroll mt-[70px] no-scrollbar">
+        <motion.div
+          className="flex gap-5 overflow-x-scroll mt-[70px] no-scrollbar"
+          variants={staggerCards}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           {services.map((service, index) => (
             <Card key={index} {...service} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

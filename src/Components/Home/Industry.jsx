@@ -7,7 +7,8 @@ import { GiGraduateCap } from "react-icons/gi";
 import { GiKnifeFork } from "react-icons/gi";
 import LoadMore from '@/Components/UI/Button';
 import Link from 'next/link';
-
+import { motion } from "framer-motion"
+import { fadeUp } from '@/utils/motionVariants';
 const IndustriesWeServe = () => {
 
 
@@ -15,13 +16,22 @@ const IndustriesWeServe = () => {
         <div className='overflow-hidden md:my-20 my-24' >
             <div className='text-[Quicksand]'  >
 
-            <h2 className='text-center font-normal text-[38px] text-body'>
+           <motion.h2
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  viewport={{ once: true }}
+  className="text-center font-normal text-[38px] text-body"
+> 
   Empowering <span className='font-medium text-primary'>
     Innovation
   </span> for Future-Ready Companies
-</h2>
+</motion.h2>
 
-<div className='mt-4 text-center'>
+<motion.div   initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  viewport={{ once: true }} className='mt-4 text-center'>
   <h5 className='font-[Poppins] text-primary text-[18px] uppercase font-normal'>
     Sectors We Collaborate With
   </h5>
@@ -31,9 +41,12 @@ const IndustriesWeServe = () => {
   </p>
 
 
-                </div>
+                </motion.div>
 
-                <div className='my-14 overflow-hidden' >
+                <motion.div   initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  viewport={{ once: true }} className='my-14 overflow-hidden' >
 
 
 
@@ -802,12 +815,15 @@ const IndustriesWeServe = () => {
                         </Swiper>
                     </div>
 
-                </div>
+                </motion.div>
 
-                <div className='flex items-center justify-center flex-column'>
+                <motion.div   initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  viewport={{ once: true }} className='flex items-center justify-center flex-column'>
                     <Link href={"/our-services"}>
                     <LoadMore text={"Learn More"}  /></Link>
-                </div>
+                </motion.div>
             </div>
         </div>
     )

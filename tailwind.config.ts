@@ -2,6 +2,7 @@
 import type { Config } from "tailwindcss"
 const plugin = require('tailwindcss/plugin')
 const defaultTheme = require("tailwindcss/defaultTheme");
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,9 +17,9 @@ const config: Config = {
         dark: "#202124",
         "dark-primary": "#2C3441",
         "light-primary": "#F6F6F6",
-        "body": "#FFFBEB",
+        body: "#FFFBEB",
         bgc: "#2B0D5D",
-        custombgc: "#1C173D",
+        custombgc: "#121212",
       },
 
       backgroundImage: {
@@ -28,13 +29,13 @@ const config: Config = {
       },
 
       animation: {
-        'flip': 'flip .5s ease-in-out',
-        "slideup": "slideup 1s ease-in-out",
-        'slide_down': 'slideup 1s ease-in-out reverse', 
+        flip: "flip .5s ease-in-out",
+        slideup: "slideup 1s ease-in-out",
+        slide_down: "slideup 1s ease-in-out reverse",
       },
 
       keyframes:{
-        "flip":  {
+        flip:  {
           "0%": {
             transition: "transform .5s ease-in-out",
             transform: "scale(0) rotateZ(-29deg) rotateY(-184deg) rotateX(6deg)",
@@ -45,37 +46,29 @@ const config: Config = {
             transition: "transform .5s ease-in-out", 
             opacity: "0"
           }
-          
         },
 
-        'slideup': {
-          '0%': {
-            transform: 'translateY(100%) scaleY(1)',
-            'transform-origin': 'top',
-            opacity: "1",
-          },
-          '50%': {
-            transform: 'translateY(0)',
-            'transform-origin': 'top',
-          },
-          '100%': {
-            transform: 'translateY(0) scaleY(0)',
-            'transform-origin': 'top',
-          },
+        slideup: {
+          "0%": { transform: "translateY(100%) scaleY(1)", "transform-origin": "top", opacity: "1" },
+          "50%": { transform: "translateY(0)", "transform-origin": "top" },
+          "100%": { transform: "translateY(0) scaleY(0)", "transform-origin": "top" },
         },
 
-        "tilt":{
-          "0%":{
-            transform:"rotate(0deg)"
-          },
-          "100%":{
-            transform:"rotate(-10deg)"
-          }
+        tilt:{
+          "0%": { transform:"rotate(0deg)" },
+          "100%": { transform:"rotate(-10deg)" }
         }
-     
-      }
+      },
 
+      // Common reusable styles
+      common: {
+        cardPadding: "1.5rem",
+        cardRadius: "1rem",
+        sectionPadding: "4rem 0",
+        transitionSmooth: "all 0.3s ease-in-out",
+      }
     },
+
     container: {
       center: true,
       padding: {
@@ -84,12 +77,13 @@ const config: Config = {
         md: "3rem",
         xl: "2rem",
         lg: "2rem",
-
       }
     },
+
     fontFamily: {
       body: ['"Poppins"', ...defaultTheme.fontFamily.sans],
     },
+
     screens: {
       xs: "400px",
       sm: "540px",
@@ -101,18 +95,16 @@ const config: Config = {
 
   plugins: [
     plugin(function ({ addComponents }: { addComponents: any }) {
-
       addComponents({
         '.container': {
           maxWidth: '100%',
           '@screen xl': {
             maxWidth: '1320px',
           },
-
         }
       })
     })
   ],
 };
 
-module.exports = config
+module.exports = config;

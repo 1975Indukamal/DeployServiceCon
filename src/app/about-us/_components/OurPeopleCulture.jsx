@@ -4,6 +4,8 @@ import React, {useEffect} from 'react'
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 
 import Slider1_1 from "../../../../public/assets/images/ABOUT US SLIDER IMAGEs/SLIDER_1/IMAGE1.webp";
 import Slider1_2 from "../../../../public/assets/images/ABOUT US SLIDER IMAGEs/SLIDER_1/IMAGE2.webp";
@@ -76,10 +78,14 @@ return () => ctx.revert();
             <div className="flex justify-between content-wrapper flex-col ">
               <div className="  w-full ">
                 <div className="">
-                <h2 className="text-body font-quicksand text-[38px] md:text-[48px] xl:text-[58px] font-normal leading-20 md:pb-[0px] pb-0">
+           <motion.h2
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }} className="text-body font-quicksand text-[38px] md:text-[48px] xl:text-[58px] font-normal leading-20 md:pb-[0px] pb-0">
   Where Talent Meets Vision
   <span className="font-light text-primary"> Driven by People, Powered by Purpose</span>
-</h2>
+</motion.h2>
 
                 </div>
             
@@ -88,31 +94,35 @@ return () => ctx.revert();
               <div className="text-body text-[16px] font-[Quicksand] pt-14 font-semibold">
   At ServiceConnect, we believe innovation starts with people. We’re a diverse collective of thinkers, builders, and creators working in sync to shape digital experiences that matter.
 </div>
-<h3 className="mb-6 text-[28px] font-[500] font-[Quicksand] text-body">
+<motion.h3
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  viewport={{ once: true }} className="mb-6 text-[28px] font-[500] font-[Quicksand] text-body">
   Our Culture Is Rooted In{" "}
   <span className="text-primary font-normal font-[Quicksand]">Real Impact</span>
-</h3>
+</motion.h3>
 
 <div className="grid md:grid-cols-2 gap-6">
-  <div className="text-body text-[16px] font-[Quicksand] border border-primary p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-    <b className="font-[600] block mb-2">Authenticity & Trust</b>
-    We lead with honesty, integrity, and full transparency—because real relationships matter.
-  </div>
+{[
+  ["Authenticity & Trust", "We lead with honesty, integrity, and full transparency—because real relationships matter."],
+  ["Bold Collaboration", "We don’t just work together—we innovate together. Our teams thrive on shared success and creative synergy."],
+  ["Relentless Learning", "Curiosity drives us. We embrace change, seek knowledge, and stay ahead in a rapidly evolving world."],
+  ["Human-Centered Balance", "We support well-being and flexibility—because the best ideas come from happy, empowered minds."]
+].map((item, i) => (
+  <motion.div
+    key={i}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: i * 0.1 }}
+    viewport={{ once: true }}
+    className="text-body text-[16px] font-[Quicksand] border border-primary p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+  >
+    <b className="font-[600] block mb-2">{item[0]}</b>
+    {item[1]}
+  </motion.div>
+))}
 
-  <div className="text-body text-[16px] font-[Quicksand] border border-primary p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-    <b className="font-[600] block mb-2">Bold Collaboration</b>
-    We don’t just work together—we innovate together. Our teams thrive on shared success and creative synergy.
-  </div>
-
-  <div className="text-body text-[16px] font-[Quicksand] border border-primary p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-    <b className="font-[600] block mb-2">Relentless Learning</b>
-    Curiosity drives us. We embrace change, seek knowledge, and stay ahead in a rapidly evolving world.
-  </div>
-
-  <div className="text-body text-[16px] font-[Quicksand] border border-primary p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-    <b className="font-[600] block mb-2">Human-Centered Balance</b>
-    We support well-being and flexibility—because the best ideas come from happy, empowered minds.
-  </div>
 </div>
 
 

@@ -1,26 +1,58 @@
+'use client'
+
 import React from 'react'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
 import { PiPlugsConnectedFill } from "react-icons/pi";
+import { motion } from "framer-motion";
 
 interface propTypes {
-    text?:
-    string, imgWidth?: number,
+    text?: string,
+    imgWidth?: number,
     imgClassName?: string, 
     img?: string, 
     imgHeight?: number
 }
-const OffSetTradeMark = ({ text = "InnovateCreateElevate", imgWidth = 42, imgClassName = "", img = "/assets/images/log.png",imgHeight=42 }: propTypes) => {
-    const imgClasses = twMerge(" absolute  origin-center  ", imgClassName)
+
+const OffSetTradeMark = ({
+    text = "InnovateCreateElevate",
+    imgWidth = 42,
+    imgClassName = "",
+    img = "/assets/images/log.png",
+    imgHeight = 42
+}: propTypes) => {
+
+    const imgClasses = twMerge("absolute origin-center", imgClassName);
+
+    // Animation for the container
+    const containerMotion = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }
+    };
+
+    // Continuous rotation for the circular text
+    const rotateMotion = {
+        animate: { rotate: 360 },
+        transition: { repeat: Infinity, duration: 20, ease: "linear" }
+    };
+
     return (
-        <div className='pl-6 sm:ml-[32px] max-w-[587px] w-full py-4  rounded-bl-[102px] rounded-tl-[102px] md:ml-auto bg-primary' >
-            <div className="bg-custombgc relative w-44 grid place-items-center grid-cols-1  h-44 rounded-full">
-                <svg
+        <motion.div
+            className='pl-6 sm:ml-[32px] max-w-[587px] w-full py-4 rounded-bl-[102px] rounded-tl-[102px] md:ml-auto bg-primary'
+            variants={containerMotion}
+            initial="hidden"
+            animate="visible"
+        >
+            <div className="bg-custombgc relative w-44 grid place-items-center grid-cols-1 h-44 rounded-full">
+                
+                {/* Circular Text SVG with continuous rotation */}
+                <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 500 500"
                     width={190}
                     height={190}
-                    className=' absolute  '
+                    className='absolute'
+                    {...rotateMotion}
                 >
                     <defs>
                         <path
@@ -36,21 +68,30 @@ const OffSetTradeMark = ({ text = "InnovateCreateElevate", imgWidth = 42, imgCla
                             fill="#fff"
                             fontSize="50"
                             letterSpacing="2"
-                            className=" spin-logo  "
+                            className="spin-logo"
                         >
                             <textPath
                                 xlinkHref="#textcircle"
                                 aria-label="creativedevelopmentagency"
                                 fontSize={44}
                                 fontWeight={500}
-
                             >
                                 {text}
                             </textPath>
                         </text>
                     </g>
-                </svg>
-      <PiPlugsConnectedFill size={50} color="#facc15" />
+                </motion.svg>
+
+                {/* Center Icon */}
+                <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                >
+                    <PiPlugsConnectedFill size={50} color="#facc15" />
+                </motion.div>
+
+                {/* Optional logo image */}
                 {/* <Image
                     src={img}
                     className={imgClasses}
@@ -59,7 +100,7 @@ const OffSetTradeMark = ({ text = "InnovateCreateElevate", imgWidth = 42, imgCla
                     alt='logo'
                 /> */}
             </div>
-        </div>
+        </motion.div>
     )
 }
 
