@@ -165,7 +165,7 @@ const HeroH = () => {
             </motion.div>
 
             {/* Right */}
-            <div className="flex-1 relative h-full flex items-center justify-center">
+            <div className="flex-1 relative h-full lg:flex items-center justify-center hidden">
               
               {/* Loader until spline loads */}
               {(!splineLoaded && !showSpline ) && (
