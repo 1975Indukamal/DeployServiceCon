@@ -12,7 +12,7 @@ import HorizontalSlide from "./our-services/_components/HorizontalSlide";
 import Line from "./our-services/_components/Line";
 import LatestBlogs from "./blog/_components/LatestBlogs";
 import BlogCategories from "../app/blog/_components/BlogCategories";
-import Hero from "../Components/home/Hero"
+import Hero from "@/Components/home/Hero"
 import NewsBlogsClient from "@/Components/shared/News&Blogs";
 
 
