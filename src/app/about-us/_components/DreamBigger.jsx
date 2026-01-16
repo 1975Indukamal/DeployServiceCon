@@ -6,7 +6,7 @@ const DreamBigger = () => {
   return (
 
     <section>
-      <div className='pb-16'>
+      <div className=''>
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -5,6 +5,7 @@ import LatestBlogs from "./_components/LatestBlogs";
 import Newsletter from "@/Components/shared/Newsletter";
 import GetMetaData, { generatemetaData } from "@/utils";
 import Line from "../our-services/_components/Line";
+import MotionSection from "@/Components/shared/MotionSection";
 const data = GetMetaData("Blogs")
 export const metadata = generatemetaData({ ...data,canonical:"/blog" })
 
@@ -16,10 +17,13 @@ const page = async() => {
     <>
     <div className='container py-20 lg:py-32'>
     <Hero blogs={blogContent[0]}/>
+    <MotionSection delay={0.1}>
     <LatestBlogs/>
-    <Line/>
-    <BlogCategories/>
-    <Newsletter />
+    </MotionSection>
+    <MotionSection delay={0.2}>
+    <Line/></MotionSection>
+       <MotionSection delay={0.3}><BlogCategories/></MotionSection>
+       <MotionSection delay={0.4}><Newsletter /></MotionSection>
     </div>
 
     </>

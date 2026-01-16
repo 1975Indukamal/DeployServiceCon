@@ -1,160 +1,105 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Drawer } from "antd";
+import { IoClose } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import "./Navbar.css";
 import Logo from "../icons/Logo";
-
+// import "./Navbar.css";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/our-services", label: "Our Services" },
   { href: "/about-us", label: "About Us" },
-    { href: "/team", label: "Team" },
+  { href: "/team", label: "Team" },
   { href: "/contact-us", label: "Contact Us" },
 ];
 
 const Navbar = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const location = usePathname();
+  const [openMobile, setOpenMobile] = useState(false);
+  const pathname = usePathname();
 
+  const activeClass =
+    "rounded-lg bg-primary bg-opacity-60 shadow-2xl px-3 py-2 border-2 border-body";
 
-const activeClass =
-  "rounded-lg bg-primary bg-opacity-60 shadow-2xl px-3 py-2 border-2 border-body";
+  // auto close on scroll
 
   useEffect(() => {
+  let lastY = window.scrollY;
+
+  const handleScroll = () => {
+    const currentY = window.scrollY;
+
+    // Only close when user scrolls down
+    if (openMobile && currentY > lastY) {
+      setOpenMobile(false);
+    }
+
+    lastY = currentY;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [openMobile]);
+
+
+  // auto close on resize
+  useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024 && isDrawerOpen) {
-        setIsDrawerOpen(false);
-      }
+      if (window.innerWidth >= 1024 && openMobile) setOpenMobile(false);
     };
-
     window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [openMobile]);
 
-    // Also check on mount in case user loads on large screen
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isDrawerOpen]);
   return (
     <>
       {/* Desktop Navbar */}
-      <div
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
-        }}
-        className=" md:flex justify-between items-center !font-inter hidden bg-opacity-80 bg-custombgc md:py-5"
-      >
-        <div className="container  md:flex justify-between items-center"> 
-        <div className="flex items-center !font-inter ">
+      <div className="hidden lg:flex justify-between items-center bg-opacity-80 bg-custombgc lg:py-5 sticky top-0 z-50">
+        <div className="container flex justify-between items-center">
           <Link href="/">
-            <Logo className="w-auto max-h-[90px] object-cover !font-[inter]" />
+            <Logo className="w-auto max-h-[90px]" />
           </Link>
-        </div>
-
-        {/* Navigation Links */}
-        <div className="flex !flex-row items-center justify-between !gap-4 xl:!gap-10 lg:flex z-10 !font-inter">
-          {NAV_LINKS.map(({ href, label }) => {
-            const isActive = location === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={`no-underline text-white font-medium ${
-                  isActive ? activeClass : ""
-                } ${label === "Our Services" && location === "/hotel" ? activeClass : ""}`}
-              >
-                <button>{label}</button>
-              </Link>
-            );
-          })}
-        </div>
+          <div className="flex gap-8 items-center">
+            {NAV_LINKS.map(({ href, label }) => {
+              const isActive = pathname === href;
+              return (
+                <Link key={href} href={href}>
+                  <button className={`text-white font-medium ${isActive ? activeClass : ""}`}>
+                    {label}
+                  </button>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
 
       {/* Mobile Navbar */}
-      <div
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
-        
-        }}
-        className="!font-inter z-10"
-      >
-        <div className="flex flex-row justify-between md:hidden items-center bg-opacity-80 bg-custombgc container ">
-          <div className="flex items-center space-x-4 p-2.5 sm:px-2 custom-border-logo text-black">
-            <Link href="/">
-             <Logo className="w-auto max-h-[90px] object-cover !font-[inter]" />
-            </Link>
-          </div>
+      <div className="lg:hidden sticky top-0 bg-custombgc z-50 ">
+        <div className="container flex justify-between items-center py-3 ">
+          <Link href="/">
+            <Logo className="w-auto max-h-[90px]" />
+          </Link>
 
-          {/* Hamburger Menu Button */}
-          <div className="flex items-center lg:hidden px-3">
-            <button
-              className="flex flex-row items-center gap-2.5 py-3 cursor-pointer text-white md:hidden"
-              onClick={() => setIsDrawerOpen(true)}
-              aria-label="Open menu"
-            >
-              <GiHamburgerMenu size={24} />
-            </button>
-          </div>
+          {/* Toggle button */}
+          <button onClick={() => setOpenMobile(!openMobile)} className="text-white">
+            {openMobile ? <IoClose size={28} /> : <GiHamburgerMenu size={24} />}
+          </button>
+        </div>
 
-          {/* Drawer for Mobile Menu */}
-          <Drawer
-            title={
-              <div className="flex justify-between items-center">
-                {/* Logo (optional) */}
-                {/* <img src={logoghumloo} alt="navbarlogo" className="w-auto max-h-[80px] object-cover" /> */}
-
-                {/* Close button */}
-                <button
-                  onClick={() => setIsDrawerOpen(false)}
-                  style={{
-                    border: "none",
-                    background: "transparent",
-                    cursor: "pointer",
-                    fontSize: 28,
-                    lineHeight: 1,
-                    fontWeight: "bold",
-                    color: "#111",
-                    padding: "0 6px",
-                    borderRadius: "50%",
-                    transition: "background-color 0.2s",
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#eee")}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = "transparent")}
-                  aria-label="Close menu"
-                >
-                  &times;
-                </button>
-              </div>
-            }
-            placement="top"
-            onClose={() => setIsDrawerOpen(false)}
-            open={isDrawerOpen}
-            zIndex={1000}
-            bodyStyle={{ padding: 0, backgroundColor: "#f9fafb" }}
-            headerStyle={{ borderBottom: "none", padding: "16px 24px" }}
-          >
-            <nav className="flex flex-col gap-2 px-6 py-4">
+        {/* Mobile Menu */}
+        {openMobile && (
+          <div className="bg-custombgc shadow-lg animate-slideDown container ">
+            <nav className="flex flex-col gap-2 py-4 ">
               {NAV_LINKS.map(({ href, label }) => {
-                const isActive = location === href;
+                const isActive = pathname === href;
                 return (
-                  <Link key={href} href={href} className="no-underline">
+                  <Link key={href} href={href} className="">
                     <button
-                      onClick={() => setIsDrawerOpen(false)}
-                      className={`w-full text-left rounded-md p-4 font-medium text-lg transition
-                      ${
-                        isActive
-                          ? "bg-indigo-900 text-white shadow-md"
-                          : "bg-white text-gray-900 hover:bg-indigo-100"
+                      onClick={() => setOpenMobile(false)}
+                      className={`w-full text-left px-4 py-3 rounded-md font-medium text-white ${
+                        isActive ? "bg-primary border border-white" : "bg-custombgc border border-primary"
                       }`}
                     >
                       {label}
@@ -163,9 +108,25 @@ const activeClass =
                 );
               })}
             </nav>
-          </Drawer>
-        </div>
+          </div>
+        )}
       </div>
+
+      <style jsx>{`
+        .animate-slideDown {
+          animation: slideDown 0.3s ease forwards;
+        }
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </>
   );
 };

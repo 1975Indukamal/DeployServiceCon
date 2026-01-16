@@ -68,7 +68,7 @@ const Card = ({ title, img, desc }: { title: string; img: string; desc: string }
           className="w-full h-full object-content rounded-[15px]"
         />
 
-        <div className="absolute inset-0 bg-bgc/70 opacity-90 sm:opacity-20 sm:group-hover:opacity-100 transition-opacity duration-500 rounded-[15px]" />
+        <div className="absolute inset-0 bg-black/70 opacity-90 sm:opacity-20 sm:group-hover:opacity-100 transition-opacity duration-500 rounded-[15px]" />
       </div>
 
       {/* Text */}

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 const SecondSection = () => {
   return (
-    <div className="   rounded-[50px]  border border-primary px-10  md:px-20 mb-[100px] ">
+    <div className="   rounded-[50px]  border border-primary px-10  md:px-20 mb-[20px] lg:mb-[100px] ">
       <div className="max-w-7xl mx-auto mt-[100px] mb-[124px] ">
         <span className="uppercase text-primary font-[Poppins] text-[18px] font-medium leading-[28px]">
           or Reach us @

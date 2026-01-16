@@ -8,7 +8,7 @@ import Link from "next/link";
 const JoinOurTeam = () => {
   return (
     <section>
-      <div className="container flex md:flex-row flex-col pt-[30px] lg:pb-[120px] md:pb-[90px] pb-[100px]">
+      <div className="container flex md:flex-row flex-col lg:pt-[30px] lg:pb-[120px] md:pb-[90px] pb-[50px]">
         <div className="  items-start justify-between ">
           <div className="md:flex xl:space-x-[119px] lg:space-x-[100px] md:space-x-[60px] space-x-0 md:w-full  md:m-0 ">
            
@@ -16,7 +16,7 @@ const JoinOurTeam = () => {
             <div className=" lg:w-[50%] md:w-[60%] w-full m-0 ">
               <div className="lg:pt-2">
                 <div className="m-0 md:pb-5 pb-4">
-                  <h2 className=" lg:text-[38px] md:text-[32px] text-[28px] font-[400] text-primary font-[Poppins] pt-10">
+                  <h2 className=" lg:text-[38px] md:text-[32px] text-[28px] font-[400] text-primary font-[Poppins] lg:pt-10">
                   Turn Vision into Reality with Us
                   </h2>
                 </div>

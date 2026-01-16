@@ -66,7 +66,7 @@ import Dart22 from '../../../../public/assets/image/our-services/6.webp';
 
 const MissionVision = () => {
   return (
-    <section className="bg-custombgc text-white py-16 px-6 md:px-12">
+    <section className="bg-custombgc text-white py-16 md:px-12">
 
       {/* Heading */}
       <motion.div
