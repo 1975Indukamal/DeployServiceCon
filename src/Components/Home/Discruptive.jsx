@@ -11,7 +11,7 @@ const Discruptive = () => {
   return (
     <section className="container">
       <motion.div 
-        className="mx-auto mt-[120px] mb-[20px]"
+        className="mx-auto lg:mt-[120px] mb-[20px]"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}

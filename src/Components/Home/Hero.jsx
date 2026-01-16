@@ -128,8 +128,8 @@ const HeroH = () => {
 
   return (
     <section className="relative text-white">
-      <div className="container mx-auto px-6 py-20 lg:py-0 relative z-10">
-        <Card className="w-full h-[500px] relative overflow-hidden">
+      <div className="container mx-auto px-3 sm:px-6 py-20 lg:py-0 relative z-10">
+        <Card className="w-full lg:h-[500px] relative overflow-hidden ">
           <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
           <div className="flex h-full">
@@ -142,7 +142,7 @@ const HeroH = () => {
           visible: {
             transition: { staggerChildren: 0.2 }
           }
-        }} className="mb-12 lg:mb-0 max-w-2xl flex-1 flex justify-center items-start flex-col">
+        }} className="mb-5 lg:mb-0 max-w-2xl flex-1 flex justify-center items-start flex-col">
               <motion.h1  className="text-4xl sm:text-5xl font-bold mb-6">
                 Simplify Service Access <br />
                 with <span className="text-primary">ServiceConnect</span>
