@@ -1,5 +1,5 @@
 
-import { Button } from "@/Components/ui/button";
+import { Button } from "../../../Components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
