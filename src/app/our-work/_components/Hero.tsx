@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 
+
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center section-padding overflow-hidden">

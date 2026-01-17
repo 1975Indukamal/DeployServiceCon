@@ -1,8 +1,7 @@
 
 
 import React from "react";
-import Button from "@/Components/shared/Button";
-import Link from "next/link";
+
 
 const Page = () => {
   
