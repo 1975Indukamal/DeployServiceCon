@@ -111,9 +111,8 @@ const FirstHeading = () => {
           },
           body: JSON.stringify(formData),
         });
-        const resp = await response.json();
-        console.log(resp);
-        if (resp.includes("OK")) {
+        
+        if (response.ok) {
           toast.success("Your response is successfully submitted, will reach out to you soon!");
         
           setFormData({
@@ -327,3 +326,4 @@ const FirstHeading = () => {
 };
 
 export default FirstHeading;
+

@@ -1,59 +1,282 @@
-import { NextResponse } from "next/server";
+// import { NextResponse } from "next/server";
+// import nodemailer from "nodemailer";
+
+
+// export async function POST(req) {
+//     try {
+//       const body = await req.json();
+
+//       const transporter = nodemailer.createTransport({
+//         service: "gmail",
+//         auth: {
+//           user: "punamzagade1995@gmail.com",
+//             pass: "gbqs djnd msnj zoxs",
+//         },
+//       });
+      
+//       const infoEmailData = {
+//         to: "info@serviceconnekt.com",
+//         // cc : ["akanksha@ServiceConnect.com","vishwa@ServiceConnect.com"],
+//         from: body.email,
+//         subject: "Lead From Contact Page",
+//         text: `Name: ${body.name}\nRole: ${body.role||""}\nEmail: ${body.email}\nPhone: ${body.phone}\nInterest: ${body.interests}\nRequirements: ${body.requirements||"" }`,
+//       };
+  
+//       const mailOptions = {
+//         to: body.email,
+//         from: 'ServiceConnect <info@serviceconnekt.com>',
+//         subject: "Thanks for Reaching Out. Let’s Explore Limitless Possibilities",
+//         html: `
+//         <!DOCTYPE html>
+//         <html>
+//           <head>
+//             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+//             <title>ServiceConnect</title>
+//           </head>
+//           <body
+//           style="
+//             margin: 0px;
+//             padding: 0px;
+//             background-color: #121212;
+//             margin: 5rem 0rem;
+//             font: small/1.5 Arial, Helvetica, sans-serif;
+//           "
+//           bgcolor="#121212"
+//         >
+//           <table
+//             bgcolor="#121212"
+//             width="100%"
+//             border="0"
+//             align="center"
+//             cellpadding="0"
+//             cellspacing="0"
+//             style="padding: 0; background-color: #121212"
+//           >
+//             <tr>
+//               <td style="background-color: #121212">
+//                 <table
+//                   width="700"
+//                   border="0"
+//                   valign="top"
+//                   align="center"
+//                   cellpadding="0"
+//                   cellspacing="0"
+//                   bgcolor="#121212"
+//                   style="padding: 2rem"
+//                 >
+//                   <tr>
+//                     <td style="background-color: #121212">
+//                       <div style="width: 100%; margin-bottom: 2rem">
+//                         <img
+//                           src="https://starfish-app-92xxn.ondigitalocean.app/assets/images/emailImage/ServiceConnect-logo.png"
+//                           alt="ServiceConnect"
+//                           height="30"
+//                         />
+//                       </div>
+//                       <img
+//                         height="300"
+//                         width="100%"
+//                         src="https://zoylee.fra1.cdn.digitaloceanspaces.com/zoylee/social-cons/banner.webp"
+//                         alt=""
+//                       />
+      
+//                       <div>
+//                         ${req.body.name ? `<p>Hi ${req.body.name}</p>` : ""}
+//                         <h3>
+//                           Welcome to
+//                           <span style="color: #eb7373">ServiceConnect</span>
+//                         </h3>
+//                         <p>
+//                           We would like to extend our sincere gratitude to you for
+//                           taking the time to reach out to us.
+//                         </p>
+//                         <p>
+//                           We are currently reviewing your inquiry. One of our
+//                           representatives will get back to you shortly to discuss your
+//                           project in further detail and address any questions you may
+//                           have.
+//                         </p>
+//                         <p>
+//                           With this email, we are sharing some resources to give you a
+//                           brief overview of our development practices, technologies
+//                           and our portfolio.
+//                         </p>
+//                         <a
+//                           style="
+//                             padding: 10px 20px;
+//                             background-color: #2c3441;
+//                             display: inline-block;
+//                             border-radius: 2px;
+//                             color: #121212;
+//                             border: 2px solid #2c3441;
+//                             cursor: pointer;
+//                             text-decoration: none;
+//                           "
+//                           href="https://www.figma.com/proto/V4YsvaAh8UhyjnDu4IRaMq/ServiceConnect?page-id=0%3A1&type=design&node-id=2-38418&viewport=567%2C388%2C0.08&t=W0lf6WaQ40yRMcSF-1&scaling=scale-down-width"
+//                           target="_blank"
+//                         >
+//                           View Profile!
+//                         </a>
+//                         <p>
+//                           In the meanwhile, if you need any immediate assistance or
+//                           have additional information to share, feel free to contact
+//                           us at <span style="color: #eb7373;">+91-9319271595</span> or
+//                           <span style="color: #eb7373;text-decoration: none;">projects@ServiceConnect.com</span>.
+//                         </p>
+      
+//                         <p>
+//                           Thank you once again for considering ServiceConnect as your
+//                           digital partner. We look forward to the opportunity to work
+//                           together and deliver outstanding results for your business.
+//                         </p>
+//                         <p>Thanks & regards</p> <br />
+      
+//                         <span style="font-weight: bold;">Komal Singh</span><br /> 
+//                         <span>ServiceConnect Technologies Pvt. Ltd.</span><br />
+      
+//                         <br /><br /><br />
+//                         <hr />
+//                         <p>Follow us @</p>
+//                         <div style="width: 100%; display: flex;">
+//                         <div style="width: 35px; display: inline-block">
+//                             <a
+//                               href="https://www.instagram.com/serviceconnekt/"
+//                               target="_blank"
+//                             >
+//                               <img
+//                                 width="25"
+//                                 height="25"
+//                                 src="https://zoylee.fra1.cdn.digitaloceanspaces.com/zoylee/social-cons/instagram.png"
+//                                 alt=""
+//                               />
+//                             </a>
+//                           </div>
+//                         <div style="width: 35px; display: inline-block">
+//                           <a
+//                             href="https://www.linkedin.com/company/ServiceConnect/"
+//                             target="_blank"
+//                           >
+//                             <img
+//                               width="25"
+//                               height="25"
+//                               src="https://zoylee.fra1.cdn.digitaloceanspaces.com/zoylee/social-cons/linkedin.png"
+//                               alt=""
+//                             />
+//                           </a>
+//                         </div>
+//                         <div style="width: 35px; display: inline-block; margin-left: auto;">
+//                           <img
+//                             src="https://starfish-app-92xxn.ondigitalocean.app/assets/images/emailImage/LogoMark.png"
+//                             alt=""
+//                             width="25"
+//                             height="25"
+//                           />
+//                         </div>
+//                         </div>
+//                         <div
+//                           style="
+//                             padding: 5px 0px;
+//                             min-height: 5vh;
+//                             text-align: center;
+//                           "
+//                         >
+                          
+//                         </div>
+//                       </div>
+//                     </td>
+//                   </tr>
+//                 </table>
+//               </td>
+//             </tr>
+//           </table>
+//         </body>
+//         </html>
+//         `,
+//       };
+
+     
+
+//       const info = await transporter.sendMail(mailOptions);
+
+//       console.log("Email sent:", info.response);
+
+  //     return NextResponse.json(info.response);
+  //   } catch (error) {
+  //     console.error('Error sending email:', error);
+  
+  //     // Send an error response with a meaningful message
+  //     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+  //   }
+  // }
+
+
+
+
+
+
+  import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-
-
-export async function POST(req) {
+ export async function POST(req) {
     try {
       const body = await req.json();
 
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: "punamzagade1995@gmail.com",
-            pass: "gbqs djnd msnj zoxs",
-        },
-      });
-      
-      const infoEmailData = {
-        to: "zagadepunam1975@gmail.com",
-        // cc : ["akanksha@ServiceConnect.com","vishwa@ServiceConnect.com"],
-        from: "ServiceConnect <punamzagade1995@gmail.com>",
-        subject: "Lead From Contact Page",
-        text: `Name: ${body.name}\nRole: ${body.role||""}\nEmail: ${body.email}\nPhone: ${body.phone}\nInterest: ${body.interests}\nRequirements: ${body.requirements||"" }`,
-      };
-  
-      const mailOptions = {
-        to: body.email,
-        from: "ServiceConnect <punamzagade1995@gmail.com>",
-        subject: "Thanks for Reaching Out. Let’s Explore Limitless Possibilities",
-        html: `
+const transporter = nodemailer.createTransport({
+  host: "smtp.zoho.in",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "info@serviceconnekt.com",
+    pass: "LAL12MQcXea6",
+  },
+});
+
+const infoEmailData = {
+  from: "info@serviceconnekt.com",
+  to: "info@serviceconnekt.com",
+  replyTo: body.email,
+  subject: "Lead From Contact Page",
+  text: `Name: ${body.name}
+Role: ${body.role || ""}
+Email: ${body.email}
+Phone: ${body.phone}
+Interest: ${body.interests}
+Requirements: ${body.requirements || ""}
+`,
+};
+
+const mailOptions = {
+  from: 'ServiceConnect <info@serviceconnekt.com>',
+  to: body.email,
+  subject: "Thanks for Reaching Out. Let’s Explore Limitless Possibilities",
+   html: `
         <!DOCTYPE html>
         <html>
           <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <title>ServiceConnect</title>
+            <title>ServiceConnekt</title>
           </head>
           <body
           style="
             margin: 0px;
+            color:white;
             padding: 0px;
-            background-color: #ebebeb;
+            background-color: #121212;
             margin: 5rem 0rem;
             font: small/1.5 Arial, Helvetica, sans-serif;
           "
-          bgcolor="#ebebeb"
+          bgcolor=""
         >
           <table
-            bgcolor="#ebebeb"
+            bgcolor="#121212"
             width="100%"
             border="0"
             align="center"
             cellpadding="0"
             cellspacing="0"
-            style="padding: 0; background-color: #ebebeb"
+            style="padding: 0; background-color: #121212"
           >
             <tr>
-              <td style="background-color: #ebebeb">
+              <td style="background-color: #121212">
                 <table
                   width="700"
                   border="0"
@@ -61,30 +284,30 @@ export async function POST(req) {
                   align="center"
                   cellpadding="0"
                   cellspacing="0"
-                  bgcolor="#ffffff"
+                  bgcolor="#121212"
                   style="padding: 2rem"
                 >
                   <tr>
-                    <td style="background-color: #ffffff">
+                    <td style="background-color: #121212">
                       <div style="width: 100%; margin-bottom: 2rem">
                         <img
-                          src="https://starfish-app-92xxn.ondigitalocean.app/assets/images/emailImage/ServiceConnect-logo.png"
-                          alt="ServiceConnect"
+                          src="https://www.serviceconnekt.com/ful.svg"
+                          alt="ServiceConnekt"
                           height="30"
                         />
                       </div>
-                      <img
-                        height="300"
-                        width="100%"
-                        src="https://zoylee.fra1.cdn.digitaloceanspaces.com/zoylee/social-cons/banner.webp"
-                        alt=""
-                      />
-      
+                      // <img
+                      //   height="300"
+                      //   width="100%"
+                      //   src="https://zoylee.fra1.cdn.digitaloceanspaces.com/zoylee/social-cons/banner.webp"
+                      //   alt=""
+                      // />
+
                       <div>
                         ${req.body.name ? `<p>Hi ${req.body.name}</p>` : ""}
                         <h3>
                           Welcome to
-                          <span style="color: #eb7373">ServiceConnect</span>
+                          <span style="color: #ca8a04">ServiceConnekt</span>
                         </h3>
                         <p>
                           We would like to extend our sincere gratitude to you for
@@ -104,10 +327,10 @@ export async function POST(req) {
                         <a
                           style="
                             padding: 10px 20px;
-                            background-color: #2c3441;
+                            background-color: #ca8a04;
                             display: inline-block;
                             border-radius: 2px;
-                            color: #ffffff;
+                            color: #121212;
                             border: 2px solid #2c3441;
                             cursor: pointer;
                             text-decoration: none;
@@ -120,8 +343,7 @@ export async function POST(req) {
                         <p>
                           In the meanwhile, if you need any immediate assistance or
                           have additional information to share, feel free to contact
-                          us at <span style="color: #eb7373;">+91-9319271595</span> or
-                          <span style="color: #eb7373;text-decoration: none;">projects@ServiceConnect.com</span>.
+                          us at <span style="color: #ca8a04;text-decoration: none;">info@serviceconnekt.com</span>.
                         </p>
       
                         <p>
@@ -131,8 +353,8 @@ export async function POST(req) {
                         </p>
                         <p>Thanks & regards</p> <br />
       
-                        <span style="font-weight: bold;">Komal Singh</span><br /> 
-                        <span>ServiceConnect Technologies Pvt. Ltd.</span><br />
+                        // <span style="font-weight: bold;">Komal Singh</span><br /> 
+                        <span>ServiceConnect</span><br />
       
                         <br /><br /><br />
                         <hr />
@@ -192,14 +414,12 @@ export async function POST(req) {
         </body>
         </html>
         `,
-      };
+};
 
-      await transporter.sendMail(infoEmailData);
-      const info = await transporter.sendMail(mailOptions);
 
-      console.log("Email sent:", info.response);
+const info=await transporter.sendMail(mailOptions);
 
-      return NextResponse.json(info.response);
+return NextResponse.json(info.response);
     } catch (error) {
       console.error('Error sending email:', error);
   
@@ -207,6 +427,3 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
   }
-
-
-

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="42" viewBox="0 0 260 100" fill="#000000">
+  <g>
+    <svg x="0" y="0" width="42" height="42" viewBox="0 0 100 100">
+      <path d="M29 25c0-10 9-17 21-17 9 0 18 4 22 12l-11 6c-2-4-6-6-11-6-5 0-9 3-9 7 0 4 3 6 11 9 14 5 22 12 22 24 0 12-10 20-24 20-11 0-21-5-25-14l12-6c2 5 7 8 13 8 6 0 10-3 10-8 0-4-3-7-10-10-15-6-21-12-21-25z"
+        fill="#ffffff"/>
+      <path d="M3 40l32-5 62-15-56 30-38 20 20-24z"
+        fill="#ca8a04"/>
+    </svg>
+
+    <text x="35" y="28" font-family="Poppins, sans-serif" font-size="24" font-weight="700" fill="#ca8a04">ervice</text>
+    <text x="110" y="28" font-family="Poppins, sans-serif" font-size="24" font-weight="700" fill="#ffffff">Connekt</text>
+  </g>
+</svg>
