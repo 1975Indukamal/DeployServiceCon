@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { GiGraduateCap } from "react-icons/gi";
 import { GiKnifeFork } from "react-icons/gi";
-import LoadMore from '@/Components/UI/Button';
+import LoadMore from '@/Components/shared/Button';
 import Link from 'next/link';
 import { motion } from "framer-motion"
 import { fadeUp } from '@/utils/motionVariants';

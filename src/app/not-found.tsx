@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import Button from "@/Components/UI/Button";
+import Button from "@/Components/shared/Button";
 
 
 const Page = () => {

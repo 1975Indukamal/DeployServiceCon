@@ -1,7 +1,7 @@
 // "use client"
 // import React, { useLayoutEffect, useRef } from 'react'
 // import { gsap } from "gsap"
-// import ArrowButton from '../UI/Button'
+// import ArrowButton from '../shared/Button'
 // import Link from 'next/link'
 // import CircularText from '@/Components/shared/CircularText'
 // import bgDrop from "@/../public/filtered_hero.png"
@@ -109,13 +109,13 @@
 
 import Link from "next/link"
 import dynamic from "next/dynamic"
-import { Card } from "../UI/Card"
-import { Spotlight } from "../UI/Spotlight"
+import { Card } from "../shared/Card"
+import { Spotlight } from "../shared/Spotlight"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { fadeUp } from "@/utils/motionVariants"
 
-const SplineScene = dynamic(() => import("../UI/splite"), { ssr: false })
+const SplineScene = dynamic(() => import("../shared/splite"), { ssr: false })
 
 const HeroH = () => {
   const [showSpline, setShowSpline] = useState(false)

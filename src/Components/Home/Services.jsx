@@ -1,5 +1,5 @@
 
-import LoadMore from '../UI/Button'
+import LoadMore from '../shared/Button'
 import Head from 'next/head'
 import FlipperList from '../shared/FlipperList'
 import Link from 'next/link'

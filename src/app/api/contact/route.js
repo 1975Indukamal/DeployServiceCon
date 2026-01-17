@@ -296,12 +296,7 @@ const mailOptions = {
                           height="30"
                         />
                       </div>
-                      // <img
-                      //   height="300"
-                      //   width="100%"
-                      //   src="https://zoylee.fra1.cdn.digitaloceanspaces.com/zoylee/social-cons/banner.webp"
-                      //   alt=""
-                      // />
+                    
 
                       <div>
                         ${req.body.name ? `<p>Hi ${req.body.name}</p>` : ""}
@@ -335,7 +330,7 @@ const mailOptions = {
                             cursor: pointer;
                             text-decoration: none;
                           "
-                          href="https://www.figma.com/proto/V4YsvaAh8UhyjnDu4IRaMq/ServiceConnect?page-id=0%3A1&type=design&node-id=2-38418&viewport=567%2C388%2C0.08&t=W0lf6WaQ40yRMcSF-1&scaling=scale-down-width"
+                          href="https://www.serviceconnekt.com/"
                           target="_blank"
                         >
                           View Profile!
@@ -353,7 +348,7 @@ const mailOptions = {
                         </p>
                         <p>Thanks & regards</p> <br />
       
-                        // <span style="font-weight: bold;">Komal Singh</span><br /> 
+                        
                         <span>ServiceConnect</span><br />
       
                         <br /><br /><br />
@@ -368,21 +363,21 @@ const mailOptions = {
                               <img
                                 width="25"
                                 height="25"
-                                src="https://zoylee.fra1.cdn.digitaloceanspaces.com/zoylee/social-cons/instagram.png"
-                                alt=""
+                                src="https://www.serviceconnekt.com/assets/images/Blogs/instagram.svg"
+                alt="Instagram icon"
                               />
                             </a>
                           </div>
                         <div style="width: 35px; display: inline-block">
                           <a
-                            href="https://www.linkedin.com/company/ServiceConnect/"
+                            href="https://www.linkedin.com/in/service-connekt-25443a3a4/"
                             target="_blank"
                           >
                             <img
                               width="25"
                               height="25"
-                              src="https://zoylee.fra1.cdn.digitaloceanspaces.com/zoylee/social-cons/linkedin.png"
-                              alt=""
+                             src="https://www.serviceconnekt.com/assets/images/linkedin.svg"
+                alt="LinkedIn icon"
                             />
                           </a>
                         </div>

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Button from "../UI/Button"
+import Button from "./Button"
 import { IoChevronForward } from "react-icons/io5"
 import Image from "next/image"
 import Link from "next/link"

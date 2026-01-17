@@ -1,4 +1,4 @@
-// src/components/ui/MotionContainer.tsx
+// src/components/shared/MotionContainer.tsx
 'use client'
 
 import { motion, Variants } from "framer-motion";

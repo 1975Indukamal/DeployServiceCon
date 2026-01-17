@@ -5,7 +5,7 @@ import { MdOutlineArrowForward, MdOutlineArrowBack } from "react-icons/md"
 
 import emoji1 from "../../../../public/assets/images/blogs_updated/emoji1.svg";
 import Link from "next/link";
-import Button from "@/Components/UI/Button";
+import Button from "@/Components/shared/Button";
 import { blogs } from "./blogs";
 
 const cat = ["All Categories",

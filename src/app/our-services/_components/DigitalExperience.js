@@ -13,7 +13,7 @@ import { BiDumbbell } from "react-icons/bi";
 import Air from "@/Components/icons/Air";
 import Telecom from "@/Components/icons/Telecom";
 import Travel from "@/Components/icons/Travel";
-import ArrowButton from "../../../Components/UI/Button";
+import ArrowButton from "../../../Components/shared/Button";
 import CircleArrow from "./CircleArrow";
 const boxData = [
   {

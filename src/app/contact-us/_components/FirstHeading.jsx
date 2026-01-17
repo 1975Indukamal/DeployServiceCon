@@ -1,5 +1,5 @@
 "use client"
-import Button from "@/Components/UI/Button";
+import Button from "@/Components/shared/Button";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";

@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { motion } from "framer-motion"
-import Button from "@/Components/UI/Button";
+import Button from "@/Components/shared/Button";
 import Link from 'next/link';
 
 const AskForQuote = () => {

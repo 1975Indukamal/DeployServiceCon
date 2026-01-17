@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import Button from "@/Components/UI/Button";
+import Button from "@/Components/shared/Button";
 import Image from "next/image";
 import Line from "../../../../public/assets/images/our-work/line.png";
 

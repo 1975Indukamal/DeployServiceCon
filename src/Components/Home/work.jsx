@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
-import LoadMore from "../UI/Button";
+import LoadMore from "../shared/Button";
 import Image from "next/image";
 import Link from "next/link";
 
