@@ -25,7 +25,7 @@ const OrganizationSchema = {
 export const metadata = {
   metadataBase: new URL('https://www.serviceconnekt.com'),
     icons: {
-    icon: '/favicon.svg',
+    icon: '/Favicon.svg',
   },
 }
 export default function RootLayout({

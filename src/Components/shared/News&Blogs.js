@@ -37,51 +37,47 @@ const NewsBlogsClient = () => {
       </motion.div>
 
       {/* Cards */}
-      <div className="my-12 flex gap-8 flex-wrap items-center justify-center">
-        {blogs?.slice(0, 3).map((itm, i) => (
-          <motion.div
-            key={itm.id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <Link href={`/blog/${itm.slug}`} className="w-[320px]">
-              <div className="border duration-500 rounded-[30px] group hover:translate-y-2 p-4 flex gap-2 flex-col">
-                <div className="relative h-[250px] xs:h-[280px] rounded-[30px]">
-                  <Image
-                    width={350}
-                    height={300}
-                    className="w-full h-full object-cover rounded-[30px]"
-                    src={itm.image}
-                    alt="blog-image"
-                  />
-                  <Image
-                    src="/assets/images/mask.png"
-                    className="absolute top-0 h-full"
-                    width={350}
-                    height={300}
-                    alt="mask"
-                  />
-                  <div className="absolute bottom-[-3px] bg-primary right-[-3px] grid place-items-center w-10 h-10 rounded-full">
-                    <IoChevronForward className="group-hover:translate-x-2 duration-200" size={26} color="#fff" />
-                  </div>
-                  <p className="absolute bottom-5 pl-5 text-[#F6F6F6] text-[14px] font-[Poppins] line-clamp-1">
-                    {itm.cat}
-                  </p>
-                </div>
+{/* Cards */}
+<div className="my-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+  {blogs?.slice(0, 3).map((itm, i) => (
+    <motion.div
+      key={itm.id}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: i * 0.1 }}
+      viewport={{ once: true }}
+    >
+      <Link href={`/blog/${itm.slug}`}>
+        <div className="border rounded-[24px] p-3 md:p-4 group hover:translate-y-1 duration-300">
+          <div className="relative h-[200px] xs:h-[230px] sm:h-[250px] rounded-[24px]">
+            <Image
+              width={400}
+              height={250}
+              className="w-full h-full object-cover rounded-[24px]"
+              src={itm.image}
+              alt="blog-image"
+            />
+          
+            <div className="absolute bottom-[-3px] right-[-3px] bg-primary grid place-items-center w-8 h-8 sm:w-10 sm:h-10 rounded-full">
+              <IoChevronForward className="group-hover:translate-x-1 sm:group-hover:translate-x-2 duration-200" size={22} color="#fff" />
+            </div>
+            <p className="absolute bottom-3 left-3 text-xs sm:text-sm text-white font-[Poppins] line-clamp-1">
+              {itm.cat}
+            </p>
+          </div>
 
-                <h3 className="line-clamp-1 text-[18px] text-primary font-[600] font-[Quicksand]">
-                  {itm.title}
-                </h3>
-                <p className="text-[16px] font-[300] font-[Poppins] text-body line-clamp-3">
-                  {itm.description}
-                </p>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
-      </div>
+          <h3 className="mt-3 text-[16px] sm:text-[18px] font-[600] font-[Quicksand] text-primary line-clamp-2">
+            {itm.title}
+          </h3>
+          <p className="text-[14px] sm:text-[16px] font-[300] font-[Poppins] text-body mt-1 line-clamp-3">
+            {itm.description}
+          </p>
+        </div>
+      </Link>
+    </motion.div>
+  ))}
+</div>
+
 
       {/* Button */}
       <motion.div

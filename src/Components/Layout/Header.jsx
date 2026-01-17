@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Logo from "../icons/Logo";
+import Logo from "../icons/Logo1";
 // import "./Navbar.css";
 
 const NAV_LINKS = [
