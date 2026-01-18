@@ -12,9 +12,10 @@ import GetMetaData, { generatemetaData } from "@/utils"
 import RevenueBusiness from "./_components/RevenueBusiness"
 import ClientBusiness from "./_components/ClientBusiness"
 import DigitalExperience from "./_components/DigitalExperience"
-import Discruptive from "@/Components/Home/Discruptive";
-import OffSetTradeMark from "@/Components/shared/OffSetTradeMark";
-import MotionSection from "@/Components/shared/MotionSection";
+import Discruptive from "@/components/Home/Discruptive";
+import OffSetTradeMark from "@/components/shared/OffSetTradeMark";
+import MotionSection from "@/components/shared/MotionSection";
+import HeroN from "./_components/HeroN";
 
 const data = GetMetaData("Services")
 export const metadata = generatemetaData({ ...data, canonical: "/our-services" })
@@ -22,6 +23,7 @@ export const metadata = generatemetaData({ ...data, canonical: "/our-services" }
 const page = () => {
   return (
     <div className="overflow-hidden">
+      <HeroN/>
       <Hero />
 
       <MotionSection>

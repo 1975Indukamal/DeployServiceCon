@@ -104,3 +104,25 @@
     box-shadow: 0 10px 20px rgba(255,255,255,0);
   }
 }
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px; /* thin horizontal scrollbar */
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #121212; /* Tailwind purple-600 */
+  border-radius: 9999px;
+}
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #121212 transparent; /* Firefox */
+}
+/* Hide scrollbar for all browsers */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}

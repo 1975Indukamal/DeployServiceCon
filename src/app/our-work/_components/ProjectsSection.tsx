@@ -1,30 +1,31 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Nexus Finance",
-    category: "Web Application",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    description: "A modern fintech dashboard with real-time analytics",
+    title: "Abakwa Educational and Health Drive (AEHD-USA)",
+    category: "Nonprofit / Education & Health Aid",
+    image: "./assets/images/our-work/new/w1.png",
+    description: "A California-based nonprofit focused on improving education and health for impoverished communities in Cameroon.",
   },
   {
-    title: "Artisan Collective",
-    category: "E-Commerce",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop",
-    description: "Luxury marketplace for handcrafted goods",
+    title: "Centauri-Research",
+    category: "Technology / IT Services",
+    image: "./assets/images/our-work/new/w2.png",
+    description: "A technology company focused on IT solutions, cybersecurity, data analysis, and digital innovation services.",
   },
   {
-    title: "Wellness Hub",
-    category: "Mobile App",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
-    description: "Health and fitness tracking platform",
+    title: "Chakraview",
+    category: "School Transportation / App Service",
+    image: "./assets/images/our-work/new/w3.png",
+    description: "A real-time school bus tracking and transportation management platform that improves safety and communication for parents, schools, and bus operators.",
   },
   {
-    title: "Urban Studios",
-    category: "Brand Identity",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
-    description: "Complete rebrand for architecture firm",
+    title: "Paper Play",
+    category: "Creative Services / Design & Branding",
+    image: "./assets/images/our-work/new/w4.png",
+    description: "A creative design and branding service provider offering report editing, logo design, social media creatives, brochures, and other visual content.",
   },
 ];
 
@@ -70,14 +71,14 @@ export const ProjectsSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/20 text-primary rounded-full mb-4">
+                <div className="absolute bottom-0 left-0 right-0 p-8 bg-body/80">
+                  <span className="inline-block px-3 py-1 text-xs font-medium bg-dark text-primary rounded-full mb-4">
                     {project.category}
                   </span>
                   <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-body text-sm">{project.description}</p>
+                  <p className=" text-sm">{project.description}</p>
                 </div>
 
                 <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">

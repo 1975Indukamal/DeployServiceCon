@@ -39,7 +39,7 @@
     "src/app/services-page/page.jsx",
     "src/app/experties/page.jsx",
     "src/app/contact-us/page.jsx"
-, "src/Components/Home/IndustriesWeServe.jsx"  ],
+, "src/components/Home/IndustriesWeServe.jsx", "src/app/our-work/_components/TeamSection.tsx", "src/app/our-services/_components/service/FAQSection.jsx", "src/app/our-services/_components/service/CTASection.jsx", "src/app/our-services/_components/HeroN.tsx"  ],
   "exclude": [
     "node_modules"
   ]

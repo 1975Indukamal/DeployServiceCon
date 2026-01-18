@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from "@/Components/shared/Button";
+import Button from "@/components/shared/Button";
 import Image from "next/image";
 import Link from 'next/link';
 // import Line from "../../../../public/assets/images/our-work/line.png";

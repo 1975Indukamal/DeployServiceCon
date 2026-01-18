@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from "@/Components/shared/Button"
+import Button from "@/components/shared/Button"
 import Link from 'next/link'
 const Discruptive = () => {
   return (

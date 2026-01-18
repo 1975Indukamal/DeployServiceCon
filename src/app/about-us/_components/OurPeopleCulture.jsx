@@ -25,7 +25,7 @@ import Slider2_6 from "../../../../public/assets/images/ABOUT US SLIDER IMAGEs/S
 import Slider2_7 from "../../../../public/assets/images/ABOUT US SLIDER IMAGEs/SLIDER_1/IMAGE7.webp";
 import Slider2_8 from "../../../../public/assets/images/ABOUT US SLIDER IMAGEs/SLIDER_1/IMAGE8.webp";
 
-import CircularText from "@/Components/shared/CircularText"
+import CircularText from "@/components/shared/CircularText"
 
 gsap.registerPlugin(ScrollTrigger);
 const OurPeopleCulture = () => {

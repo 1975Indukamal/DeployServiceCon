@@ -1,6 +1,6 @@
 "use client"
 import Banking_img from "../../../../public/assets/images/blogs_updated/Banking_img.png";
-import Button from "@/Components/shared/Button";
+import Button from "@/components/shared/Button";
 import FoundServices_img from "../../../../public/assets/images/blogs_updated/FoundServices_img.png";
 import Image from "next/image";
 import Manufacturing_img from "../../../../public/assets/images/blogs_updated/Manufacturing_img.png";

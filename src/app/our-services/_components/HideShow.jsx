@@ -6,12 +6,12 @@ import { HiMiniBuildingOffice2 } from "react-icons/hi2";
 import { RiGraduationCapFill, RiArrowUpDownFill } from "react-icons/ri";
 import { MdVerifiedUser } from "react-icons/md";
 import { HiShoppingCart } from "react-icons/hi";
-import Law from "@/Components/icons/Law";
+import Law from "@/components/icons/Law";
 import { AiFillHome } from "react-icons/ai";
 import { BiDumbbell } from "react-icons/bi";
-import Air from "@/Components/icons/Air";
-import Telecom from "@/Components/icons/Telecom";
-import Travel from "@/Components/icons/Travel";
+import Air from "@/components/icons/Air";
+import Telecom from "@/components/icons/Telecom";
+import Travel from "@/components/icons/Travel";
 const HideShow = () => {
   const iconsRef = useRef(null);
   const initialState = Array(15).fill(false);

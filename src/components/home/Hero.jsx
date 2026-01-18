@@ -3,7 +3,7 @@
 // import { gsap } from "gsap"
 // import ArrowButton from '../shared/Button'
 // import Link from 'next/link'
-// import CircularText from '@/Components/shared/CircularText'
+// import CircularText from '@/components/shared/CircularText'
 // import bgDrop from "@/../public/filtered_hero.png"
 // import Image from 'next/image'
 // const Heros = () => {

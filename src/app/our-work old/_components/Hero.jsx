@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Banner from "../../../../public/assets/images/our-work/our-work_banner.png";
-import CircularText from "@/Components/shared/CircularText"
+import CircularText from "@/components/shared/CircularText"
 const Hero = () => {
   return (
     <>

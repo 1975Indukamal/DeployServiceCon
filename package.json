@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/model-viewer": "^4.1.0",
     "@headlessui/react": "^1.7.18",
     "@radix-ui/react-slot": "^1.2.4",
     "@sendgrid/mail": "^8.1.0",

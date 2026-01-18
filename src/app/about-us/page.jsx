@@ -9,7 +9,7 @@ import OurLeadership from "./_components/OurLeadership"
 import JoinOurTeam from "./_components/JoinOurTeam"
 import GetMetaData, { generatemetaData } from "@/utils"
 import RevenueBusiness from "../our-services/_components/RevenueBusiness";
-import MotionSection from "@/Components/shared/MotionSection";
+import MotionSection from "@/components/shared/MotionSection";
 
 const data = GetMetaData("About")
 export const metadata = generatemetaData({ ...data })
@@ -47,7 +47,7 @@ const page = () => {
       </MotionSection> 
       */}
 
-      <MotionSection delay={0.6}>
+      <MotionSection delay={0.5}>
         <JoinOurTeam />
       </MotionSection>
     </>

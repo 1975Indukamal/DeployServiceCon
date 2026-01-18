@@ -1,15 +1,15 @@
 
 import React from "react";
-import Swiper from "../../Components/shared/Swiper";
-import Newsletter from "../../Components/shared/Newsletter";
+import Swiper from "../../components/shared/Swiper";
+import Newsletter from "../../components/shared/Newsletter";
 import Hero from "./_components/Hero";
 import OurApproach from "./_components/OurApproach";
 import AllWorks from "./_components/AllWorks";
 import OurStrategey from "./_components/OurStrategey";
 import BussConceptAndTrademark from "./_components/BussConceptAndTrademark";
-import OffSetTradeMark from "@/Components/shared/OffSetTradeMark";
+import OffSetTradeMark from "@/components/shared/OffSetTradeMark";
 import GetMetaData, { generatemetaData } from "@/utils"
-import NewsBlogs from "@/Components/shared/News&Blogs";
+import NewsBlogs from "@/components/shared/News&Blogs";
 const data = GetMetaData("Work")
 export const metadata = generatemetaData({ ...data,canonical:"/our-work" })
 

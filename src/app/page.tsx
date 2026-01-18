@@ -1,14 +1,14 @@
 
-import Discruptive from "@/Components/Home/Discruptive";
-import Newsletter from "@/Components/shared/Newsletter";
-import Industry from '@/Components/Home/Industry'
-import OffSetTradeMark from "@/Components/shared/OffSetTradeMark";
+import Discruptive from "@/components/Home/Discruptive";
+import Newsletter from "@/components/shared/Newsletter";
+import Industry from '@/components/Home/Industry'
+import OffSetTradeMark from "@/components/shared/OffSetTradeMark";
 import GetMetaData, { generatemetaData } from "@/utils"
 import HorizontalSlide from "./our-services/_components/HorizontalSlide";
 import Line from "./our-services/_components/Line";
-import NewsBlogsClient from "@/Components/shared/News&Blogs";
-import HeroH from "@/Components/Home/Hero";
-import MotionSection from "@/Components/shared/MotionSection";
+import NewsBlogsClient from "@/components/shared/News&Blogs";
+import HeroH from "@/components/Home/Hero";
+import MotionSection from "@/components/shared/MotionSection";
 
 
 const data = GetMetaData("Home")

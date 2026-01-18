@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import GirlPhoto from "../../../../public/assets/images/about-us/GirlPhoto.png"
-import CircularText from "@/Components/shared/CircularText"
+import CircularText from "@/components/shared/CircularText"
 const Hero = () => {
   return (
     <>

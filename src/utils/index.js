@@ -116,99 +116,218 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
 //   },
 // };
 
+// const Metadata = {
+//   Home: {
+//     title: "ServiceConnect | Web, App & Custom Software Development Experts",
+//     description:
+//       "ServiceConnect provides cutting-edge website, mobile app, and custom software development solutions tailored for modern businesses to grow online.",
+//     keywords:
+//       "Website Development, Android App Development, iOS App Development, Custom Software, Digital Solutions",
+//     canonical: "https://www.serviceconnekt.com/",
+//     robots: "index, follow",
+//   },
+//   About: {
+//     title: "About ServiceConnect | Empowering Digital Transformation",
+//     description:
+//       "ServiceConnect is a tech-forward company offering advanced website, mobile app, and software solutions focused on performance, innovation, and user experience.",
+//     canonical: "https://www.serviceconnekt.com/about-us",
+//     robots: "index, follow",
+//   },
+//   Blogs: {
+//     title: "ServiceConnect Blog | Tech Insights & Digital Transformation Tips",
+//     description:
+//       "Stay ahead with ServiceConnect's blog. Discover tech trends, expert tips, industry news, and strategies to accelerate your digital journey.",
+//     canonical: "https://www.serviceconnekt.com/blog",
+//     robots: "index, follow",
+//   },
+//   Expertise: {
+//     title:
+//       "Our Expertise | AI, Machine Learning & Predictive Analytics Solutions",
+//     description:
+//       "Explore how ServiceConnect leverages AI, ML, and predictive analytics to build intelligent, business-focused solutions for a competitive edge.",
+//     canonical: "https://www.serviceconnekt.com/our-expertise",
+//     robots: "index, follow",
+//   },
+//   ContactUs: {
+//     title: "Contact Us | Connect with ServiceConnect for Support & Queries",
+//     description:
+//       "Need expert development solutions? Get in touch with ServiceConnect for web, app, or custom software development needs and support.",
+//     canonical: "https://www.serviceconnekt.com/contact-us",
+//     robots: "index, follow",
+//   },
+//   Services: {
+//     title: "Our Services | Web, App & Custom Software by ServiceConnect",
+//     description:
+//       "ServiceConnect offers expert website development, mobile app development, and tailored software solutions to meet your unique business goals.",
+//     keywords:
+//       "Website Development, App Development, Custom Software Solutions, Business Automation",
+//     canonical: "https://www.serviceconnekt.com/our-services",
+//     robots: "index, follow",
+//   },
+//   Apply: {
+//     title: "Apply Now | Join the ServiceConnect Team",
+//     description:
+//       "Looking to grow your career with ServiceConnect? Apply for open positions and join a team of innovators building future-ready tech.",
+//     canonical: "https://www.serviceconnekt.com/apply",
+//     robots: "index, follow",
+//   },
+//   Work: {
+//     title: "Our Work | ServiceConnect Project Portfolio & Case Studies",
+//     description:
+//       "Discover ServiceConnect's success stories. Browse our portfolio of innovative, user-centric websites, mobile apps, and software solutions.",
+//     canonical: "https://www.serviceconnekt.com/our-work",
+//     robots: "index, follow",
+//   },
+//   Career: {
+//     title: "Careers at ServiceConnect | Explore Job Opportunities",
+//     description:
+//       "Explore exciting career opportunities at ServiceConnect. We're hiring tech enthusiasts to build future-ready solutions. Apply now!",
+//     canonical: "https://www.serviceconnekt.com/career",
+//     robots: "index, follow",
+//   },
+//   privacyPolicy: {
+//     title: "Privacy Policy | ServiceConnect - Your Data, Our Responsibility",
+//     description:
+//       "At ServiceConnect, we respect your privacy. Learn how we collect, use, and protect your data in our detailed Privacy Policy.",
+//     canonical: "https://www.serviceconnekt.com/privacy-policy",
+//     robots: "index, follow",
+//   },
+//   termsAndConditions: {
+//     title: "Terms & Conditions | ServiceConnect User Agreement",
+//     description:
+//       "Read ServiceConnect's Terms and Conditions to understand your rights and responsibilities when using our platform and services.",
+//     canonical: "https://www.serviceconnekt.com/terms-and-conditions",
+//     robots: "index, follow",
+//   },
+//   webDevelopement: {
+//     title:
+//       "Web & App Development Services | Customized Digital Solutions by ServiceConnect",
+//     description:
+//       "Need scalable and secure web or mobile apps? ServiceConnect delivers expert development services tailored to meet your business needs.",
+//     canonical: "https://www.serviceconnekt.com/web-and-app-development",
+//     robots: "noindex, follow",
+//   },
+// };
+
+// export default function GetMetaData(page) {
+//   return Metadata[page];
+// }
+
+
 const Metadata = {
   Home: {
-    title: "ServiceConnect | Web, App & Custom Software Development Experts",
+    title: "ServiceConnekt | Web, Mobile & Custom Software Development Company",
     description:
-      "ServiceConnect provides cutting-edge website, mobile app, and custom software development solutions tailored for modern businesses to grow online.",
+      "ServiceConnekt builds high-performance websites, mobile apps, SaaS platforms and custom software for global businesses.",
     keywords:
-      "Website Development, Android App Development, iOS App Development, Custom Software, Digital Solutions",
+      "ServiceConnekt, Software Company, Web Development, Mobile App Development, SaaS Development, Custom Software",
     canonical: "https://www.serviceconnekt.com/",
     robots: "index, follow",
   },
+
   About: {
-    title: "About ServiceConnect | Empowering Digital Transformation",
+    title: "About ServiceConnekt | Global Software Engineering Partner",
     description:
-      "ServiceConnect is a tech-forward company offering advanced website, mobile app, and software solutions focused on performance, innovation, and user experience.",
+      "ServiceConnekt is a modern software development company delivering scalable web, mobile, and SaaS solutions for digital growth.",
     canonical: "https://www.serviceconnekt.com/about-us",
     robots: "index, follow",
+    keywords:
+      "About ServiceConnekt, Software Company India, IT Services Company",
   },
+
   Blogs: {
-    title: "ServiceConnect Blog | Tech Insights & Digital Transformation Tips",
+    title: "Tech Insights & Digital Growth Blog | ServiceConnekt",
     description:
-      "Stay ahead with ServiceConnect's blog. Discover tech trends, expert tips, industry news, and strategies to accelerate your digital journey.",
+      "Explore insights on software development, SaaS, technology trends, digital transformation, and business growth.",
     canonical: "https://www.serviceconnekt.com/blog",
     robots: "index, follow",
-  },
-  Expertise: {
-    title:
-      "Our Expertise | AI, Machine Learning & Predictive Analytics Solutions",
-    description:
-      "Explore how ServiceConnect leverages AI, ML, and predictive analytics to build intelligent, business-focused solutions for a competitive edge.",
-    canonical: "https://www.serviceconnekt.com/our-expertise",
-    robots: "index, follow",
-  },
-  ContactUs: {
-    title: "Contact Us | Connect with ServiceConnect for Support & Queries",
-    description:
-      "Need expert development solutions? Get in touch with ServiceConnect for web, app, or custom software development needs and support.",
-    canonical: "https://www.serviceconnekt.com/contact-us",
-    robots: "index, follow",
-  },
-  Services: {
-    title: "Our Services | Web, App & Custom Software by ServiceConnect",
-    description:
-      "ServiceConnect offers expert website development, mobile app development, and tailored software solutions to meet your unique business goals.",
     keywords:
-      "Website Development, App Development, Custom Software Solutions, Business Automation",
+      "Tech Blog, Software Blog, SaaS Blog, Digital Transformation Blog, IT Insights",
+  },
+
+  // Expertise: {
+  //   title:
+  //     "AI, ML & Predictive Analytics Services | ServiceConnekt Expertise",
+  //   description:
+  //     "ServiceConnekt helps businesses leverage AI, ML and predictive analytics to build intelligent, data-driven solutions.",
+  //   canonical: "https://www.serviceconnekt.com/our-expertise",
+  //   robots: "index, follow",
+  //   keywords:
+  //     "AI Solutions, Machine Learning Development, Predictive Analytics, Data Science Services",
+  // },
+
+  Services: {
+    title: "Web, App & Custom Software Development | ServiceConnekt",
+    description:
+      "End-to-end web development, mobile apps, SaaS platforms and custom software solutions tailored to your business.",
     canonical: "https://www.serviceconnekt.com/our-services",
     robots: "index, follow",
+    keywords:
+      "Custom Software, Web Development, Mobile App, SaaS Development, Cloud Solutions",
   },
-  Apply: {
-    title: "Apply Now | Join the ServiceConnect Team",
-    description:
-      "Looking to grow your career with ServiceConnect? Apply for open positions and join a team of innovators building future-ready tech.",
-    canonical: "https://www.serviceconnekt.com/apply",
-    robots: "index, follow",
-  },
+
   Work: {
-    title: "Our Work | ServiceConnect Project Portfolio & Case Studies",
+    title: "Portfolio & Case Studies | ServiceConnekt Client Work",
     description:
-      "Discover ServiceConnect's success stories. Browse our portfolio of innovative, user-centric websites, mobile apps, and software solutions.",
+      "See how we build scalable, user-centric web apps, mobile apps, and software solutions for businesses worldwide.",
     canonical: "https://www.serviceconnekt.com/our-work",
     robots: "index, follow",
   },
-  Career: {
-    title: "Careers at ServiceConnect | Explore Job Opportunities",
+
+  ContactUs: {
+    title: "Contact ServiceConnekt | Build Your Software With Us",
     description:
-      "Explore exciting career opportunities at ServiceConnect. We're hiring tech enthusiasts to build future-ready solutions. Apply now!",
+      "Contact ServiceConnekt for web, mobile app, SaaS, and custom software development services.",
+    canonical: "https://www.serviceconnekt.com/contact-us",
+    robots: "index, follow",
+  },
+
+  Career: {
+    title: "Careers at ServiceConnekt | Software Jobs & Internships",
+    description:
+      "Join ServiceConnekt — we’re hiring developers, designers, engineers, and technology creators.",
     canonical: "https://www.serviceconnekt.com/career",
     robots: "index, follow",
   },
+
   privacyPolicy: {
-    title: "Privacy Policy | ServiceConnect - Your Data, Our Responsibility",
+    title: "Privacy Policy | ServiceConnekt",
     description:
-      "At ServiceConnect, we respect your privacy. Learn how we collect, use, and protect your data in our detailed Privacy Policy.",
+      "Learn how ServiceConnekt collects, uses, and protects user data responsibly.",
     canonical: "https://www.serviceconnekt.com/privacy-policy",
     robots: "index, follow",
   },
+
   termsAndConditions: {
-    title: "Terms & Conditions | ServiceConnect User Agreement",
+    title: "Terms & Conditions | ServiceConnekt",
     description:
-      "Read ServiceConnect's Terms and Conditions to understand your rights and responsibilities when using our platform and services.",
+      "Read ServiceConnekt’s user agreement and service terms.",
     canonical: "https://www.serviceconnekt.com/terms-and-conditions",
     robots: "index, follow",
   },
-  webDevelopement: {
-    title:
-      "Web & App Development Services | Customized Digital Solutions by ServiceConnect",
+
+  Apply: {
+    title: "Apply | Careers at ServiceConnekt",
     description:
-      "Need scalable and secure web or mobile apps? ServiceConnect delivers expert development services tailored to meet your business needs.",
-    canonical: "https://www.serviceconnekt.com/web-and-app-development",
-    robots: "noindex, follow",
+      "Apply for open positions at ServiceConnekt and work with a fast-growing digital product team.",
+    canonical: "https://www.serviceconnekt.com/apply",
+    robots: "index, follow",
   },
+
+  // webDevelopement: {
+  //   title:
+  //     "Web & App Development Services | ServiceConnekt",
+  //   description:
+  //     "Build modern websites, web apps, and mobile apps with expert developers at ServiceConnekt.",
+  //   canonical: "https://www.serviceconnekt.com/web-and-app-development",
+  //   robots: "index, follow", // FIXED (you had noindex, which blocks SEO)
+  // },
 };
 
 export default function GetMetaData(page) {
   return Metadata[page];
 }
+
+
+
+

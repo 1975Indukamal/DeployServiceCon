@@ -1,116 +1,444 @@
+
+"use client";
+
 import { motion } from "framer-motion";
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
+
+// const team = [
+//   {
+//     name: "Alexander Chen",
+//     role: "CEO & Founder",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Alex",
+//     linkedin: "https://linkedin.com/in/alex",
+//     instagram: "https://instagram.com/alex"
+//   },
+//   {
+//     name: "Sarah Mitchell",
+//     role: "Creative Director",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Sarah",
+//     linkedin: "https://linkedin.com/in/sarah",
+//     instagram: "https://instagram.com/sarah"
+//   },
+//   {
+//     name: "Marcus Johnson",
+//     role: "Lead Developer",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Marcus",
+//     linkedin: "https://linkedin.com/in/marcus",
+//     instagram: "https://instagram.com/marcus"
+//   },
+//   {
+//     name: "Emily Rodriguez",
+//     role: "UX Designer",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Emily",
+//     linkedin: "https://linkedin.com/in/emily",
+//     instagram: "https://instagram.com/emily"
+//   },
+//   {
+//     name: "David Kim",
+//     role: "Product Manager",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=David",
+//     linkedin: "https://linkedin.com/in/david",
+//     instagram: "https://instagram.com/david"
+//   },
+//   {
+//     name: "Priya Sharma",
+//     role: "UI Engineer",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Priya",
+//     linkedin: "https://linkedin.com/in/priya",
+//     instagram: "https://instagram.com/priya"
+//   },
+//   {
+//     name: "Mohammed Ali",
+//     role: "Backend Architect",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Mohammed",
+//     linkedin: "https://linkedin.com/in/mohammed",
+//     instagram: "https://instagram.com/mohammed"
+//   },
+//   {
+//     name: "Julia Thompson",
+//     role: "Content Strategist",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Julia",
+//     linkedin: "https://linkedin.com/in/julia",
+//     instagram: "https://instagram.com/julia"
+//   },
+//   {
+//     name: "Carlos Rivera",
+//     role: "Motion Designer",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Carlos",
+//     linkedin: "https://linkedin.com/in/carlos",
+//     instagram: "https://instagram.com/carlos"
+//   },
+//   {
+//     name: "Anika Patel",
+//     role: "QA Analyst",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Anika",
+//     linkedin: "https://linkedin.com/in/anika",
+//     instagram: "https://instagram.com/anika"
+//   },
+//   {
+//     name: "Liam Baker",
+//     role: "Marketing Lead",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Liam",
+//     linkedin: "https://linkedin.com/in/liam",
+//     instagram: "https://instagram.com/liam"
+//   },
+//   {
+//     name: "Chen Wei",
+//     role: "Data Analyst",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Chen",
+//     linkedin: "https://linkedin.com/in/chen",
+//     instagram: "https://instagram.com/chen"
+//   },
+// ];
+
 
 const team = [
   {
-    name: "Alexander Chen",
+    name: "Punam Zagade",
     role: "CEO & Founder",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+        image: "https://api.dicebear.com/7.x/adventurer/svg?seed=PriyaS&mood=fun",
     linkedin: "#",
-    twitter: "#",
+    instagram: "#"
   },
   {
-    name: "Sarah Mitchell",
+    name: "Abhishek Pandey",
     role: "Creative Director",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
+       image: "https://api.dicebear.com/7.x/adventurer/svg?seed=JuliaT&mood=happy",
     linkedin: "#",
-    twitter: "#",
+    instagram: "#"
   },
   {
-    name: "Marcus Johnson",
-    role: "Lead Developer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    name: "Anubhav Shrivastava",
+    role: "DevOps Lead Engineer",
+image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Ava&mood=happy",
     linkedin: "#",
-    twitter: "#",
+    instagram: "#"
   },
   {
-    name: "Emily Rodriguez",
-    role: "UX Designer",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    name: "Kushal singh",
+    role: "UI/UX Designer",
+        image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Jacob&mood=happy",
+
     linkedin: "#",
-    twitter: "#",
+    instagram: "#"
   },
+      {
+    name: "Ajay Prajapati",
+    role: "Wordpress Developer",
+ image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Zara&mood=happy",
+    linkedin: "https://linkedin.com/in/isabella-rivera",
+    instagram: "https://instagram.com/isabella.codes"
+  },
+  {
+    name: "Akshar Rastogi",
+    role: "Python Developer",
+        image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Hannah&gender=female&mood=happy",
+
+    linkedin: "#",
+    instagram: "#"
+  },
+
+      {
+    name: "Riya Shrivastava",
+    role: "Laravel Developer",
+        image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Isabella&mood=happy&gender=female",
+        
+    linkedin: "#",
+    instagram: "#"
+  },
+    {
+    name: "Anand Thakur",
+    role: "MERN Developer",
+        image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Noah&mood=happy",
+   
+    linkedin: "#",
+    instagram: "#"
+  },
+
+  {
+    name: "Naveen Kumar",
+    role: "Flutter Developer",
+        image: "https://api.dicebear.com/7.x/adventurer/svg?seed=EmilyR&mood=happy",
+ 
+    linkedin: "#",
+    instagram: "#"
+  },
+
+  
+
+  {
+    name: "Abhishek Kumar",
+    role: "React-native Developer",
+
+     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=MohammedA&mood=happy",
+    linkedin: "#",
+    instagram: "#"
+  },
+
+
+//   {
+//     name: "Sophia Bennett",
+//     role: "UX Designer",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Sophia&mood=happy&gender=female",
+//     linkedin: "https://linkedin.com/in/sophia-bennett",
+//     instagram: "https://instagram.com/sophia.designs"
+//   },
+//   {
+//     name: "Amelia Hughes",
+//     role: "Product Manager",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Amelia&mood=happy&gender=female",
+//     linkedin: "https://linkedin.com/in/amelia-hughes",
+//     instagram: "https://instagram.com/amelia.pm"
+//   },
+//   {
+//     name: "Harper Collins",
+//     role: "Content Creator",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Harper&mood=happy&gender=female",
+//     linkedin: "https://linkedin.com/in/harper-collins",
+//     instagram: "https://instagram.com/harper.creates"
+//   },
+//   {
+//     name: "Maya Thompson",
+//     role: "Social Media Lead",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Maya&mood=happy&gender=female",
+//     linkedin: "https://linkedin.com/in/maya-thompson",
+//     instagram: "https://instagram.com/maya.social"
+//   },
+//   {
+//     name: "Chloe Parker",
+//     role: "Illustrator",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Chloe&mood=happy&gender=female",
+//     linkedin: "https://linkedin.com/in/chloe-parker",
+//     instagram: "https://instagram.com/chloe.illustrates"
+//   },
+//   {
+//     name: "Lily Morgan",
+//     role: "Marketing Specialist",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Lily&mood=happy&gender=female",
+//     linkedin: "https://linkedin.com/in/lily-morgan",
+//     instagram: "https://instagram.com/lily.markets"
+//   },
+//   {
+//     name: "Ella Foster",
+//     role: "QA Analyst",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Ella&mood=happy&gender=female",
+//     linkedin: "https://linkedin.com/in/ella-foster",
+//     instagram: "https://instagram.com/ella.qa"
+//   },
+//   {
+//     name: "Aria Brooks",
+//     role: "Motion Designer",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Aria&mood=happy&gender=female",
+//     linkedin: "https://linkedin.com/in/aria-brooks",
+//     instagram: "https://instagram.com/aria.motion"
+//   },
+//   {
+//     name: "Grace Edwards",
+//     role: "Data Analyst",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Grace&mood=happy&gender=female",
+//     linkedin: "https://linkedin.com/in/grace-edwards",
+//     instagram: "https://instagram.com/grace.data"
+//   },
+//   {
+//     name: "Anika Patel",
+//     role: "QA Analyst",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=AnikaP&mood=serious",
+//     linkedin: "#",
+//     instagram: "#"
+//   },
+//   {
+//     name: "Liam Baker",
+//     role: "Marketing Lead",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=LiamB&mood=happy",
+//     linkedin: "#",
+//     instagram: "#"
+//   },
+//   {
+//     name: "Chen Wei",
+//     role: "Data Analyst",
+//     image: "https://api.dicebear.com/7.x/adventurer/svg?seed=ChenW&mood=fun",
+//     linkedin: "#",
+//     instagram: "#"
+//   },
+
+  // {
+  //   name: "Liam Carter",
+  //   role: "AI Researcher",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Liam&mood=happy",
+  //   linkedin: "https://linkedin.com/in/liam-carter",
+  //   instagram: "https://instagram.com/liam.ai"
+  // },
+  // {
+  //   name: "Ava Thompson",
+  //   role: "Brand Strategist",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Ava&mood=happy",
+  //   linkedin: "https://linkedin.com/in/ava-strategy",
+  //   instagram: "https://instagram.com/ava.designs"
+  // },
+  // {
+  //   name: "Noah Williams",
+  //   role: "Mobile App Engineer",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=MarcusJ&mood=fun",
+  //   linkedin: "https://linkedin.com/in/noah-williams",
+  //   instagram: "https://instagram.com/noah.codes"
+  // },
+  // {
+  //   name: "Sofia Martinez",
+  //   role: "Social Media Lead",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Sofia&mood=happy",
+  //   linkedin: "https://linkedin.com/in/sofia-marketing",
+  //   instagram: "https://instagram.com/sofia.media"
+  // },
+  // {
+  //   name: "David Kim",
+  //   role: "VR/AR Specialist",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=David&gender=male&mood=happy",
+  //   linkedin: "https://linkedin.com/in/david-kim",
+  //   instagram: "https://instagram.com/david.xr"
+  // },
+  // {
+  //   name: "Hannah Lee",
+  //   role: "Illustrator",
+  //        image: "https://api.dicebear.com/7.x/adventurer/svg?seed=SarahM&mood=laughing",
+  //   linkedin: "https://linkedin.com/in/hannah-lee",
+  //   instagram: "https://instagram.com/hannah.draws"
+  // },
+  // {
+  //   name: "Ethan Brooks",
+  //   role: "UX Researcher",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Ethan&mood=happy",
+  //   linkedin: "https://linkedin.com/in/ethan-brooks",
+  //   instagram: "https://instagram.com/ethan.ux"
+  // },
+  // {
+  //   name: "Chloe Adams",
+  //   role: "Product Owner",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Chloe&mood=happy",
+  //   linkedin: "https://linkedin.com/in/chloe-adams",
+  //   instagram: "https://instagram.com/chloe.po"
+  // },
+  // {
+  //   name: "Olivia Park",
+  //   role: "Frontend Developer",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Olivia&mood=happy",
+  //   linkedin: "https://linkedin.com/in/olivia-park",
+  //   instagram: "https://instagram.com/olivia.codes"
+  // },
+  // {
+  //   name: "Jacob Rivera",
+  //   role: "Backend Architect",
+  //  image: "https://api.dicebear.com/7.x/adventurer/svg?seed=DavidK&mood=happy",
+  //   linkedin: "https://linkedin.com/in/jacob-rivera",
+  //   instagram: "https://instagram.com/jacob.backend"
+  // },
+  // {
+  //   name: "Mia Patel",
+  //   role: "Marketing Strategist",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Mia&mood=happy",
+  //   linkedin: "https://linkedin.com/in/mia-patel",
+  //   instagram: "https://instagram.com/mia.markets"
+  // },
+  // {
+  //   name: "Connor Hughes",
+  //   role: "DevOps Engineer",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Connor&mood=happy",
+  //   linkedin: "https://linkedin.com/in/connor-hughes",
+  //   instagram: "https://instagram.com/connor.ops"
+  // },
+  // {
+  //   name: "Zara Knight",
+  //   role: "Content Producer",
+  //  image: "https://api.dicebear.com/7.x/adventurer/svg?seed=CarlosR&mood=happy",
+  //   linkedin: "https://linkedin.com/in/zara-knight",
+  //   instagram: "https://instagram.com/zara.creates"
+  // },
+  // {
+  //   name: "Ryan Torres",
+  //   role: "Product Researcher",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Ryan&mood=happy",
+  //   linkedin: "https://linkedin.com/in/ryan-torres",
+  //   instagram: "https://instagram.com/ryan.research"
+  // },
+  // {
+  //   name: "Natalie Reed",
+  //   role: "Motion Designer",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Natalie&mood=happy",
+  //   linkedin: "https://linkedin.com/in/natalie-reed",
+  //   instagram: "https://instagram.com/natalie.motion"
+  // },
+  // {
+  //   name: "Leo Fischer",
+  //   role: "Data Analyst",
+  //   image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Leo&mood=happy",
+  //   linkedin: "https://linkedin.com/in/leo-fischer",
+  //   instagram: "https://instagram.com/leo.data"
+  // }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+
+
+
 
 export const TeamSection = () => {
   return (
-    <section className="section-padding bg-card py-10 lg:py-20">
+    <section className="section-padding bg-card py-16">
       <div className="container mx-auto">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <span className="text-primary font-medium tracking-wider uppercase text-sm">Our Team</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6 text-body">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 mb-3 text-body">
             Meet the <span className="gradient-text text-primary">Experts</span>
           </h2>
           <p className="text-body max-w-2xl mx-auto text-lg">
-            Passionate professionals dedicated to bringing your ideas to life with creativity and precision.
+            Passionate professionals turning ideas into reality.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        {/* Slider Container */}
+        <div
+          className="flex gap-6 overflow-x-auto scroll-smooth pb-4 custom-scrollbar"
+          style={{ scrollbarWidth: "thin" }}
         >
-          {team.map((member) => (
+          {team.map((member, index) => (
             <motion.div
-              key={member.name}
-              variants={itemVariants}
-              className="group hover-lift"
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="min-w-[260px] bg-card border rounded-xl shadow-sm p-5 flex flex-col items-center justify-center"
             >
-              <div className="relative overflow-hidden rounded-2xl glass-card">
-                <div className="aspect-[3/4] overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60" />
-                </div>
-                
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="font-display text-xl font-semibold text-foreground">{member.name}</h3>
-                  <p className="text-primary text-sm font-medium mt-1">{member.role}</p>
-                  
-                  <div className="flex gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <a
-                      href={member.linkedin}
-                      className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                    >
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                    <a
-                      href={member.twitter}
-                      className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                    >
-                      <Twitter className="w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
+              <div className="w-full h-56 flex items-center justify-center bg-secondary/20 rounded-lg">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="h-full object-contain"
+                />
+              </div>
+
+              <div className="mt-4 text-center">
+                <h3 className="text-lg font-semibold text-body">{member.name}</h3>
+                <p className="text-primary text-sm font-medium">{member.role}</p>
+
+                {/* <div className="flex gap-3 justify-center mt-3">
+                  <a href={member.linkedin} target="_blank">
+                    <Linkedin className="w-5 h-5 opacity-80 hover:opacity-100 transition" />
+                  </a>
+                  <a href={member.instagram} target="_blank">
+                    <Instagram className="w-5 h-5 opacity-80 hover:opacity-100 transition" />
+                  </a>
+                </div> */}
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
