@@ -12,7 +12,7 @@ import GetMetaData, { generatemetaData } from "@/utils"
 import RevenueBusiness from "./_components/RevenueBusiness"
 import ClientBusiness from "./_components/ClientBusiness"
 import DigitalExperience from "./_components/DigitalExperience"
-import Discruptive from "@/components/Home/Discruptive";
+import Discruptive from "@/components/home/Discruptive";
 import OffSetTradeMark from "@/components/shared/OffSetTradeMark";
 import MotionSection from "@/components/shared/MotionSection";
 import HeroN from "./_components/HeroN";

@@ -117,7 +117,7 @@ import { fadeUp } from "@/utils/motionVariants"
 
 const SplineScene = dynamic(() => import("../shared/splite"), { ssr: false })
 
-const HeroH = () => {
+const Hero= () => {
   const [showSpline, setShowSpline] = useState(false)
   const [splineLoaded, setSplineLoaded] = useState(false)
 
@@ -198,4 +198,4 @@ const HeroH = () => {
   )
 }
 
-export default HeroH
+export default Hero;

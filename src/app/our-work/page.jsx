@@ -9,7 +9,7 @@ import RevenueBusiness from "../our-services/_components/RevenueBusiness";
 import NewsBlogsClient from "@/components/shared/News&Blogs";
 import Newsletter from "@/components/shared/Newsletter";
 import OffSetTradeMark from "@/components/shared/OffSetTradeMark";
-import Discruptive from "@/components/Home/Discruptive";
+import Discruptive from "@/components/home/Discruptive";
 import Line from "../our-services/_components/Line";
 import GetMetaData, { generatemetaData } from "@/utils";
 
