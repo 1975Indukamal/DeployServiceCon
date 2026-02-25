@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "/about-us", label: "About Us" },
   { href: "/our-work", label: "work" },
   { href: "/contact-us", label: "Contact Us" },
+  { href: "https://interview-javascript.netlify.app/", label: "Interview Hub" },
 ];
 
 const Navbar = () => {
