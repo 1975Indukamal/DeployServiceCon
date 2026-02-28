@@ -8,6 +8,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/effect-cards';
 import Layout from '@/components/Layout/Layout';
+import { ClientProviders } from './learnhub-providers';
+import { Toaster } from "@/components/learnhub/ui/toaster";
+import { Toaster as Sonner } from "@/components/learnhub/ui/sonner";
+import { TooltipProvider } from "@/components/learnhub/ui/tooltip";
 
 
 
@@ -120,7 +124,7 @@ export default function RootLayout({
             __html: JSON.stringify(OrganizationSchema),
           }}
         />
-          <meta
+        <meta
           name="google-site-verification"
           content="DVC1NiFSGzWZX_XuTHmNAPmLhMQWiJUAkAMaBkP521U"
         />
@@ -133,11 +137,15 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
       </head>
       <body >
-        <Layout>
-
-          {children}
-        </Layout>
-
+        <ClientProviders>
+          <TooltipProvider>
+            <Layout>
+              {children}
+            </Layout>
+            <Toaster />
+            <Sonner />
+          </TooltipProvider>
+        </ClientProviders>
       </body>
     </html>
   )

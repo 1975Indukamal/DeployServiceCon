@@ -6,21 +6,21 @@ import Button from "@/components/shared/Button";
 
 
 const Page = () => {
-  
+
     return (
         <>
             <div
                 className={`bg-[url('/LinearBackground.png')]  bg-cover bg-center`}
             >
-                <div className="container min-h-screen grid place-items-center ">
+                <div className="container min-h-screen grid place-items-center text-foreground">
                     <div className="  ">
                         <h1 className="text-[58px] text-center font-normal">404 Page Not Found </h1>
-                        <h2 className="text-[18px] text-center max-w-[544px] my-[30px]">
+                        <h2 className="text-[18px] text-center max-w-[544px] my-[30px] opacity-80">
                             The page you are looking for might have been removed had its name
                             changed or is temporarily unavailable.
                         </h2>
-<Link href="/">
-                       <Button  className="mx-auto " text="Back to home" /></Link>
+                        <Link href="/">
+                            <Button className="mx-auto " text="Back to home" /></Link>
                     </div>
                 </div>
             </div>

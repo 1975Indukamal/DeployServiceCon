@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { href: "/about-us", label: "About Us" },
   { href: "/our-work", label: "work" },
   { href: "/contact-us", label: "Contact Us" },
-  { href: "https://interview-javascript.netlify.app/", label: "Interview Hub" },
+  { href: "/interview-hub", label: "Interview Hub" },
 ];
 
 const Navbar = () => {
@@ -26,22 +26,22 @@ const Navbar = () => {
   // auto close on scroll
 
   useEffect(() => {
-  let lastY = window.scrollY;
+    let lastY = window.scrollY;
 
-  const handleScroll = () => {
-    const currentY = window.scrollY;
+    const handleScroll = () => {
+      const currentY = window.scrollY;
 
-    // Only close when user scrolls down
-    if (openMobile && currentY > lastY) {
-      setOpenMobile(false);
-    }
+      // Only close when user scrolls down
+      if (openMobile && currentY > lastY) {
+        setOpenMobile(false);
+      }
 
-    lastY = currentY;
-  };
+      lastY = currentY;
+    };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, [openMobile]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [openMobile]);
 
 
   // auto close on resize
@@ -99,9 +99,8 @@ const Navbar = () => {
                   <Link key={href} href={href} className="">
                     <button
                       onClick={() => setOpenMobile(false)}
-                      className={`w-full text-left px-4 py-3 rounded-md font-medium text-white ${
-                        isActive ? "bg-primary border border-white" : "bg-custombgc border border-primary"
-                      }`}
+                      className={`w-full text-left px-4 py-3 rounded-md font-medium text-white ${isActive ? "bg-primary border border-white" : "bg-custombgc border border-primary"
+                        }`}
                     >
                       {label}
                     </button>
