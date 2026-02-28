@@ -214,7 +214,7 @@ export const practiceChallenges: Challenge[] = [
 
 }`,
     tests: [
-      { input: [() => { }, 100], expected: "function" }
+      { input: ["() => { }", 100], expected: "function" }
     ],
     difficulty: "Hard",
     topic: "",

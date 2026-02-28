@@ -42,4 +42,154 @@
     <priority>0.50</priority>
   </url>
 
+  <url>
+    <loc>https://www.serviceconnekt.com/career</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub/dashboard</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/privacy-policy</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.30</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/terms-and-conditions</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.30</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/thank-you</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.30</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/our-services/web-development</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/our-services/mobile-app-development</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/our-services/software-development</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/our-services/ecommerce-development</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/our-services/saas-development</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/our-services/ui-ux-design</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/our-services/erp-software-solutions</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/our-services/crm-development</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/our-services/devops-services</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/our-services/cloud-services</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub/dashboard/react/interview</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub/dashboard/javascript/interview</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub/dashboard/nodejs/interview</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub/dashboard/typescript/interview</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub/dashboard/python/interview</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub/dashboard/aws/interview</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub/dashboard/docker/interview</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub/dashboard/authentication/interview</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.serviceconnekt.com/interview-hub/dashboard/dsa/interview</loc>
+    <lastmod>2026-01-18T10:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+
 </urlset>

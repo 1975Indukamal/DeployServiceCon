@@ -1,5 +1,6 @@
 
 
+import { Poppins, Quicksand, Urbanist } from 'next/font/google'
 import 'react-phone-input-2/lib/style.css'
 import './globals.css'
 import 'swiper/css';
@@ -12,6 +13,27 @@ import { ClientProviders } from './learnhub-providers';
 import { Toaster } from "@/components/learnhub/ui/toaster";
 import { Toaster as Sonner } from "@/components/learnhub/ui/sonner";
 import { TooltipProvider } from "@/components/learnhub/ui/tooltip";
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
+  display: 'swap',
+})
+
+const quicksand = Quicksand({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-quicksand',
+  display: 'swap',
+})
+
+const urbanist = Urbanist({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-urbanist',
+  display: 'swap',
+})
 
 
 
@@ -115,7 +137,7 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en" >
+    <html lang="en" className={`${poppins.variable} ${quicksand.variable} ${urbanist.variable}`}>
       <head>
 
         <script

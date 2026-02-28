@@ -6,20 +6,29 @@ import Link from "next/link";
 import Styles from "../_components/blog.module.css"
 import { blogContent } from "../_components/blogs";
 
+export async function generateStaticParams() {
+  return blogContent.map((blog) => ({
+    blog: blog.slug,
+  }));
+}
+
 export async function generateMetadata({ params }) {
-  const blog = blogContent.find(item => item.slug === params.slug);
+  const blog = blogContent.find(item => item.slug === params.blog);
   if (!blog) return {};
 
   return {
     title: blog.title,
     description: blog.description,
+    alternates: {
+      canonical: `https://www.serviceconnekt.com/blog/${blog.slug}`,
+    }
   };
 }
 
 export default function BlogPage({ params }) {
   const blog = blogContent.find(item => item.slug === params.blog);
 
-  // if (!blog) return notFound();
+  if (!blog) return notFound();
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">

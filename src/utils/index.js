@@ -6,8 +6,8 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
     openGraph: {
       locale: "en",
       type: "website",
-        title: "ServiceConnect – Official Website",
-  description: "Welcome to ServiceConnect – your trusted partner for cutting-edge web, app, and custom software solutions.",
+      title: "ServiceConnect – Official Website",
+      description: "Welcome to ServiceConnect – your trusted partner for cutting-edge web, app, and custom software solutions.",
       url: "https://www.serviceconnekt.com/",
       site_name: "ServiceConnect Technology",
       images: ["https://www.serviceconnekt.com/assets/images/log1.png"],
@@ -217,115 +217,88 @@ export const generatemetaData = (meta = {}, openGraph = {}, twitter = {}) => {
 const Metadata = {
   Home: {
     title: "ServiceConnekt | Web, Mobile & Custom Software Development Company",
-    description:
-      "ServiceConnekt builds high-performance websites, mobile apps, SaaS platforms and custom software for global businesses.",
-    keywords:
-      "ServiceConnekt, Software Company, Web Development, Mobile App Development, SaaS Development, Custom Software",
+    description: "ServiceConnekt builds high-performance websites, mobile apps, SaaS platforms and custom software for global businesses.",
+    keywords: "ServiceConnekt, Software Development, Web Development, Mobile App Development, SaaS Development, Custom Software",
     canonical: "https://www.serviceconnekt.com/",
     robots: "index, follow",
   },
-
   About: {
     title: "About ServiceConnekt | Global Software Engineering Partner",
-    description:
-      "ServiceConnekt is a modern software development company delivering scalable web, mobile, and SaaS solutions for digital growth.",
+    description: "ServiceConnekt is a leading software development company delivering scalable web, mobile, and SaaS solutions for global digital transformation.",
     canonical: "https://www.serviceconnekt.com/about-us",
     robots: "index, follow",
-    keywords:
-      "About ServiceConnekt, Software Company India, IT Services Company",
+    keywords: "About ServiceConnekt, Software Company India, IT Engineering Partner, ServiceConnekt Team",
   },
-
   Blogs: {
     title: "Tech Insights & Digital Growth Blog | ServiceConnekt",
-    description:
-      "Explore insights on software development, SaaS, technology trends, digital transformation, and business growth.",
+    description: "Explore ServiceConnekt's blog for insights on software development, SaaS trends, mobile app innovation, and digital transformation.",
     canonical: "https://www.serviceconnekt.com/blog",
     robots: "index, follow",
-    keywords:
-      "Tech Blog, Software Blog, SaaS Blog, Digital Transformation Blog, IT Insights",
+    keywords: "Tech Blog, Software Development Blog, SaaS Blog, Digital Transformation Blog, IT Insights",
   },
-
-  // Expertise: {
-  //   title:
-  //     "AI, ML & Predictive Analytics Services | ServiceConnekt Expertise",
-  //   description:
-  //     "ServiceConnekt helps businesses leverage AI, ML and predictive analytics to build intelligent, data-driven solutions.",
-  //   canonical: "https://www.serviceconnekt.com/our-expertise",
-  //   robots: "index, follow",
-  //   keywords:
-  //     "AI Solutions, Machine Learning Development, Predictive Analytics, Data Science Services",
-  // },
-
   Services: {
-    title: "Web, App & Custom Software Development | ServiceConnekt",
-    description:
-      "End-to-end web development, mobile apps, SaaS platforms and custom software solutions tailored to your business.",
+    title: "Web & Mobile App Development Services | ServiceConnekt",
+    description: "End-to-end web development, mobile apps, SaaS platforms, and custom software solutions tailored for your business needs.",
     canonical: "https://www.serviceconnekt.com/our-services",
     robots: "index, follow",
-    keywords:
-      "Custom Software, Web Development, Mobile App, SaaS Development, Cloud Solutions",
+    keywords: "Custom Software Development, Web Development, Mobile App, SaaS Development, Cloud Solutions, ServiceConnekt Services",
   },
-
   Work: {
-    title: "Portfolio & Case Studies | ServiceConnekt Client Work",
-    description:
-      "See how we build scalable, user-centric web apps, mobile apps, and software solutions for businesses worldwide.",
+    title: "Portfolio & Case Studies | ServiceConnekt Client Success Stories",
+    description: "Explore ServiceConnekt's portfolio of scalable, user-centric web applications, mobile apps, and custom software solutions built for global clients.",
     canonical: "https://www.serviceconnekt.com/our-work",
     robots: "index, follow",
+    keywords: "ServiceConnekt Portfolio, Software Development Case Studies, Web App Projects",
   },
-
   ContactUs: {
-    title: "Contact ServiceConnekt | Build Your Software With Us",
-    description:
-      "Contact ServiceConnekt for web, mobile app, SaaS, and custom software development services.",
+    title: "Contact ServiceConnekt | Start Your Digital Project Today",
+    description: "Ready to build? Contact ServiceConnekt for expert web, mobile app, SaaS, and custom software development services. Let's build something great.",
     canonical: "https://www.serviceconnekt.com/contact-us",
     robots: "index, follow",
+    keywords: "Contact ServiceConnekt, Hire Developers, Software Consultation",
   },
-
   Career: {
-    title: "Careers at ServiceConnekt | Software Jobs & Internships",
-    description:
-      "Join ServiceConnekt — we’re hiring developers, designers, engineers, and technology creators.",
+    title: "Careers at ServiceConnekt | Join Our Innovation Team",
+    description: "Join ServiceConnekt and build the future of technology. Explore job openings for developers, designers, and tech leaders.",
     canonical: "https://www.serviceconnekt.com/career",
     robots: "index, follow",
+    keywords: "Careers at ServiceConnekt, Software Jobs, Tech Careers, Work at ServiceConnekt",
   },
-
-  privacyPolicy: {
-    title: "Privacy Policy | ServiceConnekt",
-    description:
-      "Learn how ServiceConnekt collects, uses, and protects user data responsibly.",
+  PrivacyPolicy: {
+    title: "Privacy Policy | ServiceConnekt Data Protection",
+    description: "Read ServiceConnekt's privacy policy to understand how we collect, use, and safeguard your data responsibly.",
     canonical: "https://www.serviceconnekt.com/privacy-policy",
     robots: "index, follow",
   },
-
-  termsAndConditions: {
-    title: "Terms & Conditions | ServiceConnekt",
-    description:
-      "Read ServiceConnekt’s user agreement and service terms.",
+  TermsAndConditions: {
+    title: "Terms and Conditions | ServiceConnekt User Agreement",
+    description: "Review ServiceConnekt's terms and conditions outlining our service agreement and user responsibilities.",
     canonical: "https://www.serviceconnekt.com/terms-and-conditions",
     robots: "index, follow",
   },
-
-  Apply: {
-    title: "Apply | Careers at ServiceConnekt",
-    description:
-      "Apply for open positions at ServiceConnekt and work with a fast-growing digital product team.",
-    canonical: "https://www.serviceconnekt.com/apply",
+  ThankYou: {
+    title: "Thank You | ServiceConnekt",
+    description: "Thank you for reaching out to ServiceConnekt. Our team will get back to you shortly.",
+    canonical: "https://www.serviceconnekt.com/thank-you",
+    robots: "noindex, follow",
+  },
+  Sitemap: {
+    title: "Sitemap | ServiceConnekt",
+    description: "Navigate through ServiceConnekt's website structure and find our services, blog posts, and career opportunities.",
+    canonical: "https://www.serviceconnekt.com/sitemap",
     robots: "index, follow",
   },
-
-  // webDevelopement: {
-  //   title:
-  //     "Web & App Development Services | ServiceConnekt",
-  //   description:
-  //     "Build modern websites, web apps, and mobile apps with expert developers at ServiceConnekt.",
-  //   canonical: "https://www.serviceconnekt.com/web-and-app-development",
-  //   robots: "index, follow", // FIXED (you had noindex, which blocks SEO)
-  // },
+  InterviewHub: {
+    title: "Interview Q&A Hub | ServiceConnekt Tech Preparation",
+    description: "Prepare for your next tech interview with ServiceConnekt's curated Q&A hub covering React, Node.js, Python, Javascript, and more.",
+    canonical: "https://www.serviceconnekt.com/interview-hub",
+    robots: "index, follow",
+    keywords: "Tech Interview Prep, React Interview Questions, Javascript Q&A, Coding Practice",
+  },
 };
 
 export default function GetMetaData(page) {
-  return Metadata[page];
+  return Metadata[page] || Metadata.Home;
 }
 
 

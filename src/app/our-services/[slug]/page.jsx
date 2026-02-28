@@ -1,6 +1,5 @@
 import React from "react";
 import { services } from "@/utils/service";
-import Head from "next/head";
 import ServiceHero from "../_components/service/ServiceHero";
 import OverviewSection from "../_components/service/OverviewSection";
 import FeaturesSection from "../_components/service/FeaturesSection";
@@ -11,6 +10,26 @@ import CTASection from "../_components/service/CTASection";
 import ProcessSection from "../_components/service/ProcessSection";
 
 
+
+export async function generateStaticParams() {
+  return services.map((service) => ({
+    slug: service.slug,
+  }));
+}
+
+export async function generateMetadata({ params }) {
+  const service = services.find((s) => s.slug === params.slug);
+  if (!service) return {};
+
+  return {
+    title: service.title,
+    description: service.shortDescription,
+    keywords: service.keywords?.join(", "),
+    alternates: {
+      canonical: `https://www.serviceconnekt.com/our-services/${service.slug}`,
+    }
+  };
+}
 
 export default function page({ params }) {
   const { slug } = params;
@@ -67,23 +86,14 @@ export default function page({ params }) {
 
   return (
     <>
-      <Head>
-        <title>{service.title}</title>
-        <meta name="description" content={service.shortDescription} />
-        <meta name="keywords" content={service.keywords?.join(", ") || ""} />
-        <link
-          rel="canonical"
-          href={`https://www.serviceconnekt.com/services/${service.slug}`}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-        />
-      </Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
 
       <main className="flex flex-col gap-20 pb-20 bg-custombgc">
         <ServiceHero

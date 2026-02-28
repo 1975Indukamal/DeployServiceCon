@@ -55,21 +55,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   reactStrictMode: false,
-  // output: 'export',
+  output: 'export',
   images: {
     unoptimized: true,
-  },
-   webpack: (config) => {
-    config.cache = false;
-    return config;
-  },
-  rewrites: async () => {
-    return [
-      {
-        source: "/basepath/:path*",
-        destination: "https://api.servicecnnekt.com/:path*",
-      },
-    ];
   },
 };
 
