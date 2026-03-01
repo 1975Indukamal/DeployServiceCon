@@ -76,10 +76,10 @@ export default function InterviewClient({ stack, stackData, hinglishMap }: Inter
                                             onClick={() => toggle(key)}
                                             className="w-full text-left p-4 flex items-start gap-2 hover:bg-muted/40 transition-colors"
                                         >
-                                            <span className="text-primary font-mono text-sm mt-0.5 shrink-0">
+                                            <span className="text-gray-400 font-mono text-sm mt-0.5 shrink-0">
                                                 Q{index + 1}:
                                             </span>
-                                            <span className="font-medium flex-1 text-primary">{item.q}</span>
+                                            <span className="font-medium flex-1 text-gray-400">{item.q}</span>
                                             <ChevronDown
                                                 className={`w-4 h-4 mt-1 shrink-0 text-muted-foreground transition-transform ${isOpen ? "rotate-180" : ""
                                                     }`}

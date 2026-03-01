@@ -15,8 +15,8 @@ import {
 } from "@/components/learnhub/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
-const coreStacks = ["react", "nodejs", "typescript", "javascript", "python", "dsa"];
-const coreStacks1 = ["react", "nodejs", "javascript", "python", "dsa"];
+const coreStacks = ["react", "nodejs", "javascript"];
+const coreStacks1 = ["react", "nodejs", "javascript", "dsa"];
 const individualStacks = ["aws", "docker", "authentication"];
 
 // Helper to render beautiful cards inside desktop dropdown

@@ -165,7 +165,7 @@ Result: ${pass ? "✅ PASS" : "❌ FAIL"}`
                             setSelectedIdx(0);
                         }}
                         className={`px-4 py-1.5 rounded-full border text-sm font-medium transition-all ${difficulty === level
-                            ? "bg-primary text-primary-foreground border-primary"
+                            ? "bg-dark text-primary-foreground border-primary"
                             : "border-border text-muted-foreground hover:bg-muted hover:text-foreground"
                             }`}
                     >
@@ -177,7 +177,7 @@ Result: ${pass ? "✅ PASS" : "❌ FAIL"}`
                     <button
                         onClick={() => setTopicDropdownOpen(!topicDropdownOpen)}
                         className={`px-4 py-1.5 rounded-full border text-sm font-medium flex items-center gap-2 transition-all ${topicDropdownOpen || topic !== "All"
-                            ? "bg-primary text-primary-foreground border-primary"
+                            ? "bg-dark text-primary-foreground border-primary"
                             : "border-border text-muted-foreground hover:bg-muted hover:text-foreground"
                             }`}
                     >
@@ -192,7 +192,7 @@ Result: ${pass ? "✅ PASS" : "❌ FAIL"}`
                                 onClick={() => setTopicDropdownOpen(false)}
                             ></div>
 
-                            <div className="absolute z-50 mt-2 w-48 bg-card border border-border rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-left">
+                            <div className="absolute z-50 mt-2 w-48 bg-dark border border-border rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-left">
                                 {topics.map((t) => (
                                     <button
                                         key={t}

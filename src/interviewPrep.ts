@@ -1059,17 +1059,571 @@ async function cachedFetch(url, ttl = 60000) {
   },
   nodejs: {
     Beginner: [
-      { q: "What is Node.js?", a: "Node.js is a JavaScript runtime built on Chrome's V8 engine. It enables server-side JavaScript execution with non-blocking I/O and an event-driven architecture.", oneLiner: "JS runtime on V8 for server-side non-blocking I/O." },
-      { q: "What is npm?", a: "npm is the Node Package Manager and the world's largest software registry. It manages project dependencies, scripts, and provides access to over a million open-source packages.", oneLiner: "Package manager for installing and managing JS dependencies." },
-      { q: "What is the event loop?", a: "The event loop is Node's mechanism for handling async operations. It continuously checks the call stack and processes callbacks from the event queue, enabling non-blocking I/O.", oneLiner: "Mechanism that processes async callbacks from the event queue." },
+      { q: "What is Node.js? How does it work?", a: "Node.js is a JavaScript runtime built on Chrome's V8 engine. It runs JS outside the browser using non-blocking I/O and an event-driven architecture. V8 compiles JS to machine code. libuv handles async I/O operations. Node uses a single thread with an event loop to handle thousands of concurrent connections efficiently.", oneLiner: "JS runtime on V8 engine — single-threaded, event-driven, non-blocking I/O.",
+        hinglish: "Node.js ek JavaScript runtime hai jo Chrome ke V8 engine pe bana hai. Ye JS ko browser ke bahar server pe chalata hai. Single thread use karta hai par event loop ki wajah se hazaaron connections handle kar sakta hai bina blocking ke.",
+        code: `// Simple Node.js server
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello from Node.js!');
+});
+
+server.listen(3000, () => console.log('Server running on port 3000'));` },
+      { q: "What is Express.js?", a: "Express.js is a minimal and flexible Node.js web framework that provides routing, middleware support, and HTTP utilities for building web applications and REST APIs. It simplifies server creation compared to raw http module and has the largest ecosystem of middleware packages.", oneLiner: "Minimal Node.js web framework for routing, middleware, and APIs.",
+        hinglish: "Express.js ek lightweight framework hai Node.js ke liye jo web apps aur APIs banana easy banata hai. Routing, middleware, error handling — sab built-in milta hai. Raw http module se bahut simple hai.",
+        code: `const express = require('express');
+const app = express();
+
+app.use(express.json()); // Parse JSON body
+
+app.get('/api/users', (req, res) => {
+  res.json([{ id: 1, name: 'Rahul' }]);
+});
+
+app.post('/api/users', (req, res) => {
+  const { name } = req.body;
+  res.status(201).json({ id: 2, name });
+});
+
+app.listen(3000, () => console.log('Server started'));` },
+      { q: "What is an event loop?", a: "The event loop is Node's concurrency mechanism. It continuously checks if the call stack is empty, then picks callbacks from the event queue. Phases: timers (setTimeout) → pending callbacks → poll (I/O) → check (setImmediate) → close callbacks. This allows Node to handle async operations without blocking the main thread.", oneLiner: "Mechanism that processes async callbacks — timers → poll → check → close.",
+        hinglish: "Event loop Node.js ka dil hai — ye check karta hai ki call stack khali hai ya nahi. Khali hone pe event queue se callbacks uthata hai aur execute karta hai. Isi ki wajah se Node async operations handle kar pata hai bina main thread block kiye.",
+        code: `console.log('1 - Start');          // Call Stack
+
+setTimeout(() => {
+  console.log('2 - Timeout');       // Timer Queue
+}, 0);
+
+setImmediate(() => {
+  console.log('3 - Immediate');     // Check Queue
+});
+
+process.nextTick(() => {
+  console.log('4 - nextTick');      // Microtask Queue (runs first!)
+});
+
+console.log('5 - End');             // Call Stack
+
+// Output: 1-Start, 5-End, 4-nextTick, 2-Timeout, 3-Immediate` },
+      { q: "What are REST APIs? How do they work?", a: "REST (Representational State Transfer) APIs follow a set of architectural principles for building web services. They use HTTP methods (GET, POST, PUT, DELETE) to perform CRUD operations on resources identified by URLs. REST APIs are stateless — each request contains all needed info. They return data in JSON format.", oneLiner: "HTTP-based APIs using GET/POST/PUT/DELETE for stateless CRUD operations.",
+        hinglish: "REST APIs ek tarika hai client-server communication ka. HTTP methods use karte hain — GET (data lo), POST (naya banao), PUT (update karo), DELETE (hatao). Har request independent hoti hai (stateless). Data JSON mein aata-jaata hai.",
+        code: `// Express REST API example
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+let users = [{ id: 1, name: 'Rahul' }];
+
+app.get('/api/users', (req, res) => res.json(users));           // READ all
+app.get('/api/users/:id', (req, res) => {                       // READ one
+  const user = users.find(u => u.id === +req.params.id);
+  user ? res.json(user) : res.status(404).json({ error: 'Not found' });
+});
+app.post('/api/users', (req, res) => {                          // CREATE
+  const user = { id: users.length + 1, ...req.body };
+  users.push(user);
+  res.status(201).json(user);
+});
+app.put('/api/users/:id', (req, res) => {                       // UPDATE
+  const idx = users.findIndex(u => u.id === +req.params.id);
+  users[idx] = { ...users[idx], ...req.body };
+  res.json(users[idx]);
+});
+app.delete('/api/users/:id', (req, res) => {                    // DELETE
+  users = users.filter(u => u.id !== +req.params.id);
+  res.json({ message: 'Deleted' });
+});` },
+      { q: "What are web servers? How are they different from laptops?", a: "Web servers are computers designed to run 24/7, serve web content, and handle many simultaneous network requests. They have redundant power, fast networking, and are optimized for I/O. Unlike laptops, they usually have no screen/keyboard, sit in data centers, and prioritize uptime and throughput over user interaction.", oneLiner: "Always-on computers serving web content — no screen, optimized for network I/O.",
+        hinglish: "Web server ek computer hai jo 24/7 chalta hai aur network requests handle karta hai. Laptop pe hum kaam karte hain — screen, keyboard hota hai. Server pe koi screen nahi hoti, data center mein rakha hota hai, aur sirf requests serve karna iska kaam hai. Fast network aur high uptime zaroori hai." },
+      { q: "What is CORS?", a: "CORS (Cross-Origin Resource Sharing) is a browser security mechanism that restricts web pages from making requests to a different domain than the one serving the page. Server must include Access-Control-Allow-Origin header to permit cross-origin requests. Without CORS headers, browser blocks the response.", oneLiner: "Browser security blocking cross-origin requests — fix with ACAO headers.",
+        hinglish: "CORS ek browser security hai jo alag origin (domain/port) se requests block karta hai. Jaise React localhost:3000 se Node localhost:5000 pe call karo toh CORS error aayega. Server pe cors middleware lagao aur origin allow karo — tabhi browser response accept karega.",
+        code: `// Fix CORS in Express
+const cors = require('cors');
+
+// Allow specific origin
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+
+// Or allow all origins (dev only!)
+app.use(cors());
+
+// Manual headers (without cors package)
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  next();
+});` },
+      { q: "Advantages of Node.js?", a: "1) Fast execution (V8 engine compiles to machine code). 2) Non-blocking I/O for high concurrency. 3) Same language (JS) for frontend and backend. 4) Huge npm ecosystem (2M+ packages). 5) Great for real-time apps (chat, streaming). 6) Lightweight and efficient. 7) Large community and corporate backing.", oneLiner: "Fast V8, non-blocking I/O, JS everywhere, huge npm ecosystem, great for real-time.",
+        hinglish: "Node.js ke fayde: V8 engine se fast hai, non-blocking I/O se bahut saare connections handle karta hai, frontend-backend dono JS mein likh sakte ho, npm pe 20 lakh+ packages hain, real-time apps (chat, streaming) ke liye best hai, aur community badi hai." },
+      { q: "Is Node.js single-threaded or multi-threaded?", a: "Node.js is single-threaded for JavaScript execution — your code runs on one thread via the event loop. However, behind the scenes, libuv uses a thread pool (default 4 threads) for heavy I/O operations like file system, DNS, and crypto. So Node is single-threaded in user code but uses multiple threads internally.", oneLiner: "Single-threaded JS execution + multi-threaded libuv for heavy I/O behind the scenes.",
+        hinglish: "Node.js ka JavaScript code ek hi thread pe chalta hai — event loop se. Par background mein libuv ka thread pool (4 threads) heavy kaam karta hai jaise file reading, DNS lookup. Toh user code single-threaded hai, par internally multi-threaded support hai." },
+      { q: "If Node.js is single-threaded, how does it handle concurrency?", a: "Node uses the event loop + non-blocking I/O + callback queue. When an async operation starts (DB query, file read), Node delegates it to the OS or libuv thread pool and continues executing other code. When the operation completes, its callback is added to the queue and processed by the event loop.", oneLiner: "Event loop + non-blocking I/O + libuv thread pool — delegates async work, processes callbacks.",
+        hinglish: "Node single-threaded hai par concurrency event loop se handle karta hai. Async operations (DB call, file read) ko OS ya libuv thread pool ko de deta hai aur aage ka code chalta rehta hai. Jab operation complete hota hai, callback queue mein aata hai aur event loop execute karta hai." },
+      { q: "What are different HTTP methods? Explain.", a: "GET: retrieve data (read). POST: create new resource. PUT: replace/update entire resource. PATCH: partial update. DELETE: remove resource. HEAD: like GET but no body (check if resource exists). OPTIONS: discover allowed methods (used in CORS preflight).", oneLiner: "GET=read, POST=create, PUT=replace, PATCH=partial update, DELETE=remove.",
+        hinglish: "HTTP methods: GET — data lena, POST — naya data banana, PUT — poora resource replace karna, PATCH — partial update, DELETE — resource delete karna. HEAD sirf headers deta hai (body nahi), OPTIONS bata ta hai kaunse methods allowed hain (CORS mein use hota hai).",
+        code: `// Express routes for each HTTP method
+app.get('/api/items', getItems);       // Fetch all items
+app.get('/api/items/:id', getItem);    // Fetch one item
+app.post('/api/items', createItem);    // Create new item
+app.put('/api/items/:id', replaceItem);// Replace entire item
+app.patch('/api/items/:id', updateItem);// Update partial fields
+app.delete('/api/items/:id', deleteItem);// Delete item` },
+      { q: "What is package.json?", a: "package.json is the manifest file for a Node.js project. It contains project metadata (name, version, description), dependencies, devDependencies, scripts (start, build, test), main entry point, and configuration. Created with npm init. It tells npm how to manage and run your project.", oneLiner: "Project manifest — metadata, dependencies, scripts, and configuration.",
+        hinglish: "package.json aapke Node.js project ka ID card hai. Isme project ka naam, version, dependencies (kaunse packages chahiye), scripts (kaise start/build karna hai), sab likha hota hai. npm install isi file ko dekhta hai.",
+        code: `{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "My awesome app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0",
+    "jest": "^29.0.0"
+  }
+}` },
+      { q: "What is package-lock.json?", a: "package-lock.json locks the exact versions of every installed dependency (including nested dependencies). It ensures everyone on the team gets identical versions when running npm install. It's auto-generated — never edit manually. Always commit it to Git.", oneLiner: "Locks exact dependency versions for consistent installs across teams.",
+        hinglish: "package-lock.json har dependency ki exact version lock karta hai — toh poori team ko same versions milte hain. npm install pe ye file dekhta hai. Kabhi manually edit mat karo, aur Git mein zaroor commit karo." },
+      { q: "Difference between dependencies and devDependencies? When to use what?", a: "dependencies: packages needed in production (express, mongoose, bcrypt). Installed with npm install. devDependencies: packages needed only during development (nodemon, jest, eslint). Installed with npm install --save-dev. In production (npm install --production), devDependencies are skipped.", oneLiner: "dependencies = production packages; devDependencies = dev-only tools (testing, linting).",
+        hinglish: "dependencies wo packages hain jo production mein chahiye — express, mongoose. devDependencies sirf development ke liye hain — jest, nodemon, eslint. --save-dev se install karo. Production deploy mein devDependencies skip ho jaati hain.",
+        code: `# Install as dependency (needed in production)
+npm install express mongoose bcrypt
+
+# Install as devDependency (dev only)
+npm install --save-dev nodemon jest eslint
+
+# Production install (skips devDependencies)
+npm install --production` },
     ],
     Intermediate: [
-      { q: "Explain middleware in Express.", a: "Middleware functions have access to req, res, and next. They execute sequentially, can modify request/response, end the cycle, or pass control. Used for auth, logging, parsing, and error handling.", oneLiner: "Functions with req/res/next that process requests sequentially." },
-      { q: "What are streams?", a: "Streams handle data in chunks rather than loading everything into memory. The four types are Readable, Writable, Duplex, and Transform. They're essential for processing large files efficiently.", oneLiner: "Process data chunk-by-chunk instead of loading all into memory." },
+      { q: "What are middleware and what does next() function do?", a: "Middleware are functions that execute during the request-response cycle. They have access to req, res, and next(). next() passes control to the next middleware in the chain. Without calling next(), the request hangs. Types: application-level, router-level, error-handling, built-in, third-party.", oneLiner: "Functions in the req-res cycle — next() passes control to the next middleware.",
+        hinglish: "Middleware ek function hai jo request aur response ke beech mein kaam karta hai. Jaise security guard — request ko check karo, pass karo ya roko. next() call karne se agla middleware chalta hai. next() nahi call kiya toh request hang ho jaayegi.",
+        code: `// Custom logging middleware
+const logger = (req, res, next) => {
+  console.log(\`\${req.method} \${req.url} - \${new Date().toISOString()}\`);
+  next(); // Pass to next middleware — MUST call this!
+};
+
+// Auth middleware
+const auth = (req, res, next) => {
+  const token = req.headers.authorization;
+  if (!token) return res.status(401).json({ error: 'No token' });
+  try {
+    req.user = jwt.verify(token.split(' ')[1], SECRET);
+    next(); // Authenticated — proceed
+  } catch {
+    res.status(401).json({ error: 'Invalid token' });
+    // No next() — request stops here
+  }
+};
+
+app.use(logger);                           // Runs on ALL routes
+app.get('/profile', auth, getProfile);     // auth runs before getProfile` },
+      { q: "Which module is used to read and write files?", a: "The 'fs' (file system) module is used to read and write files. It has sync methods (readFileSync, writeFileSync) and async methods (readFile, writeFile). The modern approach uses fs.promises for async/await. Always prefer async methods to avoid blocking the event loop.", oneLiner: "fs module — readFile/writeFile (async) or readFileSync/writeFileSync (sync).",
+        hinglish: "fs (file system) module se files read/write karte hain. Sync methods (readFileSync) block karte hain — async methods (readFile) ya fs.promises use karo taaki event loop block na ho.",
+        code: `const fs = require('fs');
+const fsPromises = require('fs').promises;
+
+// Async (callback) — non-blocking
+fs.readFile('data.txt', 'utf8', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+
+// Sync — blocks event loop (avoid in servers!)
+const data = fs.readFileSync('data.txt', 'utf8');
+
+// Modern async/await — recommended!
+async function readAndWrite() {
+  const content = await fsPromises.readFile('input.txt', 'utf8');
+  await fsPromises.writeFile('output.txt', content.toUpperCase());
+  console.log('Done!');
+}` },
+      { q: "What is JWT token? How do you create it?", a: "JWT (JSON Web Token) has 3 parts: Header (algorithm), Payload (user data + expiry), Signature (HMAC of header+payload using secret). Server creates JWT on login, client sends it with every request in Authorization header. Server verifies signature without database lookup.", oneLiner: "Header.Payload.Signature — self-contained token for stateless authentication.",
+        hinglish: "JWT ek token hai jo 3 parts ka hota hai — Header, Payload (user data), Signature. Login pe server JWT banata hai, client har request mein bhejta hai, server verify karta hai bina database dekhe. Secret key se sign hota hai.",
+        code: `const jwt = require('jsonwebtoken');
+const SECRET = 'my-secret-key';
+
+// Create token on login
+const token = jwt.sign(
+  { userId: '123', role: 'admin' },  // Payload
+  SECRET,                             // Secret key
+  { expiresIn: '24h' }               // Options
+);
+// token = "eyJhbGci.eyJ1c2Vy.SflKxwR..."
+
+// Verify token in middleware
+try {
+  const decoded = jwt.verify(token, SECRET);
+  console.log(decoded.userId); // '123'
+} catch (err) {
+  console.log('Invalid or expired token');
+}` },
+      { q: "Explain the flow of login and authentication. How does the backend identify the user?", a: "Flow: 1) User sends email+password to /login. 2) Server finds user in DB by email. 3) Server compares password with stored hash using bcrypt.compare(). 4) If valid, server creates JWT with userId. 5) Client stores JWT. 6) On every request, client sends JWT in Authorization header. 7) Server middleware verifies JWT and extracts userId — that's how it identifies the user.", oneLiner: "Login → verify password → create JWT → client sends JWT → server extracts userId.",
+        hinglish: "User email+password bhejta hai → server DB mein user dhundhta hai → bcrypt se password match karta hai → sahi hai toh JWT banata hai userId ke saath → client JWT store karta hai → har request pe JWT header mein jaata hai → server JWT verify karke userId nikalta hai — aise pata chalta hai kaun hai.",
+        code: `// Complete login flow
+app.post('/login', async (req, res) => {
+  // Step 1: Find user
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) return res.status(401).json({ error: 'User not found' });
+
+  // Step 2: Verify password
+  const isValid = await bcrypt.compare(req.body.password, user.password);
+  if (!isValid) return res.status(401).json({ error: 'Wrong password' });
+
+  // Step 3: Create JWT
+  const token = jwt.sign({ userId: user._id }, SECRET, { expiresIn: '24h' });
+  res.json({ token, user: { id: user._id, name: user.name } });
+});
+
+// Step 4: Protected route — backend identifies user via JWT
+app.get('/profile', authMiddleware, async (req, res) => {
+  const user = await User.findById(req.user.userId); // userId from JWT
+  res.json(user);
+});` },
+      { q: "Why do you need a JWT token? How do you expire it after a certain time?", a: "JWT is needed because HTTP is stateless — server doesn't remember previous requests. JWT lets server verify identity without storing sessions. Expiry is set with expiresIn option (e.g., '1h', '7d'). After expiry, jwt.verify() throws TokenExpiredError. Use refresh tokens for seamless re-authentication.", oneLiner: "Stateless auth for stateless HTTP — expiresIn sets auto-expiry time.",
+        hinglish: "HTTP stateless hai — server ko yaad nahi rehta tum kaun ho. JWT se har request ke saath identity proof jaata hai. expiresIn se expiry set karo (1h, 7d). Expire hone pe jwt.verify error throw karta hai. Refresh token se bina login kiye naya token mil jaata hai.",
+        code: `// Set expiry
+const token = jwt.sign({ userId: '123' }, SECRET, { expiresIn: '1h' });
+
+// After 1 hour, this will throw:
+try {
+  jwt.verify(token, SECRET);
+} catch (err) {
+  if (err.name === 'TokenExpiredError') {
+    console.log('Token expired at:', err.expiredAt);
+    // Send refresh token to get new access token
+  }
+}
+
+// Refresh token flow
+app.post('/refresh', (req, res) => {
+  const { refreshToken } = req.body;
+  const decoded = jwt.verify(refreshToken, REFRESH_SECRET);
+  const newAccessToken = jwt.sign(
+    { userId: decoded.userId },
+    SECRET,
+    { expiresIn: '1h' }
+  );
+  res.json({ accessToken: newAccessToken });
+});` },
+      { q: "What is .gitignore file?", a: ".gitignore tells Git which files/folders to exclude from version control. Common entries: node_modules/ (too large, reinstallable), .env (secrets), dist/ (build output), .DS_Store (Mac files). Each line is a pattern — supports wildcards (*) and negation (!).", oneLiner: "Tells Git which files to ignore — node_modules, .env, build output.",
+        hinglish: ".gitignore file Git ko batati hai ki kaunsi files track nahi karni. node_modules/ (bahut bada, npm install se wapas aata hai), .env (secrets hain), dist/ (build output) — ye sab ignore karo. Har line ek pattern hai.",
+        code: `# .gitignore
+node_modules/       # Dependencies (reinstallable)
+.env                # Secret keys — NEVER commit!
+dist/               # Build output
+.DS_Store           # Mac system files
+*.log               # Log files
+coverage/           # Test coverage reports` },
+      { q: "Primary key and foreign key in SQL?", a: "Primary Key: uniquely identifies each row in a table (e.g., user_id). Cannot be NULL or duplicate. Each table has one primary key. Foreign Key: a column that references another table's primary key, creating a relationship. It enforces referential integrity — you can't add a value that doesn't exist in the referenced table.", oneLiner: "Primary key = unique row identifier; Foreign key = reference to another table's primary key.",
+        hinglish: "Primary key har row ko unique identify karta hai — jaise Aadhaar number. NULL ya duplicate nahi ho sakta. Foreign key doosri table ka primary key reference karta hai — jaise order table mein user_id jo users table ka id hai. Ye tables ke beech relationship banata hai.",
+        code: `-- Primary Key
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,      -- Unique, NOT NULL, auto-increment
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE
+);
+
+-- Foreign Key — references users table
+CREATE TABLE orders (
+  id SERIAL PRIMARY KEY,
+  user_id INT REFERENCES users(id),  -- Foreign key
+  product VARCHAR(100),
+  amount DECIMAL(10,2)
+);
+
+-- Can't insert order with non-existent user_id
+INSERT INTO orders (user_id, product) VALUES (999, 'Laptop');
+-- ERROR: foreign key violation` },
+      { q: "What are streams in Node.js?", a: "Streams process data piece by piece (chunks) instead of loading everything into memory. Four types: Readable (fs.createReadStream), Writable (fs.createWriteStream), Duplex (read+write, like TCP socket), Transform (modify data while streaming, like zlib compression). Streams are instances of EventEmitter.", oneLiner: "Process data in chunks — Readable, Writable, Duplex, Transform.",
+        hinglish: "Streams data ko chhote-chhote pieces (chunks) mein process karte hain — poori file memory mein load nahi karni padti. 4 types: Readable (padhna), Writable (likhna), Duplex (dono), Transform (modify karte hue stream). Badi files ke liye zaroori hai.",
+        code: `const fs = require('fs');
+
+// Without streams — loads ENTIRE file in memory (bad for large files!)
+const data = fs.readFileSync('huge-file.txt');
+
+// With streams — processes chunk by chunk (memory efficient)
+const readStream = fs.createReadStream('huge-file.txt', { encoding: 'utf8' });
+const writeStream = fs.createWriteStream('output.txt');
+
+readStream.on('data', (chunk) => {
+  console.log('Received chunk:', chunk.length, 'bytes');
+  writeStream.write(chunk.toUpperCase());
+});
+readStream.on('end', () => console.log('Done!'));
+
+// Or use pipe (cleanest way)
+fs.createReadStream('input.txt').pipe(fs.createWriteStream('copy.txt'));` },
+      { q: "What are buffers?", a: "Buffers are fixed-size memory allocations for handling raw binary data (bytes) outside the V8 heap. They're used when dealing with streams, file I/O, network protocols, and binary data. Unlike strings, buffers can store any binary data. Buffer.alloc() creates zero-filled buffers, Buffer.from() converts data.", oneLiner: "Fixed-size raw binary data storage — used for streams, files, and network I/O.",
+        hinglish: "Buffers raw binary data store karte hain — jaise images, files, network data. V8 heap ke bahar memory allocate hoti hai. Streams internally buffers use karte hain. Buffer.from('hello') string ko binary mein convert karta hai.",
+        code: `// Create buffers
+const buf1 = Buffer.alloc(10);          // 10 bytes, filled with zeros
+const buf2 = Buffer.from('Hello');      // From string
+const buf3 = Buffer.from([72, 101]);    // From byte array
+
+console.log(buf2.toString());            // 'Hello'
+console.log(buf2.length);               // 5 (bytes, not chars)
+console.log(buf2.toJSON());             // { data: [72, 101, 108, 108, 111] }
+
+// Buffers are used in streams
+const stream = fs.createReadStream('file.txt');
+stream.on('data', (chunk) => {
+  console.log(Buffer.isBuffer(chunk));  // true
+  console.log(chunk.toString());        // Convert buffer to string
+});` },
     ],
     Advanced: [
-      { q: "How does the cluster module work?", a: "The cluster module creates child processes (workers) that share the same server port. It enables multi-core utilization, improving throughput. Workers are managed by a master process.", oneLiner: "Creates worker processes sharing a port for multi-core scaling." },
-      { q: "Explain the Node.js module resolution algorithm.", a: "Node resolves modules by checking core modules first, then file paths (./, ../), then node_modules. It looks for exact files, then index.js, using the main field in package.json.", oneLiner: "Resolves: core modules → file paths → node_modules → index.js." },
+      { q: "What are constructors? What does super() do in JS?", a: "A constructor is a special method called when creating a new instance of a class. It initializes object properties. super() calls the parent class constructor — required in child class constructor before using 'this'. Without super(), you get a ReferenceError.", oneLiner: "constructor() initializes instances; super() calls parent's constructor.",
+        hinglish: "Constructor ek special method hai jo new keyword se object banate waqt automatically call hota hai — properties initialize karta hai. super() parent class ka constructor call karta hai — child class mein 'this' use karne se pehle super() zaroori hai.",
+        code: `class Animal {
+  constructor(name) {
+    this.name = name;
+    console.log('Animal constructor called');
+  }
+  speak() { return \`\${this.name} makes a sound\`; }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name);           // MUST call super() before using 'this'
+    this.breed = breed;    // Now 'this' is available
+    console.log('Dog constructor called');
+  }
+  bark() { return \`\${this.name} (\${this.breed}) says Woof!\`; }
+}
+
+const dog = new Dog('Tommy', 'Labrador');
+// Output: "Animal constructor called", "Dog constructor called"
+console.log(dog.bark()); // "Tommy (Labrador) says Woof!"` },
+      { q: "Classes in JavaScript — what are they?", a: "Classes are syntactic sugar over prototypal inheritance. They provide a cleaner way to create objects and handle inheritance. A class has a constructor, methods, static methods, getters/setters, and can extend other classes. Under the hood, they still use prototypes.", oneLiner: "Syntactic sugar over prototypes — clean syntax for object creation and inheritance.",
+        hinglish: "Classes JS mein prototypal inheritance ka clean syntax hain. constructor, methods, static methods, getters/setters sab milta hai. extends se inheritance hoti hai. Par andar se ye prototypes hi use karti hain — sirf syntax sugar hai.",
+        code: `class User {
+  #password; // Private field
+
+  constructor(name, email, password) {
+    this.name = name;
+    this.email = email;
+    this.#password = password;
+  }
+
+  // Method
+  greet() { return \`Hi, I'm \${this.name}\`; }
+
+  // Static method — called on class, not instance
+  static createGuest() { return new User('Guest', 'guest@mail.com', '1234'); }
+
+  // Getter
+  get info() { return \`\${this.name} (\${this.email})\`; }
+}
+
+const user = new User('Rahul', 'rahul@mail.com', 'secret');
+const guest = User.createGuest();
+console.log(user.info); // "Rahul (rahul@mail.com)"` },
+      { q: "What is garbage collection in JavaScript? When is a variable garbage collected?", a: "Garbage collection (GC) automatically frees memory that's no longer reachable. V8 uses 'mark-and-sweep' — it starts from root (global, stack) and marks all reachable objects; unreachable ones are swept/freed. A variable is GC'd when no reference points to it — e.g., after going out of scope or setting to null.", oneLiner: "Automatic memory cleanup — unreachable objects are freed via mark-and-sweep.",
+        hinglish: "Garbage collection automatically memory free karta hai jo ab use nahi ho rahi. V8 mark-and-sweep use karta hai — root se start karke saare reachable objects mark karta hai, baaki delete. Variable tab GC hota hai jab koi reference nahi bachta — scope khatam ho ya null set karo.",
+        code: `// Variable gets garbage collected when no reference exists
+function example() {
+  let data = { big: 'object' }; // Memory allocated
+  // ... use data ...
+} // data goes out of scope — eligible for GC
+
+// Force dereference
+let cache = { users: [1000 items] };
+cache = null; // Old object now unreachable — will be GC'd
+
+// Closures can prevent GC (memory leak!)
+function leaky() {
+  const hugeArray = new Array(1000000);
+  return function() {
+    console.log(hugeArray.length); // hugeArray stays in memory!
+  };
+}` },
+      { q: "What are destructors? When are they called?", a: "JavaScript doesn't have traditional destructors like C++. However, WeakRef and FinalizationRegistry (ES2021) allow running cleanup code when objects are garbage collected. These are used rarely — mainly for releasing external resources (file handles, connections). GC timing is unpredictable, so don't rely on them for critical cleanup.", oneLiner: "No real destructors in JS — FinalizationRegistry runs cleanup after GC (unreliable timing).",
+        hinglish: "JS mein C++ jaise destructors nahi hain. Par FinalizationRegistry (ES2021) se object garbage collect hone pe cleanup code chala sakte ho. Timing unpredictable hai toh important cleanup ke liye rely mat karo — close() methods manually call karo.",
+        code: `// FinalizationRegistry — cleanup after GC
+const registry = new FinalizationRegistry((value) => {
+  console.log(\`Cleaned up: \${value}\`);
+});
+
+function createResource() {
+  const obj = { data: 'important' };
+  registry.register(obj, 'myResource'); // Register for cleanup
+  return obj;
+}
+
+let res = createResource();
+res = null; // Object eligible for GC
+// Eventually logs: "Cleaned up: myResource" (timing unpredictable)` },
+      { q: "What is abstraction and encapsulation?", a: "Abstraction: hiding complex implementation details and showing only essential features. Example: you use fetch() without knowing HTTP internals. Encapsulation: bundling data and methods together and restricting direct access using private fields (#). Together they make code modular and secure.", oneLiner: "Abstraction = hide complexity; Encapsulation = bundle data + restrict access.",
+        hinglish: "Abstraction matlab complexity chhupaana — jaise car chalate ho par engine ka internal nahi jaante. Encapsulation matlab data aur methods ko ek saath rakhna aur bahar se direct access rok dena (private fields #). Dono milke code safe aur clean banate hain.",
+        code: `// Encapsulation with private fields
+class BankAccount {
+  #balance; // Private — can't access from outside
+
+  constructor(owner, initial) {
+    this.owner = owner;
+    this.#balance = initial;
+  }
+
+  // Abstraction — simple interface hiding complex logic
+  deposit(amount) {
+    if (amount <= 0) throw new Error('Invalid amount');
+    this.#balance += amount;
+    this.#logTransaction('deposit', amount);
+  }
+
+  getBalance() { return this.#balance; }
+
+  #logTransaction(type, amount) { // Private method
+    console.log(\`\${type}: ₹\${amount} | Balance: ₹\${this.#balance}\`);
+  }
+}
+
+const acc = new BankAccount('Rahul', 1000);
+acc.deposit(500);        // Works — abstracted interface
+// acc.#balance = 0;     // ❌ Error — encapsulated!` },
+      { q: "How can you enhance Node.js performance using clustering?", a: "The cluster module forks multiple worker processes (one per CPU core) sharing the same port. The master process distributes incoming connections to workers using round-robin. If a worker crashes, master can restart it. This fully utilizes multi-core CPUs for CPU-bound workloads.", oneLiner: "Fork workers per CPU core — master distributes connections via round-robin.",
+        hinglish: "Clustering mein master process har CPU core ke liye ek worker process banata hai. Saare workers same port share karte hain. Master incoming connections workers mein distribute karta hai. Koi worker crash ho toh master naya bana deta hai. Multi-core CPUs ka poora fayda uthao!",
+        code: `const cluster = require('cluster');
+const os = require('os');
+const express = require('express');
+
+if (cluster.isPrimary) {
+  const numCPUs = os.cpus().length;
+  console.log(\`Master \${process.pid} forking \${numCPUs} workers\`);
+
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork(); // Create worker for each CPU core
+  }
+
+  cluster.on('exit', (worker) => {
+    console.log(\`Worker \${worker.process.pid} died, restarting...\`);
+    cluster.fork(); // Auto-restart crashed worker
+  });
+} else {
+  const app = express();
+  app.get('/', (req, res) => res.send(\`Worker \${process.pid}\`));
+  app.listen(3000);
+  console.log(\`Worker \${process.pid} started\`);
+}` },
+      { q: "Difference between fork() and spawn()?", a: "spawn(): launches a new process with a command, streams data via stdin/stdout/stderr. Used for running system commands. fork(): special case of spawn specifically for creating new Node.js processes. It creates an IPC channel for message passing between parent and child (process.send/process.on('message')).", oneLiner: "spawn() = run any command with streams; fork() = new Node.js process with IPC messaging.",
+        hinglish: "spawn() kisi bhi command ko run karta hai aur streams se data deta hai (jaise ls, python). fork() specifically naya Node.js process banata hai aur parent-child ke beech IPC channel hota hai — process.send() se messages bhej sakte ho.",
+        code: `const { spawn, fork } = require('child_process');
+
+// spawn — run system commands
+const ls = spawn('ls', ['-la']);
+ls.stdout.on('data', (data) => console.log(\`Output: \${data}\`));
+ls.on('close', (code) => console.log(\`Exit code: \${code}\`));
+
+// fork — create child Node.js process with IPC
+// parent.js
+const child = fork('worker.js');
+child.send({ task: 'heavy-computation', data: [1,2,3] });
+child.on('message', (result) => console.log('Result:', result));
+
+// worker.js
+process.on('message', (msg) => {
+  const result = msg.data.reduce((a, b) => a + b, 0);
+  process.send({ result }); // Send back to parent
+});` },
+      { q: "What are API functions in Node.js?", a: "API functions in Node.js refer to the built-in module functions provided by the Node.js core library. These include fs (file system), http (web server), path (file paths), os (system info), crypto (hashing/encryption), and more. They provide the fundamental building blocks for server-side applications.", oneLiner: "Built-in module functions — fs, http, path, os, crypto for server-side ops.",
+        hinglish: "API functions Node.js ke built-in modules ke functions hain — fs se file read/write, http se server banao, path se file paths handle karo, os se system info lo, crypto se hashing/encryption karo. Ye sab Node.js install ke saath aate hain.",
+        code: `const fs = require('fs');       // File operations
+const path = require('path');   // File path utilities
+const os = require('os');       // System information
+const crypto = require('crypto');// Hashing & encryption
+
+// path module
+const fullPath = path.join(__dirname, 'data', 'file.txt');
+console.log(path.extname('app.js')); // '.js'
+
+// os module
+console.log(os.cpus().length);    // Number of CPU cores
+console.log(os.totalmem());       // Total RAM in bytes
+
+// crypto module
+const hash = crypto.createHash('sha256').update('password').digest('hex');` },
+      { q: "What is fork() in Node.js?", a: "fork() is a method from the child_process module that creates a new Node.js process. Unlike spawn(), fork() establishes an IPC (Inter-Process Communication) channel between parent and child, allowing message passing. Used for CPU-intensive tasks to avoid blocking the main event loop.", oneLiner: "Creates child Node.js process with IPC channel for message passing.",
+        hinglish: "fork() child_process module ka method hai jo naya Node.js process banata hai. Parent aur child ke beech IPC channel hota hai — process.send() aur process.on('message') se baat kar sakte hain. Heavy CPU tasks ke liye use karo taaki main thread block na ho." },
+      { q: "What is Reactor and Proactor pattern?", a: "Reactor pattern: uses non-blocking I/O with event demultiplexer. When I/O is ready, handler is called synchronously. Node.js uses this pattern — event loop waits for events, then dispatches handlers. Proactor pattern: I/O operations are initiated and run asynchronously by OS; completion handler is called when done (used in Windows IOCP).", oneLiner: "Reactor = wait for I/O readiness then handle (Node.js); Proactor = async I/O with completion callback.",
+        hinglish: "Reactor pattern mein event loop wait karta hai I/O ready hone ka, phir handler call hota hai — Node.js yahi use karta hai. Proactor mein OS khud async I/O karta hai aur complete hone pe callback call karta hai. Reactor zyada common hai Node.js duniya mein." },
+      { q: "What is the purpose of NODE_ENV? Why do we need different environments like production and staging?", a: "NODE_ENV is an environment variable that tells your app which environment it's running in (development, staging, production). In production: disable detailed error messages, enable caching, minify code, skip dev tools. In development: show stack traces, enable hot reload, verbose logging. Staging is a production-like environment for final testing.", oneLiner: "Tells app its environment — controls logging, errors, caching, and optimization.",
+        hinglish: "NODE_ENV ek environment variable hai jo batata hai app kahan chal rahi hai. Development mein: detailed errors, hot reload. Production mein: errors hide, caching on, code minified. Staging production jaisa hai par testing ke liye. Different environments mein app differently behave karni chahiye.",
+        code: `// Set NODE_ENV
+// In terminal: NODE_ENV=production node server.js
+// In package.json: "start": "NODE_ENV=production node server.js"
+
+// Use in code
+if (process.env.NODE_ENV === 'production') {
+  app.use(compression());     // Compress responses
+  app.use(helmet());          // Security headers
+} else {
+  app.use(morgan('dev'));     // Verbose logging
+}
+
+// Express uses NODE_ENV internally
+// In production: caches views, less verbose errors
+console.log(app.get('env')); // 'development' (default)` },
+      { q: "What are some flags used in read/write operations in files?", a: "File flags control how files are opened: 'r' (read, error if doesn't exist), 'w' (write, creates/truncates), 'a' (append, creates if missing), 'r+' (read+write, error if missing), 'w+' (read+write, creates/truncates), 'ax' (create new, error if exists). Used in fs.open() and fs.createWriteStream().", oneLiner: "r=read, w=write(truncate), a=append, r+=read+write, w+=read+write(truncate), ax=create new only.",
+        hinglish: "File flags batate hain file kaise open karni hai: 'r' sirf padhna, 'w' likhna (file overwrite), 'a' append (end mein add), 'r+' padhna+likhna, 'w+' padhna+likhna (overwrite), 'ax' sirf nayi file banao (exist kare toh error). fs.open() aur streams mein use hota hai.",
+        code: `const fs = require('fs');
+
+// 'w' flag — write (creates or overwrites file)
+fs.writeFileSync('log.txt', 'Hello', { flag: 'w' });
+
+// 'a' flag — append (adds to end)
+fs.writeFileSync('log.txt', '\\nWorld', { flag: 'a' });
+
+// 'r' flag — read (default for readFile)
+const data = fs.readFileSync('log.txt', { encoding: 'utf8', flag: 'r' });
+
+// 'ax' flag — create new only (error if exists)
+try {
+  fs.writeFileSync('config.json', '{}', { flag: 'ax' });
+} catch (err) {
+  console.log('File already exists!');
+}
+
+// Stream with flags
+const stream = fs.createWriteStream('log.txt', { flags: 'a' }); // Append mode` },
+      { q: "Write exit codes in Node.js.", a: "Exit codes indicate why a process terminated: 0 = success (normal exit), 1 = uncaught exception, 2 = unused (reserved by Bash), 3 = internal JS parsing error, 4 = internal JS eval error, 5 = V8 fatal error, 6 = non-function exception handler, 7 = uncaught exception in handler, 8 = unused, 9 = invalid argument.", oneLiner: "0=success, 1=uncaught exception, 3=parse error, 5=V8 fatal, 9=invalid arg.",
+        hinglish: "Exit codes batate hain process kyun band hua: 0 = sab sahi (success), 1 = uncaught exception (error handle nahi hua), 3 = JS parse error, 5 = V8 fatal error, 9 = invalid argument. process.exit(0) se manually exit kar sakte ho.",
+        code: `// Manual exit with code
+process.exit(0);  // Success
+process.exit(1);  // General error
+
+// Set exit code without immediate exit
+process.exitCode = 1;
+
+// Listen for exit
+process.on('exit', (code) => {
+  console.log(\`Process exiting with code: \${code}\`);
+});
+
+// Common exit codes:
+// 0 — Success
+// 1 — Uncaught Fatal Exception
+// 3 — Internal JavaScript Parse Error
+// 5 — Fatal Error (V8)
+// 9 — Invalid Argument
+
+// Uncaught exception handler
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught:', err);
+  process.exit(1); // Exit with error code
+});` },
     ],
   },
   python: {
@@ -2683,19 +3237,428 @@ async function updateUser(id, data) {
 // Cache-Control: public, max-age=3600, stale-while-revalidate=60
 // ETag: "abc123" (conditional requests with If-None-Match)`
       },
+      {
+        q: "How to fetch data efficiently from an API?",
+        a: "Best practices: (1) Use pagination (limit/offset or cursor-based) — never fetch all records at once. (2) Use field selection — request only needed fields (GraphQL or ?fields=name,email). (3) Debounce search inputs (300ms). (4) Cancel stale requests with AbortController. (5) Cache responses (React Query staleTime). (6) Use compression (gzip/brotli). (7) Batch multiple requests into one (dataloader pattern). (8) Use ETags for conditional fetching — only download if data changed.",
+        oneLiner: "Paginate, select fields, debounce, cache (React Query), compress, batch requests.",
+        hinglish: "Data efficiently fetch karne ke liye: pagination use karo (sab ek saath mat lao), sirf zaroori fields maango, search pe debounce lagao, React Query se cache karo, aur AbortController se purani requests cancel karo. Compression (gzip) enable karo aur ETag se sirf changed data download karo.",
+        code: `// Efficient data fetching with React Query
+const { data, isLoading } = useQuery({
+  queryKey: ['users', page, filters],
+  queryFn: () => fetchUsers({ page, limit: 20, fields: 'name,email,avatar' }),
+  staleTime: 5 * 60 * 1000,     // Don't refetch for 5 min
+  keepPreviousData: true,        // Show old data while loading new page
+});
+
+// AbortController for cancellation
+async function searchUsers(query, signal) {
+  const res = await fetch(\`/api/users?q=\${query}&fields=name,email\`, { signal });
+  return res.json();
+}
+
+// Batching with dataloader pattern
+const userLoader = new DataLoader(async (ids) => {
+  const users = await db.users.find({ _id: { $in: ids } }); // 1 query instead of N
+  return ids.map(id => users.find(u => u._id === id));
+});`
+      },
+      {
+        q: "How to store data in a database efficiently?",
+        a: "Key strategies: (1) Normalization — avoid duplicate data, use relations (3NF). But denormalize for read-heavy workloads. (2) Choose right data types — INT vs VARCHAR, TIMESTAMP vs STRING. (3) Indexing — create indexes on columns used in WHERE, JOIN, ORDER BY. (4) Batch inserts instead of one-by-one. (5) Use transactions for multi-step operations. (6) Connection pooling — reuse DB connections. (7) Use UPSERT (INSERT ON CONFLICT) for create-or-update patterns. (8) Partition large tables by date/region.",
+        oneLiner: "Normalize data, add indexes, batch inserts, use transactions, connection pooling.",
+        hinglish: "Database mein efficiently store karne ke liye: normalization karo (duplicate data avoid karo), sahi data types use karo, jis column pe search karte ho uspe INDEX lagao, batch inserts karo (ek-ek row mat daalo), transactions use karo multi-step operations mein, aur connection pooling lagao taaki har request pe naya connection na bane.",
+        code: `// Batch insert (efficient — 1 query instead of 1000)
+await db.query(
+  'INSERT INTO users (name, email) VALUES ($1,$2),($3,$4),($5,$6)',
+  ['Rahul','r@mail.com', 'Priya','p@mail.com', 'Amit','a@mail.com']
+);
+
+// Create index on frequently queried column
+// CREATE INDEX idx_users_email ON users(email);
+// CREATE INDEX idx_orders_date ON orders(created_at DESC);
+
+// UPSERT — insert or update if exists
+await db.query(\`
+  INSERT INTO users (email, name) VALUES ($1, $2)
+  ON CONFLICT (email) DO UPDATE SET name = EXCLUDED.name
+\`, [email, name]);
+
+// Connection pooling (pg-pool)
+const pool = new Pool({ max: 20 }); // Reuse connections
+const { rows } = await pool.query('SELECT * FROM users WHERE active = true');`
+      },
+      {
+        q: "How to scale a database?",
+        a: "Two approaches: (1) Vertical Scaling — upgrade server (more CPU/RAM). Simple but has limits. (2) Horizontal Scaling — distribute data across multiple servers. Techniques: Read Replicas — route reads to replicas, writes to primary. Sharding — split data by key (user_id % N). Partitioning — split table by date range. Caching Layer — Redis in front of DB for hot data. Connection pooling (PgBouncer). Query optimization — EXPLAIN ANALYZE to find slow queries. Archive old data to cold storage.",
+        oneLiner: "Vertical (bigger server) → Horizontal (read replicas, sharding, partitioning) + Redis cache.",
+        hinglish: "Database scale karne ke do tarike: Vertical (server upgrade — zyada RAM/CPU) aur Horizontal (data multiple servers pe baanto). Read replicas se reads alag server pe bhejo. Sharding se data split karo (user_id % N). Redis cache lagao hot data ke liye. Purana data archive karo. EXPLAIN ANALYZE se slow queries dhundho.",
+        code: `// Read replica routing
+async function getUser(id) {
+  return readReplica.query('SELECT * FROM users WHERE id = $1', [id]); // reads → replica
+}
+async function updateUser(id, data) {
+  return primaryDB.query('UPDATE users SET name=$1 WHERE id=$2', [data.name, id]); // writes → primary
+}
+
+// Sharding logic
+function getShardId(userId) {
+  return userId % NUM_SHARDS; // e.g., user 123 → shard 3 (if 10 shards)
+}
+
+// Connection pooling with PgBouncer
+// pgbouncer.ini: pool_mode = transaction, max_client_conn = 1000, default_pool_size = 25
+
+// Find slow queries
+// EXPLAIN ANALYZE SELECT * FROM orders WHERE user_id = 123 AND status = 'pending';`
+      },
+      {
+        q: "How to optimize web application performance?",
+        a: "Frontend: (1) Code splitting (React.lazy + Suspense). (2) Image optimization (WebP, lazy loading, srcset). (3) Minify JS/CSS (Vite/Webpack does this). (4) Tree shaking (remove unused code). (5) Virtualize long lists (react-window). Backend: (6) Database indexing. (7) Response compression (gzip). (8) Caching (Redis + CDN). (9) N+1 query prevention (use JOINs or DataLoader). (10) Connection pooling. General: Use CDN, enable HTTP/2, reduce bundle size, monitor with Lighthouse.",
+        oneLiner: "Code split, lazy load, cache, compress, index DB, CDN, virtualize lists.",
+        hinglish: "Performance improve karne ke liye — Frontend: code splitting (sirf zaroori code load karo), images optimize karo (WebP, lazy loading), lists virtualize karo. Backend: DB pe indexes lagao, responses compress karo (gzip), Redis cache use karo, N+1 queries avoid karo. CDN use karo, bundle size chhota karo, aur Lighthouse se monitor karo.",
+        code: `// Code splitting with React.lazy
+const Dashboard = React.lazy(() => import('./Dashboard'));
+// Only loads Dashboard code when user navigates to it
+
+// Image optimization
+<img 
+  src="photo.webp" 
+  loading="lazy" 
+  srcSet="photo-400.webp 400w, photo-800.webp 800w"
+  sizes="(max-width: 600px) 400px, 800px"
+/>
+
+// Virtualized list (only renders visible items)
+import { FixedSizeList } from 'react-window';
+<FixedSizeList height={600} itemCount={10000} itemSize={50}>
+  {({ index, style }) => <div style={style}>Item {index}</div>}
+</FixedSizeList>
+
+// N+1 problem — BAD vs GOOD
+// BAD: users.forEach(u => db.query('SELECT * FROM orders WHERE user_id=?', u.id))
+// GOOD: db.query('SELECT * FROM orders WHERE user_id IN (?)', userIds)`
+      },
+      {
+        q: "Design a Notification System (Push, Email, In-App)",
+        a: "Architecture: (1) Notification Service — central service that receives events (order placed, comment added). (2) Channel Router — decides which channel (push/email/in-app) based on user preferences. (3) Queue (RabbitMQ/SQS) — async processing so main app isn't blocked. (4) In-App: WebSocket or SSE for real-time, store in notifications table. (5) Push: Firebase Cloud Messaging (FCM). (6) Email: SendGrid/SES. (7) Track delivery/read status. (8) Rate limit to avoid spam.",
+        oneLiner: "Event → queue → channel router (push/email/in-app) → deliver → track read status.",
+        hinglish: "Notification system mein ek central service hoti hai jo events receive karti hai (order placed, comment aaya). Queue mein daalo (RabbitMQ) taaki main app block na ho. Phir channel decide karo — in-app (WebSocket), push (Firebase), ya email (SendGrid). User preferences respect karo aur read/unread track karo.",
+        code: `// In-app notification with WebSocket
+// Server
+io.on("connection", (socket) => {
+  socket.join(\`user:\${socket.userId}\`);
+});
+
+function sendNotification(userId, notification) {
+  // 1. Save to DB
+  db.notifications.insert({ userId, ...notification, read: false });
+  // 2. Send real-time
+  io.to(\`user:\${userId}\`).emit("notification", notification);
+  // 3. Queue push/email if needed
+  queue.add("send-push", { userId, notification });
+}
+
+// Client
+socket.on("notification", (notif) => {
+  setNotifications(prev => [notif, ...prev]);
+  showToast(notif.title);
+});
+
+// Mark as read
+await fetch('/api/notifications/mark-read', {
+  method: 'PUT', body: JSON.stringify({ ids: [notifId] })
+});`
+      },
+      {
+        q: "Design a File Upload System (Large Files)",
+        a: "Challenges with large files: timeouts, memory, retry from scratch. Solution: (1) Chunked upload — split file into 5MB chunks, upload each with chunk index. (2) Resumable — track which chunks uploaded, resume from last successful. (3) Presigned URLs — upload directly to S3/cloud storage, bypass your server. (4) Progress tracking — show upload percentage. (5) Validation — check file type and size before upload. (6) Virus scanning on server. (7) CDN for serving uploaded files.",
+        oneLiner: "Chunk large files → resumable uploads → presigned URLs to S3 → progress bar → validate.",
+        hinglish: "Bade files ke liye chunked upload karo — file ko 5MB ke chunks mein tod ke ek-ek upload karo. Agar fail ho toh wahi se resume karo. Presigned URLs use karo taaki file seedha S3 pe jaaye (server pe load nahi). Progress bar dikhao aur file type/size validate karo upload se pehle.",
+        code: `// Chunked file upload
+async function uploadFile(file) {
+  const CHUNK_SIZE = 5 * 1024 * 1024; // 5MB
+  const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
+  const uploadId = await initUpload(file.name, totalChunks);
+  
+  for (let i = 0; i < totalChunks; i++) {
+    const chunk = file.slice(i * CHUNK_SIZE, (i + 1) * CHUNK_SIZE);
+    const formData = new FormData();
+    formData.append('chunk', chunk);
+    formData.append('index', i);
+    formData.append('uploadId', uploadId);
+    
+    await fetch('/api/upload/chunk', { method: 'POST', body: formData });
+    onProgress((i + 1) / totalChunks * 100); // Update progress
+  }
+  await completeUpload(uploadId); // Merge chunks on server
+}
+
+// Presigned URL (upload directly to S3)
+const { url } = await fetch('/api/upload/presign?name=photo.jpg').then(r => r.json());
+await fetch(url, { method: 'PUT', body: file }); // Direct to S3!`
+      },
+      {
+        q: "Design a Search Engine / Full-Text Search",
+        a: "Architecture: (1) Inverted Index — map each word to documents containing it (like a book's index). (2) Tokenization — break text into words, lowercase, remove stop words. (3) Ranking — TF-IDF (term frequency × inverse document frequency) or BM25. (4) Tools: Elasticsearch, Algolia, Meilisearch, or PostgreSQL full-text search. (5) Features: fuzzy matching (typo tolerance), autocomplete, faceted search (filters), highlighting. (6) Performance: index in background, use replicas for read scaling.",
+        oneLiner: "Inverted index → tokenize → rank (TF-IDF/BM25) → Elasticsearch/PostgreSQL FTS.",
+        hinglish: "Search engine mein inverted index use hota hai — har word ke against documents stored hote hain (jaise book ka index). Text ko words mein todna (tokenization), ranking (TF-IDF — kitni baar word aaya), fuzzy matching (typo handle karo). Elasticsearch ya PostgreSQL full-text search use karo.",
+        code: `// PostgreSQL Full-Text Search
+// Create index
+// CREATE INDEX idx_articles_search ON articles USING gin(to_tsvector('english', title || ' ' || body));
+
+// Search query
+const results = await db.query(\`
+  SELECT *, ts_rank(
+    to_tsvector('english', title || ' ' || body),
+    plainto_tsquery('english', $1)
+  ) AS rank
+  FROM articles
+  WHERE to_tsvector('english', title || ' ' || body) @@ plainto_tsquery('english', $1)
+  ORDER BY rank DESC
+  LIMIT 20
+\`, [searchQuery]);
+
+// Elasticsearch example
+// await esClient.search({
+//   index: 'articles',
+//   body: {
+//     query: { multi_match: { query: searchQuery, fields: ['title^2', 'body'], fuzziness: 'AUTO' } }
+//   }
+// });`
+      },
+      {
+        q: "Design an Authentication & Authorization System",
+        a: "Authentication (who are you?): (1) Signup — hash password (bcrypt, 10+ rounds), store in DB. (2) Login — verify password, issue JWT (short-lived access token + long-lived refresh token). (3) JWT stored in httpOnly cookie (not localStorage — XSS risk). Authorization (what can you do?): (4) RBAC (Role-Based Access Control) — user, admin, moderator roles. (5) Middleware checks role/permissions on each request. (6) Token refresh flow — when access token expires, use refresh token to get new one. (7) Rate limit login attempts. (8) MFA (Multi-Factor Authentication) for extra security.",
+        oneLiner: "Bcrypt password → JWT (access + refresh tokens) → httpOnly cookies → RBAC middleware.",
+        hinglish: "Authentication: Signup pe password bcrypt se hash karo, login pe verify karo aur JWT do (access token + refresh token). Token httpOnly cookie mein rakho (localStorage mein mat — XSS attack ho sakta hai). Authorization: RBAC lagao — user, admin, moderator roles. Har request pe middleware mein check karo ki user ko permission hai ya nahi. Rate limiting lagao login pe.",
+        code: `// Signup
+const hashedPassword = await bcrypt.hash(password, 12);
+await db.users.insert({ email, password: hashedPassword, role: 'user' });
+
+// Login
+const user = await db.users.findByEmail(email);
+const valid = await bcrypt.compare(password, user.password);
+if (!valid) throw new Error('Invalid credentials');
+
+const accessToken = jwt.sign({ userId: user.id, role: user.role }, SECRET, { expiresIn: '15m' });
+const refreshToken = jwt.sign({ userId: user.id }, REFRESH_SECRET, { expiresIn: '7d' });
+
+res.cookie('accessToken', accessToken, { httpOnly: true, secure: true, sameSite: 'strict' });
+res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: true });
+
+// RBAC Middleware
+function authorize(...roles) {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) return res.status(403).json({ error: 'Forbidden' });
+    next();
+  };
+}
+app.delete('/api/users/:id', authorize('admin'), deleteUser);`
+      },
+      {
+        q: "Design a Load Balancer",
+        a: "A load balancer distributes incoming traffic across multiple servers. (1) Algorithms: Round Robin (equal turns), Weighted Round Robin (powerful servers get more), Least Connections (send to least busy), IP Hash (same user → same server for session). (2) Types: L4 (TCP-level, faster) vs L7 (HTTP-level, smarter routing). (3) Health checks — remove unhealthy servers. (4) Tools: Nginx, HAProxy, AWS ALB/NLB. (5) Sticky sessions — route same user to same server (for WebSocket/sessions).",
+        oneLiner: "Distribute traffic across servers — Round Robin, Least Connections, Health Checks.",
+        hinglish: "Load balancer traffic ko multiple servers pe distribute karta hai taaki koi ek server pe zyada load na pade. Round Robin (sab ko baari-baari), Least Connections (sabse kam busy server ko), IP Hash (same user same server pe). Health check karta hai — dead server pe traffic nahi bhejta. Nginx, AWS ALB use kar sakte ho.",
+        code: `# Nginx as Load Balancer
+upstream backend {
+    least_conn;  # Least connections algorithm
+    server backend1:3000 weight=3;  # Gets 3x traffic
+    server backend2:3000;
+    server backend3:3000;
+    server backend4:3000 backup;  # Only if others are down
+}
+
+server {
+    listen 80;
+    location / {
+        proxy_pass http://backend;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+    
+    # Health check
+    location /health {
+        proxy_pass http://backend/health;
+        proxy_connect_timeout 1s;
+        proxy_read_timeout 1s;
+    }
+}`
+      },
+      {
+        q: "Design a Pub/Sub (Publish-Subscribe) Messaging System",
+        a: "Pattern: Publishers send messages to topics/channels. Subscribers listen to topics they care about. Decouples producers from consumers. (1) Use cases: notification system, event-driven architecture, microservices communication, real-time updates. (2) Tools: Redis Pub/Sub (simple), RabbitMQ (reliable), Kafka (high-throughput, persistent). (3) Key features: message ordering, acknowledgment, dead letter queue (failed messages), at-least-once vs exactly-once delivery.",
+        oneLiner: "Publishers → Topics → Subscribers. Decouples services. Redis/RabbitMQ/Kafka.",
+        hinglish: "Pub/Sub mein publishers messages bhejte hain topics/channels pe, aur subscribers un topics ko listen karte hain. Producers aur consumers decouple ho jaate hain. Redis Pub/Sub simple hai, RabbitMQ reliable hai, Kafka high-throughput ke liye best hai. Real-time updates, notifications, microservices communication — sab mein use hota hai.",
+        code: `// Redis Pub/Sub
+// Publisher
+const redis = require('redis');
+const publisher = redis.createClient();
+publisher.publish('order-events', JSON.stringify({ 
+  type: 'ORDER_PLACED', orderId: 123, userId: 456 
+}));
+
+// Subscriber (Notification Service)
+const subscriber = redis.createClient();
+subscriber.subscribe('order-events');
+subscriber.on('message', (channel, message) => {
+  const event = JSON.parse(message);
+  if (event.type === 'ORDER_PLACED') {
+    sendEmailNotification(event.userId, 'Order confirmed!');
+    sendPushNotification(event.userId, 'Your order is placed');
+  }
+});
+
+// Another Subscriber (Analytics Service)
+// subscriber.on('message', (channel, message) => {
+//   trackEvent(JSON.parse(message)); // Same event, different action
+// });`
+      },
+      {
+        q: "What is Database Indexing? When to use and when NOT to use?",
+        a: "An index is a data structure (B-Tree/Hash) that speeds up data retrieval — like a book's index. (1) When to use: columns in WHERE, JOIN, ORDER BY, frequently searched fields. (2) When NOT to use: small tables, columns with low cardinality (gender: M/F), write-heavy tables (indexes slow down INSERT/UPDATE). (3) Types: B-Tree (default, range queries), Hash (exact match), GIN (full-text, JSON), Composite (multi-column). (4) EXPLAIN ANALYZE to check if index is used.",
+        oneLiner: "B-Tree speeds up reads on WHERE/JOIN columns. Avoid on write-heavy or low-cardinality columns.",
+        hinglish: "Index ek data structure hai jo data dhundhne mein fast karta hai — jaise kitab ka index. WHERE, JOIN, ORDER BY wale columns pe lagao. Chhoti tables pe mat lagao, write-heavy tables pe bhi avoid karo kyunki INSERT/UPDATE slow ho jaata hai. EXPLAIN ANALYZE se check karo ki query index use kar rahi hai ya nahi.",
+        code: `-- Create indexes
+CREATE INDEX idx_users_email ON users(email);              -- B-Tree (default)
+CREATE INDEX idx_orders_user_date ON orders(user_id, created_at DESC);  -- Composite
+CREATE INDEX idx_products_search ON products USING gin(to_tsvector('english', name));  -- Full-text
+
+-- Check if index is being used
+EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'rahul@mail.com';
+-- Output: "Index Scan using idx_users_email" ✅ (good!)
+-- vs "Seq Scan on users" ❌ (no index, scanning all rows!)
+
+-- Index on JSON column (PostgreSQL)
+CREATE INDEX idx_settings ON users USING gin(settings jsonb_path_ops);
+SELECT * FROM users WHERE settings @> '{"theme": "dark"}';`
+      },
+      {
+        q: "Design an API Gateway",
+        a: "API Gateway is a single entry point for all client requests. Functions: (1) Routing — forward requests to correct microservice. (2) Authentication — verify JWT/API key before forwarding. (3) Rate Limiting — prevent abuse (token bucket). (4) Load Balancing — distribute across service instances. (5) Request/Response transformation — add headers, modify payload. (6) Caching — cache GET responses. (7) Logging & Monitoring. (8) Circuit Breaker — stop sending to failing services. Tools: Kong, AWS API Gateway, Nginx, Express Gateway.",
+        oneLiner: "Single entry point — routing, auth, rate limiting, caching, logging for microservices.",
+        hinglish: "API Gateway ek single door hai jisse sab client requests aati hain. Ye routing karta hai (request sahi microservice pe bhejo), authentication check karta hai (JWT verify), rate limiting lagata hai, caching karta hai, aur logging karta hai. Kong, AWS API Gateway, ya Nginx use kar sakte ho.",
+        code: `// Simple API Gateway with Express
+const express = require('express');
+const proxy = require('http-proxy-middleware');
+
+const app = express();
+
+// Auth middleware
+app.use(verifyJWT);
+
+// Rate limiting
+app.use(rateLimit({ windowMs: 60000, max: 100 }));
+
+// Route to microservices
+app.use('/api/users', proxy({ target: 'http://user-service:3001' }));
+app.use('/api/orders', proxy({ target: 'http://order-service:3002' }));
+app.use('/api/products', proxy({ target: 'http://product-service:3003' }));
+
+// Circuit breaker
+const breaker = new CircuitBreaker(callService, {
+  timeout: 3000,        // 3s timeout
+  errorThreshold: 50,   // 50% errors → open circuit
+  resetTimeout: 30000   // Try again after 30s
+});`
+      },
+      {
+        q: "How does Horizontal vs Vertical Scaling work?",
+        a: "Vertical Scaling (Scale Up): Add more power to existing server — more CPU, RAM, SSD. Simple but has hardware limits and single point of failure. Horizontal Scaling (Scale Out): Add more servers and distribute load. More complex but virtually unlimited scaling and high availability. Most production systems use horizontal scaling with load balancers. Databases: vertical first (easier), then horizontal (read replicas, sharding) when needed.",
+        oneLiner: "Vertical = bigger server (limits exist); Horizontal = more servers (unlimited, complex).",
+        hinglish: "Vertical scaling mein existing server ko upgrade karte ho (zyada RAM, CPU). Simple hai par limit hai aur ek server fail ho toh sab down. Horizontal scaling mein multiple servers add karte ho aur load balancer se traffic distribute karte ho. Complex hai par unlimited scaling mil sakti hai. Production mein mostly horizontal use hota hai.",
+        code: `// Vertical Scaling
+// Before: 1 server (4GB RAM, 2 CPU)
+// After:  1 server (32GB RAM, 16 CPU) — just upgrade hardware
+
+// Horizontal Scaling
+// Before: 1 server handling 1000 req/s
+// After:  4 servers behind load balancer = 4000 req/s
+
+// Docker Compose scaling
+// docker-compose up --scale api=4
+
+// Kubernetes auto-scaling
+// apiVersion: autoscaling/v2
+// kind: HorizontalPodAutoscaler
+// spec:
+//   minReplicas: 2
+//   maxReplicas: 10
+//   metrics:
+//   - type: Resource
+//     resource:
+//       name: cpu
+//       targetAverageUtilization: 70`
+      },
+      {
+        q: "What is the N+1 Query Problem? How to solve it?",
+        a: "N+1 happens when you fetch a list (1 query) then loop through it making individual queries for related data (N queries). Example: fetch 100 users (1 query), then for each user fetch their orders (100 queries) = 101 queries total! Solutions: (1) JOIN — fetch related data in one query. (2) Eager loading (Mongoose populate, Sequelize include). (3) DataLoader — batch individual queries into one. (4) GraphQL DataLoader pattern.",
+        oneLiner: "1 query for list + N queries for related data = N+1. Fix with JOIN or DataLoader.",
+        hinglish: "N+1 problem tab hota hai jab pehle list fetch karo (1 query) phir har item ke liye related data fetch karo (N queries). 100 users + unke orders = 101 queries! Fix: JOIN use karo (1 query mein sab lao), ya DataLoader se batch karo (100 individual queries ki jagah 1 WHERE IN query).",
+        code: `// ❌ N+1 Problem — 101 queries!
+const users = await db.query('SELECT * FROM users LIMIT 100');  // 1 query
+for (const user of users) {
+  user.orders = await db.query('SELECT * FROM orders WHERE user_id = ?', [user.id]); // N queries
+}
+
+// ✅ Solution 1: JOIN — 1 query
+const result = await db.query(\`
+  SELECT u.*, o.id as order_id, o.total 
+  FROM users u 
+  LEFT JOIN orders o ON u.id = o.user_id 
+  LIMIT 100
+\`);
+
+// ✅ Solution 2: Batch query — 2 queries
+const users = await db.query('SELECT * FROM users LIMIT 100');
+const userIds = users.map(u => u.id);
+const orders = await db.query('SELECT * FROM orders WHERE user_id IN (?)', [userIds]);
+// Then map orders to users in JS`
+      },
+      {
+        q: "Design a Microservices Architecture",
+        a: "Break monolith into small, independent services. Each service: (1) Owns its database (no shared DB). (2) Communicates via API (REST/gRPC) or message queue (Kafka/RabbitMQ). (3) Can be deployed independently. (4) API Gateway as single entry point. (5) Service Discovery — services find each other (Consul, Kubernetes DNS). (6) Saga Pattern for distributed transactions. (7) Circuit Breaker for fault tolerance. Downsides: complexity, distributed debugging, data consistency challenges.",
+        oneLiner: "Independent services, own databases, communicate via APIs/queues, deploy separately.",
+        hinglish: "Microservices mein ek bada app chhote independent services mein tod dete hain. Har service ka apna database hota hai. Communication REST API ya message queue (Kafka) se hoti hai. Independently deploy ho sakti hain. API Gateway se sab requests aati hain. Complexity zyada hai par scaling aur maintenance easy ho jaati hai.",
+        code: `// Microservices communication example
+// User Service (port 3001)
+app.get('/api/users/:id', async (req, res) => {
+  const user = await db.users.findById(req.params.id);
+  res.json(user);
+});
+
+// Order Service (port 3002) — calls User Service
+app.post('/api/orders', async (req, res) => {
+  // Verify user exists (inter-service call)
+  const user = await fetch(\`http://user-service:3001/api/users/\${req.body.userId}\`);
+  if (!user.ok) return res.status(400).json({ error: 'User not found' });
+  
+  const order = await db.orders.create(req.body);
+  
+  // Publish event for other services
+  await messageQueue.publish('order-events', {
+    type: 'ORDER_CREATED', orderId: order.id, userId: req.body.userId
+  });
+  
+  res.status(201).json(order);
+});`
+      },
     ],
   },
   aws: {
-    Beginner: [
-      { q: "What is AWS?", a: "AWS (Amazon Web Services) is a cloud computing platform by Amazon providing on-demand services like computing power (EC2), storage (S3), databases (RDS), networking, and more. Pay only for what you use — no upfront hardware costs.", oneLiner: "Amazon's cloud platform with 200+ services — compute, storage, databases on demand.", hinglish: "AWS Amazon ka cloud platform hai jahan servers, storage, databases sab rent pe milta hai. Apna hardware kharidne ki zaroorat nahi — jitna use karo utna pay karo." },
-      { q: "What is EC2?", a: "EC2 (Elastic Compute Cloud) is a virtual server in the cloud. Choose instance type (CPU, RAM), operating system, and storage. It's like renting a computer online — start/stop anytime. t2.micro is free tier eligible.", oneLiner: "Virtual server in the cloud — rent compute power with custom CPU, RAM, and OS.", hinglish: "EC2 ek virtual server hai cloud mein. Jaise computer rent karte ho — CPU, RAM, OS choose karo aur apna code deploy karo. t2.micro free tier mein aata hai." },
-      { q: "What is S3?", a: "S3 (Simple Storage Service) provides object storage for files, images, and static websites. It's highly durable (99.999999999%) and can host your React build as a static website. Objects are stored in buckets.", oneLiner: "Object storage service — store files, host static websites, 99.999999999% durable.", hinglish: "S3 ek storage service hai jahan files, images, videos store karte hain. React app ka build folder S3 pe host kar sakte ho as static website. Bahut reliable hai." },
-      { q: "What is IAM?", a: "IAM (Identity and Access Management) controls who can access your AWS resources. Create users, groups, roles, and policies. Follow least privilege principle — give only permissions that are needed.", oneLiner: "Controls who can access what in AWS — users, roles, permissions, policies.", hinglish: "IAM se control karte hain ki kaun kya access kar sakta hai AWS mein. Users banao, roles assign karo, policies set karo. Sirf zaroori permissions do — security ke liye important hai." },
-      { q: "What are AWS Regions and Availability Zones?", a: "Regions are geographic areas (us-east-1, ap-south-1) with multiple data centers. Each region has 2-6 Availability Zones (AZs) which are isolated data centers. Deploy in region closest to your users for low latency.", oneLiner: "Regions = geographic areas; AZs = isolated data centers within a region.", hinglish: "Regions geographic locations hain jaise Mumbai (ap-south-1). Har region mein multiple Availability Zones hain jo alag data centers hain. Users ke paas wala region choose karo for fast speed." },
-    ],
-    Intermediate: [
-      { q: "How to deploy a Node.js backend on EC2?", a: "Steps: 1) Launch EC2 instance (Ubuntu). 2) SSH into it. 3) Install Node.js and Git. 4) Clone your repo. 5) npm install. 6) Set up PM2 for process management. 7) Configure Nginx as reverse proxy. 8) Open port 80 in security group. 9) Point domain via Route 53.", oneLiner: "Launch EC2 → SSH → install Node.js → clone repo → PM2 + Nginx → open ports.", hinglish: "EC2 launch karo (Ubuntu), SSH se connect karo, Node.js install karo, repo clone karo, PM2 se app chalao, Nginx reverse proxy lagao, aur port 80 kholo security group mein.",
-        code: `# SSH into EC2
+ Beginner: [
+    { q: "What is AWS?", a: "AWS (Amazon Web Services) is a cloud computing platform by Amazon providing on-demand services like computing power (EC2), storage (S3), databases (RDS), networking, and more. Pay only for what you use — no upfront hardware costs.", oneLiner: "Amazon's cloud platform with 200+ services — compute, storage, databases on demand.", hinglish: "AWS Amazon ka cloud platform hai jahan servers, storage, databases sab rent pe milta hai. Apna hardware kharidne ki zaroorat nahi — jitna use karo utna pay karo." },
+    { q: "What is EC2?", a: "EC2 (Elastic Compute Cloud) is a virtual server in the cloud. Choose instance type (CPU, RAM), operating system, and storage. It's like renting a computer online — start/stop anytime. t2.micro is free tier eligible.", oneLiner: "Virtual server in the cloud — rent compute power with custom CPU, RAM, and OS.", hinglish: "EC2 ek virtual server hai cloud mein. Jaise computer rent karte ho — CPU, RAM, OS choose karo aur apna code deploy karo. t2.micro free tier mein aata hai." },
+    { q: "What is S3?", a: "S3 (Simple Storage Service) provides object storage for files, images, and static websites. It's highly durable (99.999999999%) and can host your React build as a static website. Objects are stored in buckets.", oneLiner: "Object storage service — store files, host static websites, 99.999999999% durable.", hinglish: "S3 ek storage service hai jahan files, images, videos store karte hain. React app ka build folder S3 pe host kar sakte ho as static website. Bahut reliable hai." },
+    { q: "What is IAM?", a: "IAM (Identity and Access Management) controls who can access your AWS resources. Create users, groups, roles, and policies. Follow least privilege principle — give only permissions that are needed.", oneLiner: "Controls who can access what in AWS — users, roles, permissions, policies.", hinglish: "IAM se control karte hain ki kaun kya access kar sakta hai AWS mein. Users banao, roles assign karo, policies set karo. Sirf zaroori permissions do — security ke liye important hai." },
+    { q: "What are AWS Regions and Availability Zones?", a: "Regions are geographic areas (us-east-1, ap-south-1) with multiple data centers. Each region has 2-6 Availability Zones (AZs) which are isolated data centers. Deploy in region closest to your users for low latency.", oneLiner: "Regions = geographic areas; AZs = isolated data centers within a region.", hinglish: "Regions geographic locations hain jaise Mumbai (ap-south-1). Har region mein multiple Availability Zones hain jo alag data centers hain. Users ke paas wala region choose karo for fast speed." },
+    { q: "What is a CDN (Content Delivery Network)?", a: "A CDN is a network of servers distributed globally that caches your content (images, CSS, JS) at edge locations close to users. This reduces latency and load times. AWS CloudFront is Amazon's CDN — it has 400+ edge locations worldwide.", oneLiner: "Network of global servers caching content close to users for faster delivery.", hinglish: "CDN ek network hai servers ka jo duniya bhar mein spread hota hai. Aapki files (images, CSS, JS) user ke sabse paas wale server se serve hoti hain toh loading fast hoti hai." },
+    { q: "What is a Security Group?", a: "A Security Group acts as a virtual firewall for EC2 instances. It controls inbound (incoming) and outbound (outgoing) traffic. For example, allow port 80 (HTTP), 443 (HTTPS), and 22 (SSH). By default, all inbound traffic is blocked.", oneLiner: "Virtual firewall for EC2 — controls which ports and IPs can access your server.", hinglish: "Security Group ek firewall hai EC2 ke liye. Ye control karta hai ki kaunse ports khule hain (80 for HTTP, 443 for HTTPS, 22 for SSH). Default mein sab block hota hai." },
+    { q: "What is RDS?", a: "RDS (Relational Database Service) is a managed database service supporting MySQL, PostgreSQL, MariaDB, Oracle, and SQL Server. AWS handles backups, patching, scaling, and replication. You just connect and use it.", oneLiner: "Managed relational database — AWS handles backups, patches, scaling for you.", hinglish: "RDS ek managed database service hai. MySQL, PostgreSQL jaise databases AWS manage karta hai — backups, updates, scaling sab automatic. Aapko sirf connect karke use karna hai." },
+  ],
+  Intermediate: [
+    { q: "How to deploy a Node.js backend on EC2?", a: "Steps: 1) Launch EC2 instance (Ubuntu). 2) SSH into it. 3) Install Node.js and Git. 4) Clone your repo. 5) npm install. 6) Set up PM2 for process management. 7) Configure Nginx as reverse proxy. 8) Open port 80 in security group. 9) Point domain via Route 53.", oneLiner: "Launch EC2 → SSH → install Node.js → clone repo → PM2 + Nginx → open ports.", hinglish: "EC2 launch karo (Ubuntu), SSH se connect karo, Node.js install karo, repo clone karo, PM2 se app chalao, Nginx reverse proxy lagao, aur port 80 kholo security group mein.",
+      code: `# SSH into EC2
 ssh -i my-key.pem ubuntu@ec2-ip
 
 # Install Node.js
@@ -2710,8 +3673,8 @@ cd my-api && npm install
 sudo npm install -g pm2
 pm2 start server.js
 pm2 startup && pm2 save` },
-      { q: "How to deploy React frontend on S3 + CloudFront?", a: "Steps: 1) npm run build. 2) Create S3 bucket with static website hosting enabled. 3) Upload build files. 4) Create CloudFront distribution pointing to S3. 5) Set index.html as default root and error page (for SPA routing). 6) Add custom domain via Route 53.", oneLiner: "Build React → upload to S3 → CloudFront CDN → custom domain via Route 53.", hinglish: "React app build karo, S3 bucket banao, build files upload karo, CloudFront se CDN lagao speed ke liye, aur Route 53 se domain point karo. SPA routing ke liye error page bhi index.html set karo.",
-        code: `# Build React app
+    { q: "How to deploy React frontend on S3 + CloudFront?", a: "Steps: 1) npm run build. 2) Create S3 bucket with static website hosting enabled. 3) Upload build files. 4) Create CloudFront distribution pointing to S3. 5) Set index.html as default root and error page (for SPA routing). 6) Add custom domain via Route 53.", oneLiner: "Build React → upload to S3 → CloudFront CDN → custom domain via Route 53.", hinglish: "React app build karo, S3 bucket banao, build files upload karo, CloudFront se CDN lagao speed ke liye, aur Route 53 se domain point karo. SPA routing ke liye error page bhi index.html set karo.",
+      code: `# Build React app
 npm run build
 
 # Upload to S3
@@ -2721,10 +3684,10 @@ aws s3 sync build/ s3://my-react-app --delete
 # Origin: my-react-app.s3.amazonaws.com
 # Default Root Object: index.html
 # Custom Error Response: 404 → /index.html (for SPA routing)` },
-      { q: "What is Elastic Beanstalk?", a: "Elastic Beanstalk is a PaaS (Platform as a Service) that automatically handles deployment, scaling, load balancing, and monitoring. Upload your Node.js app and it provisions EC2, auto-scaling groups, and load balancers. Easier than manual EC2 setup.", oneLiner: "PaaS that auto-manages EC2, scaling, load balancing — just upload your code.", hinglish: "Elastic Beanstalk ek PaaS hai — code upload karo aur AWS automatically EC2, load balancer, auto-scaling sab set kar deta hai. Manual setup nahi karna padta." },
-      { q: "What is PM2 and why use it for Node.js?", a: "PM2 is a production process manager for Node.js. It keeps your app running (auto-restart on crash), manages multiple instances (cluster mode for multi-core), provides logging, and survives server reboots with pm2 startup.", oneLiner: "Node.js process manager — auto-restart, cluster mode, logs, survives reboots.", hinglish: "PM2 ek process manager hai Node.js ke liye. App crash hone pe auto-restart karta hai, cluster mode mein multiple instances chala sakta hai, aur server reboot ke baad bhi app live rehti hai." },
-      { q: "How to set up Nginx as reverse proxy for Node.js?", a: "Nginx sits in front of your Node.js app, handling HTTP (port 80), HTTPS (port 443), load balancing, and static files. It forwards requests to your Node.js app running on port 3000/5000.", oneLiner: "Nginx handles HTTP/HTTPS on port 80/443 and forwards to Node.js on port 3000.", hinglish: "Nginx ek reverse proxy hai — port 80 pe requests aati hain, Nginx unhe Node.js app (port 3000) pe forward karta hai. SSL, load balancing, aur caching bhi handle karta hai.",
-        code: `# /etc/nginx/sites-available/myapp
+    { q: "What is Elastic Beanstalk?", a: "Elastic Beanstalk is a PaaS (Platform as a Service) that automatically handles deployment, scaling, load balancing, and monitoring. Upload your Node.js app and it provisions EC2, auto-scaling groups, and load balancers. Easier than manual EC2 setup.", oneLiner: "PaaS that auto-manages EC2, scaling, load balancing — just upload your code.", hinglish: "Elastic Beanstalk ek PaaS hai — code upload karo aur AWS automatically EC2, load balancer, auto-scaling sab set kar deta hai. Manual setup nahi karna padta." },
+    { q: "What is PM2 and why use it for Node.js?", a: "PM2 is a production process manager for Node.js. It keeps your app running (auto-restart on crash), manages multiple instances (cluster mode for multi-core), provides logging, and survives server reboots with pm2 startup.", oneLiner: "Node.js process manager — auto-restart, cluster mode, logs, survives reboots.", hinglish: "PM2 ek process manager hai Node.js ke liye. App crash hone pe auto-restart karta hai, cluster mode mein multiple instances chala sakta hai, aur server reboot ke baad bhi app live rehti hai." },
+    { q: "How to set up Nginx as reverse proxy for Node.js?", a: "Nginx sits in front of your Node.js app, handling HTTP (port 80), HTTPS (port 443), load balancing, and static files. It forwards requests to your Node.js app running on port 3000/5000.", oneLiner: "Nginx handles HTTP/HTTPS on port 80/443 and forwards to Node.js on port 3000.", hinglish: "Nginx ek reverse proxy hai — port 80 pe requests aati hain, Nginx unhe Node.js app (port 3000) pe forward karta hai. SSL, load balancing, aur caching bhi handle karta hai.",
+      code: `# /etc/nginx/sites-available/myapp
 server {
     listen 80;
     server_name myapp.com;
@@ -2738,13 +3701,77 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 }` },
-      { q: "How to manage environment variables on AWS?", a: "Options: 1) .env file on EC2 (not in Git). 2) AWS Systems Manager Parameter Store — secure, versioned, free tier. 3) AWS Secrets Manager — auto-rotation, paid. 4) Elastic Beanstalk environment variables (dashboard). Never commit secrets to Git.", oneLiner: "Use Parameter Store (free) or Secrets Manager — never commit .env to Git.", hinglish: "Environment variables .env file mein rakh sakte ho EC2 pe (Git mein mat dalo!). Better way: AWS Parameter Store use karo — secure hai aur free tier mein aata hai." },
-      { q: "What is Route 53?", a: "Route 53 is AWS's DNS service. It maps domain names to IP addresses. You can register domains, create hosted zones, and set up routing policies (simple, weighted, latency-based, failover). Use it to point your domain to EC2 or CloudFront.", oneLiner: "AWS DNS service — maps domains to IPs, supports routing policies and health checks.", hinglish: "Route 53 AWS ka DNS service hai. Custom domain (jaise myapp.com) ko EC2 ya CloudFront pe point karne ke liye use hota hai. Domain registration bhi kar sakte ho." },
-    ],
-    Advanced: [
-      { q: "Explain full MERN deployment architecture on AWS.", a: "Architecture: Frontend (React build) → S3 + CloudFront (CDN + HTTPS). Backend (Node.js/Express) → EC2 + PM2 + Nginx (or Elastic Beanstalk). Database → MongoDB Atlas (managed) or DocumentDB. Domain → Route 53. SSL → ACM (free certificates). CI/CD → GitHub Actions or CodePipeline.", oneLiner: "React on S3+CloudFront, Node.js on EC2+Nginx+PM2, MongoDB Atlas, Route 53+ACM.", hinglish: "Full architecture: React app S3 + CloudFront pe host karo, Node.js API EC2 pe PM2 + Nginx ke saath chalao, MongoDB Atlas use karo database ke liye, Route 53 se domain point karo, aur ACM se free SSL lagao." },
-      { q: "How to set up CI/CD for MERN app on AWS?", a: "Use GitHub Actions: On push to main → build React → upload to S3 → invalidate CloudFront cache. For backend → SSH into EC2 → git pull → npm install → pm2 restart. Alternatively use AWS CodePipeline + CodeBuild for fully AWS-native CI/CD.", oneLiner: "GitHub Actions: push → build → deploy to S3/EC2 automatically on every commit.", hinglish: "CI/CD matlab har commit pe automatically deploy ho jaaye. GitHub Actions use karo — push karo, React build ho, S3 pe upload ho, backend EC2 pe update ho. Sab automatic!",
-        code: `# .github/workflows/deploy.yml
+    { q: "How to manage environment variables on AWS?", a: "Options: 1) .env file on EC2 (not in Git). 2) AWS Systems Manager Parameter Store — secure, versioned, free tier. 3) AWS Secrets Manager — auto-rotation, paid. 4) Elastic Beanstalk environment variables (dashboard). Never commit secrets to Git.", oneLiner: "Use Parameter Store (free) or Secrets Manager — never commit .env to Git.", hinglish: "Environment variables .env file mein rakh sakte ho EC2 pe (Git mein mat dalo!). Better way: AWS Parameter Store use karo — secure hai aur free tier mein aata hai." },
+    { q: "What is Route 53?", a: "Route 53 is AWS's DNS service. It maps domain names to IP addresses. You can register domains, create hosted zones, and set up routing policies (simple, weighted, latency-based, failover). Use it to point your domain to EC2 or CloudFront.", oneLiner: "AWS DNS service — maps domains to IPs, supports routing policies and health checks.", hinglish: "Route 53 AWS ka DNS service hai. Custom domain (jaise myapp.com) ko EC2 ya CloudFront pe point karne ke liye use hota hai. Domain registration bhi kar sakte ho." },
+    { q: "What is an Elastic Load Balancer (ELB)?", a: "ELB distributes incoming traffic across multiple EC2 instances. Three types: 1) ALB (Application LB) — best for HTTP/HTTPS, path-based routing, great for MERN APIs. 2) NLB (Network LB) — ultra-low latency, TCP/UDP. 3) CLB (Classic) — legacy. ALB is most common for web apps.", oneLiner: "Distributes traffic across EC2 instances — ALB for HTTP, NLB for TCP/UDP.", hinglish: "Load Balancer traffic ko multiple EC2 instances mein distribute karta hai. ALB sabse common hai web apps ke liye — HTTP/HTTPS handle karta hai aur path-based routing support karta hai.",
+      code: `# ALB Target Group Health Check settings:
+# Path: /api/health
+# Healthy threshold: 3
+# Unhealthy threshold: 2
+# Interval: 30 seconds
+
+# Example health check endpoint in Express:
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'healthy', uptime: process.uptime() });
+});` },
+    { q: "What is Auto Scaling?", a: "Auto Scaling automatically adjusts the number of EC2 instances based on demand. Define min/max instances and scaling policies (CPU > 70% = add instance, CPU < 30% = remove). Works with ALB to distribute traffic. Saves cost during low traffic, handles spikes.", oneLiner: "Automatically adds/removes EC2 instances based on demand — scales up and down.", hinglish: "Auto Scaling automatically EC2 instances badhata/ghatata hai traffic ke hisaab se. Jaise CPU 70% se zyada ho toh naya instance add, traffic kam ho toh remove. Cost save hoti hai aur spikes handle hote hain.",
+      code: `# Auto Scaling Group configuration:
+# Min instances: 1
+# Max instances: 5
+# Desired: 2
+
+# Scaling Policy examples:
+# Scale OUT: CPU > 70% for 5 minutes → add 1 instance
+# Scale IN:  CPU < 30% for 10 minutes → remove 1 instance
+
+# CloudWatch Alarm triggers the scaling action` },
+    { q: "What is Amazon CloudWatch?", a: "CloudWatch is AWS's monitoring and observability service. It collects metrics (CPU, memory, network), logs (application logs, error logs), and alarms (notify when thresholds are breached). Essential for monitoring your MERN app's health and performance.", oneLiner: "AWS monitoring service — metrics, logs, alarms for tracking app health.", hinglish: "CloudWatch AWS ka monitoring service hai. CPU usage, memory, errors sab track karta hai. Alarms set kar sakte ho — jaise CPU 80% cross kare toh email aaye. Logs bhi store aur search kar sakte ho.",
+      code: `# Install CloudWatch Agent on EC2:
+sudo yum install -y amazon-cloudwatch-agent
+
+# Send custom metrics from Node.js:
+const AWS = require('aws-sdk');
+const cloudwatch = new AWS.CloudWatch();
+
+await cloudwatch.putMetricData({
+  Namespace: 'MyMERNApp',
+  MetricData: [{
+    MetricName: 'ActiveUsers',
+    Value: activeUserCount,
+    Unit: 'Count'
+  }]
+}).promise();
+
+# Set up alarm via CLI:
+aws cloudwatch put-metric-alarm \\
+  --alarm-name "HighCPU" \\
+  --metric-name CPUUtilization \\
+  --namespace AWS/EC2 \\
+  --threshold 80 \\
+  --comparison-operator GreaterThanThreshold \\
+  --period 300 \\
+  --evaluation-periods 2 \\
+  --alarm-actions arn:aws:sns:region:account:my-topic` },
+    { q: "What is Amazon ECR and ECS?", a: "ECR (Elastic Container Registry) stores Docker images. ECS (Elastic Container Service) runs Docker containers. Workflow: Dockerize your Node.js app → push image to ECR → create ECS task definition → run on Fargate (serverless) or EC2. Great for microservices.", oneLiner: "ECR stores Docker images; ECS runs containers — use Fargate for serverless containers.", hinglish: "ECR mein Docker images store hoti hain. ECS un images ko containers mein run karta hai. Fargate use karo toh server manage nahi karna padta — serverless containers milte hain.",
+      code: `# Dockerfile for Node.js
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+EXPOSE 3000
+CMD ["node", "server.js"]
+
+# Push to ECR
+aws ecr get-login-password | docker login --username AWS --password-stdin <account>.dkr.ecr.<region>.amazonaws.com
+docker build -t my-api .
+docker tag my-api:latest <account>.dkr.ecr.<region>.amazonaws.com/my-api:latest
+docker push <account>.dkr.ecr.<region>.amazonaws.com/my-api:latest` },
+  ],
+  Advanced: [
+    { q: "Explain full MERN deployment architecture on AWS.", a: "Architecture: Frontend (React build) → S3 + CloudFront (CDN + HTTPS). Backend (Node.js/Express) → EC2 + PM2 + Nginx (or Elastic Beanstalk). Database → MongoDB Atlas (managed) or DocumentDB. Domain → Route 53. SSL → ACM (free certificates). CI/CD → GitHub Actions or CodePipeline.", oneLiner: "React on S3+CloudFront, Node.js on EC2+Nginx+PM2, MongoDB Atlas, Route 53+ACM.", hinglish: "Full architecture: React app S3 + CloudFront pe host karo, Node.js API EC2 pe PM2 + Nginx ke saath chalao, MongoDB Atlas use karo database ke liye, Route 53 se domain point karo, aur ACM se free SSL lagao." },
+    { q: "How to set up CI/CD for MERN app on AWS?", a: "Use GitHub Actions: On push to main → build React → upload to S3 → invalidate CloudFront cache. For backend → SSH into EC2 → git pull → npm install → pm2 restart. Alternatively use AWS CodePipeline + CodeBuild for fully AWS-native CI/CD.", oneLiner: "GitHub Actions: push → build → deploy to S3/EC2 automatically on every commit.", hinglish: "CI/CD matlab har commit pe automatically deploy ho jaaye. GitHub Actions use karo — push karo, React build ho, S3 pe upload ho, backend EC2 pe update ho. Sab automatic!",
+      code: `# .github/workflows/deploy.yml
 name: Deploy MERN
 on:
   push:
@@ -2761,10 +3788,108 @@ jobs:
           aws-secret-access-key: \${{ secrets.AWS_SECRET }}
           aws-region: ap-south-1
       - run: aws s3 sync client/build/ s3://my-app --delete` },
-      { q: "What is CloudFront and why use it?", a: "CloudFront is AWS's CDN — it caches your content at 400+ edge locations worldwide. Benefits: faster page loads (content served from nearest edge), HTTPS with free ACM certificates, DDoS protection, and reduced S3 costs (fewer direct requests).", oneLiner: "AWS CDN — caches content at edge locations worldwide for faster delivery + free HTTPS.", hinglish: "CloudFront ek CDN hai — aapki files duniya bhar ke servers pe cache hoti hain. User ko nearest server se content milta hai toh fast load hota hai. Free HTTPS bhi milta hai." },
-      { q: "How to set up SSL/HTTPS on AWS?", a: "Use ACM (AWS Certificate Manager) for free SSL certificates. For CloudFront: request certificate in ACM (us-east-1 region), attach to CloudFront distribution. For EC2: use Certbot (Let's Encrypt) with Nginx for free SSL, or use ACM with ALB (Application Load Balancer).", oneLiner: "ACM for free SSL + CloudFront/ALB, or Certbot + Nginx on EC2.", hinglish: "SSL ke liye ACM (AWS Certificate Manager) use karo — free hai! CloudFront ke saath attach karo. EC2 pe Certbot (Let's Encrypt) + Nginx se free SSL laga sakte ho." },
-      { q: "What is AWS Lambda and when to use it?", a: "Lambda runs code without managing servers (serverless). Write a function, define trigger (API Gateway, S3 event, schedule), pay per execution. Use for: API endpoints, image processing, scheduled jobs, webhooks. Not ideal for long-running processes (15 min max).", oneLiner: "Serverless functions — write code, set trigger, pay per execution. No servers to manage.", hinglish: "Lambda serverless hai — code likho, trigger set karo (API call, S3 upload), aur sirf execution ke paise lagenge. Server manage nahi karna padta. Chhote tasks ke liye best hai." },
-    ],
+    { q: "What is CloudFront and why use it?", a: "CloudFront is AWS's CDN — it caches your content at 400+ edge locations worldwide. Benefits: faster page loads (content served from nearest edge), HTTPS with free ACM certificates, DDoS protection, and reduced S3 costs (fewer direct requests).", oneLiner: "AWS CDN — caches content at edge locations worldwide for faster delivery + free HTTPS.", hinglish: "CloudFront ek CDN hai — aapki files duniya bhar ke servers pe cache hoti hain. User ko nearest server se content milta hai toh fast load hota hai. Free HTTPS bhi milta hai." },
+    { q: "How to set up SSL/HTTPS on AWS?", a: "Use ACM (AWS Certificate Manager) for free SSL certificates. For CloudFront: request certificate in ACM (us-east-1 region), attach to CloudFront distribution. For EC2: use Certbot (Let's Encrypt) with Nginx for free SSL, or use ACM with ALB (Application Load Balancer).", oneLiner: "ACM for free SSL + CloudFront/ALB, or Certbot + Nginx on EC2.", hinglish: "SSL ke liye ACM (AWS Certificate Manager) use karo — free hai! CloudFront ke saath attach karo. EC2 pe Certbot (Let's Encrypt) + Nginx se free SSL laga sakte ho." },
+    { q: "What is AWS Lambda and when to use it?", a: "Lambda runs code without managing servers (serverless). Write a function, define trigger (API Gateway, S3 event, schedule), pay per execution. Use for: API endpoints, image processing, scheduled jobs, webhooks. Not ideal for long-running processes (15 min max).", oneLiner: "Serverless functions — write code, set trigger, pay per execution. No servers to manage.", hinglish: "Lambda serverless hai — code likho, trigger set karo (API call, S3 upload), aur sirf execution ke paise lagenge. Server manage nahi karna padta. Chhote tasks ke liye best hai." },
+    { q: "How does CloudWatch integrate with Auto Scaling and ALB?", a: "CloudWatch monitors ALB metrics (request count, latency, 5xx errors) and EC2 metrics (CPU, memory). Auto Scaling uses CloudWatch Alarms as triggers: CPU > 70% → scale out, request latency > 2s → add instances. ALB health checks mark unhealthy instances for replacement.", oneLiner: "CloudWatch alarms trigger Auto Scaling; ALB health checks replace unhealthy instances.", hinglish: "CloudWatch ALB aur EC2 ki metrics monitor karta hai. Jab CPU high ho ya latency badhe toh CloudWatch Alarm trigger hota hai aur Auto Scaling naye instances add karta hai. ALB unhealthy instances ko replace karta hai.",
+      code: `# CloudWatch Alarm → Auto Scaling Policy flow:
+
+# 1. CloudWatch collects metrics from ALB
+# Metrics: RequestCount, TargetResponseTime, HTTPCode_Target_5XX
+
+# 2. Alarm triggers when threshold breached
+aws cloudwatch put-metric-alarm \\
+  --alarm-name "HighLatency" \\
+  --namespace AWS/ApplicationELB \\
+  --metric-name TargetResponseTime \\
+  --threshold 2.0 \\
+  --alarm-actions arn:aws:autoscaling:region:account:scalingPolicy:policy-id
+
+# 3. Auto Scaling adds/removes instances
+# 4. ALB automatically routes traffic to new instances
+# 5. Health checks ensure only healthy instances receive traffic` },
+    { q: "What is Amazon DocumentDB and how does it compare to MongoDB Atlas?", a: "DocumentDB is AWS's MongoDB-compatible database service. It supports MongoDB 3.6/4.0 APIs. Pros: lives inside your VPC (low latency to EC2), managed by AWS, integrates with IAM. Cons: not 100% MongoDB compatible, more expensive. MongoDB Atlas is fully managed MongoDB with better compatibility and free tier.", oneLiner: "AWS MongoDB-compatible DB inside your VPC — vs Atlas which is fully managed with free tier.", hinglish: "DocumentDB AWS ka MongoDB-compatible database hai. VPC mein hota hai toh EC2 se fast connection milta hai. Lekin MongoDB Atlas zyada compatible hai aur free tier bhi deta hai. Chhote projects ke liye Atlas better hai." },
+    { q: "How to set up VPC for a MERN application?", a: "VPC (Virtual Private Cloud) isolates your network. Setup: Create VPC with CIDR block (10.0.0.0/16). Create public subnets (for ALB, NAT Gateway) and private subnets (for EC2, RDS/DocumentDB). Internet Gateway for public access. NAT Gateway for private subnet internet access. Security Groups + NACLs for firewall rules.", oneLiner: "Isolated network — public subnets for ALB, private subnets for EC2/DB, secured with SGs.", hinglish: "VPC ek private network hai AWS mein. Public subnet mein ALB rakhte hain (internet-facing), private subnet mein EC2 aur database rakhte hain (direct access nahi). NAT Gateway se private instances internet access kar sakte hain.",
+      code: `# VPC Architecture for MERN:
+#
+# VPC (10.0.0.0/16)
+# ├── Public Subnet A (10.0.1.0/24) → ALB, NAT Gateway
+# ├── Public Subnet B (10.0.2.0/24) → ALB (multi-AZ)
+# ├── Private Subnet A (10.0.3.0/24) → EC2 (Node.js)
+# ├── Private Subnet B (10.0.4.0/24) → EC2 (Node.js)
+# ├── Private Subnet C (10.0.5.0/24) → DocumentDB/RDS
+# └── Private Subnet D (10.0.6.0/24) → DocumentDB/RDS (multi-AZ)
+#
+# Internet Gateway → Public Subnets
+# NAT Gateway → Private Subnets (outbound internet)
+# Security Groups: ALB(80,443) → EC2(3000) → DB(27017)` },
+    { q: "What is AWS WAF and how to protect your MERN app?", a: "WAF (Web Application Firewall) protects against common web exploits. Attach to CloudFront or ALB. Create rules to block: SQL injection, XSS, bad bots, rate limiting (DDoS), geo-blocking. Use AWS Managed Rules for quick setup. Essential for production MERN apps.", oneLiner: "Web firewall on CloudFront/ALB — blocks SQL injection, XSS, DDoS, bad bots.", hinglish: "WAF ek firewall hai jo web attacks se protect karta hai — SQL injection, XSS, DDoS sab block karta hai. CloudFront ya ALB pe attach karo. AWS Managed Rules se quick setup hota hai.",
+      code: `# WAF Rule examples for MERN app:
+
+# 1. Rate limiting — prevent DDoS
+# Rule: Max 2000 requests per 5 minutes per IP
+
+# 2. AWS Managed Rules (quick setup):
+# - AWSManagedRulesCommonRuleSet (XSS, SQLi, etc.)
+# - AWSManagedRulesKnownBadInputsRuleSet
+# - AWSManagedRulesBotControlRuleSet
+
+# 3. Custom rule — block specific paths
+# Block: /admin/* from non-whitelisted IPs
+# Block: /api/* from specific countries
+
+# 4. Attach WAF to CloudFront or ALB
+aws wafv2 associate-web-acl \\
+  --web-acl-arn arn:aws:wafv2:... \\
+  --resource-arn arn:aws:elasticloadbalancing:...` },
+    { q: "What is Amazon SES and how to use it in MERN apps?", a: "SES (Simple Email Service) sends transactional and marketing emails. Use for: signup verification, password reset, order confirmations, notifications. Integrate via AWS SDK in Node.js. Very cheap ($0.10 per 1000 emails). Requires domain verification and moving out of sandbox for production.", oneLiner: "AWS email service — send verification, reset, notification emails from Node.js cheaply.", hinglish: "SES se emails bhej sakte ho — signup verification, password reset, notifications. Node.js mein AWS SDK use karo. Bahut sasta hai ($0.10 per 1000 emails). Production ke liye domain verify karna padta hai.",
+      code: `const AWS = require('aws-sdk');
+const ses = new AWS.SES({ region: 'ap-south-1' });
+
+async function sendVerificationEmail(to, code) {
+  const params = {
+    Source: 'noreply@myapp.com',
+    Destination: { ToAddresses: [to] },
+    Message: {
+      Subject: { Data: 'Verify your email' },
+      Body: {
+        Html: {
+          Data: \`<h1>Your verification code: \${code}</h1>\`
+        }
+      }
+    }
+  };
+  
+  await ses.sendEmail(params).promise();
+}` },
+    { q: "What is ElastiCache and when to use it in MERN?", a: "ElastiCache is managed Redis or Memcached. Use for: session storage, API response caching, rate limiting, real-time leaderboards, pub/sub messaging. Redis is more feature-rich (persistence, data structures). Dramatically reduces database load and improves response times.", oneLiner: "Managed Redis/Memcached — cache API responses, store sessions, reduce DB load.", hinglish: "ElastiCache managed Redis hai. API responses cache karo toh database pe load kam hoga aur speed badegi. Sessions store karo, rate limiting lagao. Real-time features ke liye bhi use hota hai.",
+      code: `const Redis = require('ioredis');
+const redis = new Redis({
+  host: 'my-cluster.cache.amazonaws.com',
+  port: 6379
+});
+
+// Cache API response
+async function getUsers(req, res) {
+  const cached = await redis.get('users');
+  if (cached) return res.json(JSON.parse(cached));
+
+  const users = await User.find();
+  await redis.setex('users', 300, JSON.stringify(users)); // cache 5 min
+  res.json(users);
+}
+
+// Session storage with express-session
+const session = require('express-session');
+const RedisStore = require('connect-redis').default;
+app.use(session({
+  store: new RedisStore({ client: redis }),
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}));` },
+  ],
+
   },
   docker: {
     Beginner: [
@@ -3069,6 +4194,23 @@ export const hinglishMap: Record<string, string> = {
   "Design a Real-Time Chat System": "WebSockets se real-time connection banao. Client message bhejta hai → server room mein broadcast karta hai → doosre clients receive karte hain. Messages database mein store karo. Typing indicators aur read receipts add karo.",
   "Design a Rate Limiter": "Rate limiter request ki speed control karta hai. Token Bucket (tokens refill hote hain, har request ek token leta hai) ya Sliding Window (time window mein count) use karo. Redis mein distributed counting karo. 429 status code return karo.",
   "Design a Caching Strategy for a Web App": "Multiple layers: Browser cache (Cache-Control headers), CDN (CloudFront/Cloudflare), Application cache (Redis — Cache-Aside pattern), aur React Query (in-memory). TTL set karo aur data change hone pe invalidate karo.",
+
+  // === JS SystemDesign (new) ===
+  "How to fetch data efficiently from an API?": "Pagination use karo (sab ek saath mat lao), sirf zaroori fields maango, search pe debounce lagao, React Query se cache karo, AbortController se purani requests cancel karo. Compression enable karo aur ETag se sirf changed data download karo.",
+  "How to store data in a database efficiently?": "Normalization karo (duplicate avoid), sahi data types use karo, INDEX lagao search columns pe, batch inserts karo, transactions use karo, aur connection pooling lagao.",
+  "How to scale a database?": "Vertical (bigger server) ya Horizontal (read replicas, sharding). Redis cache lagao, PgBouncer se connection pool karo, EXPLAIN ANALYZE se slow queries dhundho, purana data archive karo.",
+  "How to optimize web application performance?": "Frontend: code splitting, lazy loading, virtualized lists. Backend: DB indexing, gzip compression, Redis cache, N+1 fix. CDN use karo, bundle chhota karo, Lighthouse se monitor karo.",
+  "Design a Notification System (Push, Email, In-App)": "Central service events receive kare, queue mein daale (RabbitMQ), channel decide kare (in-app WebSocket, push Firebase, email SendGrid). User preferences respect karo, read/unread track karo.",
+  "Design a File Upload System (Large Files)": "File ko 5MB chunks mein tod ke upload karo, fail hone pe resume karo, presigned URLs se seedha S3 pe bhejo. Progress bar dikhao, file type/size validate karo.",
+  "Design a Search Engine / Full-Text Search": "Inverted index use karo — har word ke against documents store. Tokenization, TF-IDF ranking, fuzzy matching. Elasticsearch ya PostgreSQL full-text search use karo.",
+  "Design an Authentication & Authorization System": "Signup pe bcrypt hash, login pe JWT do (access + refresh token), httpOnly cookie mein rakho. RBAC lagao (user/admin roles), middleware mein permission check karo.",
+  "Design a Load Balancer": "Traffic multiple servers pe distribute karo. Round Robin (baari-baari), Least Connections (kam busy wale ko). Health check karo, dead server pe mat bhejo. Nginx ya AWS ALB use karo.",
+  "Design a Pub/Sub (Publish-Subscribe) Messaging System": "Publishers topics pe messages bhejte hain, subscribers listen karte hain. Services decouple ho jaati hain. Redis Pub/Sub simple, RabbitMQ reliable, Kafka high-throughput ke liye.",
+  "What is Database Indexing? When to use and when NOT to use?": "Index jaise kitab ka index — data fast dhundhta hai. WHERE/JOIN columns pe lagao. Write-heavy tables pe avoid karo kyunki INSERT slow hota hai. EXPLAIN ANALYZE se check karo.",
+  "Design an API Gateway": "Single entry point — routing, JWT auth, rate limiting, caching, logging. Kong, AWS API Gateway, ya Nginx use karo. Circuit breaker se failing services handle karo.",
+  "How does Horizontal vs Vertical Scaling work?": "Vertical: server upgrade (zyada RAM/CPU) — simple par limited. Horizontal: multiple servers + load balancer — unlimited scaling. Production mein mostly horizontal use hota hai.",
+  "What is the N+1 Query Problem? How to solve it?": "List fetch (1 query) + har item ka related data (N queries) = N+1 problem. Fix: JOIN use karo ya DataLoader se batch karo — 100 queries ki jagah 1 WHERE IN query.",
+  "Design a Microservices Architecture": "Bada app chhote services mein todo. Har service ka apna DB. REST/gRPC ya message queue se communicate. API Gateway, Service Discovery, Circuit Breaker lagao.",
 };
 
 

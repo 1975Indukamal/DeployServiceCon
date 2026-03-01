@@ -3,6 +3,7 @@
 import { practiceChallenges, javascriptChallenges, reactChallenges } from "@/data/practiceData";
 import { techStacks } from "@/data";
 import PracticeClient from "@/components/interview-hub/PracticeClient";
+import { nodejsChallenges } from "@/data/nodeData";
 
 export async function generateStaticParams() {
   return techStacks.map((stack) => ({
@@ -24,12 +25,21 @@ export async function generateMetadata({ params }: { params: { stack: string } }
 export default function PracticePage({ params }: { params: { stack: string } }) {
   const currentStack = (params.stack || "javascript").toLowerCase();
 
+  // const currentChallenges =
+  //   currentStack === "javascript" || currentStack === "js"
+  //     ? javascriptChallenges
+  //     : currentStack === "react"
+  //       ? reactChallenges || []
+  //       : practiceChallenges;
+
   const currentChallenges =
-    currentStack === "javascript" || currentStack === "js"
-      ? javascriptChallenges
-      : currentStack === "react"
-        ? reactChallenges || []
-        : practiceChallenges;
+  currentStack === "javascript" || currentStack === "js"
+    ? javascriptChallenges
+    : currentStack === "react"
+    ? reactChallenges || []
+    : currentStack === "nodejs" || currentStack === "node"
+    ? nodejsChallenges
+    : practiceChallenges;
 
   return <PracticeClient stack={currentStack} currentChallenges={currentChallenges} />;
 }
